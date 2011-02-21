@@ -1,0 +1,45 @@
+# config/doctrine/schema.yml
+
+Membre:
+  actAs: { Timestampable: ~ }
+  columns:
+    username:               { type: string(50) }
+    passwd:                 { type: string(50), notnull:true }
+
+    # info Sec
+    numero_etudiant:     { type: integer }
+    prenom:              { type: string(255), notnull: true }
+    nom:                 { type: string(255), notnull: true }
+    sexe:                { type: enum, values: [Homme, Femme], notnull: true }
+    date_naissance:      { type: date, notnull: true }
+    ville_naissance:     { type: string(255), notnull: true }
+    numero_secu:         { type: string(21) }
+
+    # Divers
+    promo:               { type: integer, notnull: true }
+    filiere:             { type: enum, values: [Informatique, Automatique, Mécanique, Textile, Système de prod], notnull: true }
+    poste:               { type: string(50) }
+    
+    # adresses
+    adresse_mulhouse:    { type: string(4000), notnull: true }
+    cp_mulhouse:         { type: integer, notnull: true }
+    ville_mulhouse:      { type: string(255), notnull: true }
+    adresse_parents:     { type: string(4000) }
+    cp_parents:          { type: integer }
+    ville_parents:       { type: string(255) }
+
+    # communication
+    tel_mobile:          { type: string(255) }
+    tel_fixe:            { type: string(255) }
+    email_interne:       { type: string(255) }
+    email_externe:       { type: string(255) }
+    
+    # Statut Sec
+    carte_ID:            { type: boolean, default: false, notnull: true }
+    just_domicile:       { type: boolean, default: false, notnull: true }
+    quittance:           { type: boolean, default: false, notnull: true }
+    
+    # Statut Treso
+    cotisation:          { type: boolean, default: false, notnull: true }
+    
+    status:              { type: enum, values: [Administrateur, Membre], notnull: true, default: Membre }
