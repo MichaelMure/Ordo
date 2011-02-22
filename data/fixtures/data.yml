@@ -29,3 +29,96 @@ Membre:
     status: Membre
     created_at: '2011-02-22 12:43:53'
     updated_at: '2011-02-22 12:43:53'
+
+  Membre_2:
+    username: m.mure
+    passwd: babar
+    numero_etudiant: null
+    prenom: Michael
+    nom: Muré
+    sexe: Homme
+    date_naissance: '2009-02-02'
+    ville_naissance: Colmar
+    numero_secu: null
+    promo: '2013'
+    filiere: Informatique
+    poste: null
+    adresse_mulhouse: '41 rue francois spoerry'
+    cp_mulhouse: '68200'
+    ville_mulhouse: Mulhouse
+    adresse_parents: null
+    cp_parents: '68920'
+    ville_parents: null
+    tel_mobile: null
+    tel_fixe: null
+    email_interne: null
+    email_externe: null
+    carte_ID: false
+    just_domicile: false
+    quittance: false
+    cotisation: false
+    status: Membre
+    created_at: '2011-02-22 12:43:53'
+    updated_at: '2011-02-22 12:43:53'
+    
+  Membre_3:
+    username: m.nicco
+    passwd: babar
+    numero_etudiant: null
+    prenom: Maxime
+    nom: Nicco
+    sexe: Homme
+    date_naissance: '2009-02-02'
+    ville_naissance: Colmar
+    numero_secu: null
+    promo: '2013'
+    filiere: Informatique
+    poste: null
+    adresse_mulhouse: '41 rue francois spoerry'
+    cp_mulhouse: '68200'
+    ville_mulhouse: Mulhouse
+    adresse_parents: null
+    cp_parents: '68920'
+    ville_parents: null
+    tel_mobile: null
+    tel_fixe: null
+    email_interne: null
+    email_externe: null
+    carte_ID: false
+    just_domicile: false
+    quittance: false
+    cotisation: false
+    status: Membre
+    created_at: '2011-02-22 12:43:53'
+    updated_at: '2011-02-22 12:43:53'
+
+  Membre_4:
+    username: b.saccomano
+    passwd: babar
+    numero_etudiant: null
+    prenom: Benoit
+    nom: Saccomano
+    sexe: Homme
+    date_naissance: '2009-02-02'
+    ville_naissance: Colmar
+    numero_secu: null
+    promo: '2013'
+    filiere: Informatique
+    poste: null
+    adresse_mulhouse: '41 rue francois spoerry'
+    cp_mulhouse: '68200'
+    ville_mulhouse: Mulhouse
+    adresse_parents: null
+    cp_parents: '68920'
+    ville_parents: null
+    tel_mobile: null
+    tel_fixe: null
+    email_interne: null
+    email_externe: null
+    carte_ID: false
+    just_domicile: false
+    quittance: false
+    cotisation: false
+    status: Membre
+    created_at: '2011-02-22 12:43:53'
+    updated_at: '2011-02-22 12:43:53'
