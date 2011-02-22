@@ -16,14 +16,13 @@ class UserMembreForm extends BaseMembreForm
       $this['created_at'],
       $this['updated_at']
       );
-      
-    $this->setValidators(array(
-      'username'         => null,
-      'numero_etudiant'  => null,
-      'carte_ID'         => null,
-      'just_domicile'    => null,
-      'quittance'        => null,
-      'cotisation'       => null,
-      'status'           => null);
+
+    /*$this->validatorSchema['username'] = null;
+    $this->validatorSchema['numero_etudiant'] = null;
+    $this->validatorSchema['carte_ID'] = null;
+    $this->validatorSchema['just_domicile'] = null;
+    $this->validatorSchema['quittance'] = null;
+    $this->validatorSchema['cotisation'] = null;
+    $this->validatorSchema['status'] = null;*/
   }
 }

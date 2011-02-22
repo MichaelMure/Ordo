@@ -229,6 +229,7 @@ abstract class BaseMembre extends sfDoctrineRecord
              array(
               0 => 'Administrateur',
               1 => 'Membre',
+              2 => 'Ancien',
              ),
              'notnull' => true,
              'default' => 'Membre',

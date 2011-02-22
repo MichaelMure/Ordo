@@ -33,3 +33,5 @@ all:
 
     # Enable the database manager
     use_database:           true
+
+    default_culture:        fr_FR

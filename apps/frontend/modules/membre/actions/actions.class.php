@@ -28,7 +28,6 @@ class membreActions extends sfActions
     $this->form = new NewMembreForm();
   }
 
-
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -43,6 +42,26 @@ class membreActions extends sfActions
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
+
+    if($membre->getStatus()=='Administrateur')
+    {
+      $this->form = new AdminMembreForm($membre);
+    }
+    else
+    {
+      if($membre->getId()==$request->getParameter('id'))
+      {
+        $this->form = new UserMembreForm($membre);
+      }
+      else
+      {
+        $this->forward404();
+      }
+    }
+  }
+
+  public function executeMy(sfWebRequest $request)
+  {
     $this->forward404Unless(isset($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless($membre = Doctrine::getTable('Membre')
       ->createQuery('m')

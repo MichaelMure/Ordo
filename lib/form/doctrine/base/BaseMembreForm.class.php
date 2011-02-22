@@ -42,7 +42,7 @@ abstract class BaseMembreForm extends BaseFormDoctrine
       'just_domicile'    => new sfWidgetFormInputCheckbox(),
       'quittance'        => new sfWidgetFormInputCheckbox(),
       'cotisation'       => new sfWidgetFormInputCheckbox(),
-      'status'           => new sfWidgetFormChoice(array('choices' => array('Administrateur' => 'Administrateur', 'Membre' => 'Membre'))),
+      'status'           => new sfWidgetFormChoice(array('choices' => array('Administrateur' => 'Administrateur', 'Membre' => 'Membre', 'Ancien' => 'Ancien'))),
       'created_at'       => new sfWidgetFormDateTime(),
       'updated_at'       => new sfWidgetFormDateTime(),
     ));
@@ -75,7 +75,7 @@ abstract class BaseMembreForm extends BaseFormDoctrine
       'just_domicile'    => new sfValidatorBoolean(array('required' => false)),
       'quittance'        => new sfValidatorBoolean(array('required' => false)),
       'cotisation'       => new sfValidatorBoolean(array('required' => false)),
-      'status'           => new sfValidatorChoice(array('choices' => array(0 => 'Administrateur', 1 => 'Membre'), 'required' => false)),
+      'status'           => new sfValidatorChoice(array('choices' => array(0 => 'Administrateur', 1 => 'Membre', 2 => 'Ancien'), 'required' => false)),
       'created_at'       => new sfValidatorDateTime(),
       'updated_at'       => new sfValidatorDateTime(),
     ));

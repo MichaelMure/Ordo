@@ -42,4 +42,4 @@ Membre:
     # Statut Treso
     cotisation:          { type: boolean, default: false, notnull: true }
     
-    status:              { type: enum, values: [Administrateur, Membre], notnull: true, default: Membre }
+    status:              { type: enum, values: [Administrateur, Membre, Ancien], notnull: true, default: Membre }

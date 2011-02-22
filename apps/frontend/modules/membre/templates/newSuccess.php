@@ -1,3 +1,3 @@
-<h1>New Membre</h1>
+<h1>Ajouter un nouveau membre</h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

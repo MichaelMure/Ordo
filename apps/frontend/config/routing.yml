@@ -4,13 +4,34 @@
 # default rules
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: membre, action: index }
+
+### Annuaire
+annuaire:
+  url: /annuaire/:action/*
+  param: { module: membre }
+
+annuaire.index:
+  url:  /annuaire/
+  param: { module: membre, action: index }
+
+annuaire.valider:
+  url: /annuaire/valider/:element
+  param: { module: membre, action: valider }
+
+annuaire.devalider:
+  url: /annuaire/devalider/:element
+  param: { module: membre, action: devalider }
+
+annuaire.status:
+  url: /annuaire/status/:id/:status
+  param: { module: membre, action: status }
 
 # generic rules
 # please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
+#default_index:
+#  url:   /:module
+#  param: { action: index }
 
-default:
-  url:   /:module/:action/*
+#default:
+#  url:   /:module/:action/*

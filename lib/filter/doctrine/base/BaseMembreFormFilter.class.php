@@ -39,7 +39,7 @@ abstract class BaseMembreFormFilter extends BaseFormFilterDoctrine
       'just_domicile'    => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'quittance'        => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'cotisation'       => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
-      'status'           => new sfWidgetFormChoice(array('choices' => array('' => '', 'Administrateur' => 'Administrateur', 'Membre' => 'Membre'))),
+      'status'           => new sfWidgetFormChoice(array('choices' => array('' => '', 'Administrateur' => 'Administrateur', 'Membre' => 'Membre', 'Ancien' => 'Ancien'))),
       'created_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
@@ -71,7 +71,7 @@ abstract class BaseMembreFormFilter extends BaseFormFilterDoctrine
       'just_domicile'    => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'quittance'        => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'cotisation'       => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
-      'status'           => new sfValidatorChoice(array('required' => false, 'choices' => array('Administrateur' => 'Administrateur', 'Membre' => 'Membre'))),
+      'status'           => new sfValidatorChoice(array('required' => false, 'choices' => array('Administrateur' => 'Administrateur', 'Membre' => 'Membre', 'Ancien' => 'Ancien'))),
       'created_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
