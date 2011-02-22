@@ -12,4 +12,7 @@
  */
 class Membre extends BaseMembre
 {
+  public function __toString() {
+    return $this->getPrenom().' '.$this->getNom().' ('.$this->getUsername().')';
+  }
 }

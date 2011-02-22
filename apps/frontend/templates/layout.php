@@ -12,10 +12,10 @@
       <div id="entete">
         Annuaire IARISS
         <div id="login">
-          <?php echo (isset($_SERVER['PHP_AUTH_USER']) && $nom = Doctrine::getTable('Membre')
+          <?php echo (isset($_SERVER['PHP_AUTH_USER']) && $user = Doctrine::getTable('Membre')
           ->createQuery('m')
-          ->where('m.login = ?', array($_SERVER['PHP_AUTH_USER']))
-          ->execute()->getFirst()) ? $nom->getNom() : "Anonyme" ?>
+          ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
+          ->execute()->getFirst()) ? $user : "Anonyme" ?>
         </div>
       </div>
       <div id="navigation">
@@ -23,7 +23,7 @@
           <li>Annuaire</li>
             <ul>
               <li><?php echo link_to('Liste des membres', 'membre/index') ?></li>
-              <li><?php echo link_to('Ma fiche', 'membre/my') ?></li>
+              <li><?php echo link_to('Ma fiche', '@annuaire?action=show&id='.$user->getId()) ?></li>
             </ul>
           <li>Contact commerciaux</li>
           <li>Projets</li>

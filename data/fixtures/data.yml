@@ -1,7 +1,7 @@
 Membre:
   Membre_1:
     username: null
-    passwd: bbkqbk
+    passwd: e407245674a75c4bf77d51c25466ca005f6c7c46
     numero_etudiant: null
     prenom: Babar
     nom: Mini
@@ -29,10 +29,9 @@ Membre:
     status: Membre
     created_at: '2011-02-22 12:43:53'
     updated_at: '2011-02-22 12:43:53'
-
   Membre_2:
     username: m.mure
-    passwd: babar
+    passwd: e407245674a75c4bf77d51c25466ca005f6c7c46
     numero_etudiant: null
     prenom: Michael
     nom: Muré
@@ -57,13 +56,12 @@ Membre:
     just_domicile: false
     quittance: false
     cotisation: false
-    status: Membre
+    status: Administrateur
     created_at: '2011-02-22 12:43:53'
     updated_at: '2011-02-22 12:43:53'
-    
   Membre_3:
     username: m.nicco
-    passwd: babar
+    passwd: e407245674a75c4bf77d51c25466ca005f6c7c46
     numero_etudiant: null
     prenom: Maxime
     nom: Nicco
@@ -91,10 +89,9 @@ Membre:
     status: Membre
     created_at: '2011-02-22 12:43:53'
     updated_at: '2011-02-22 12:43:53'
-
   Membre_4:
     username: b.saccomano
-    passwd: babar
+    passwd: e407245674a75c4bf77d51c25466ca005f6c7c46
     numero_etudiant: null
     prenom: Benoit
     nom: Saccomano

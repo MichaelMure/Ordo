@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class NewMembreForm extends BaseMembreForm
+class NewMembreForm extends MembreForm
 {
   public function configure()
   {
@@ -21,15 +21,7 @@ class NewMembreForm extends BaseMembreForm
       $this['just_domicile'],
       $this['quittance'],
       $this['cotisation'],
-      $this['quittance'],
-      $this['numero_secu'],
       $this['poste'],
-      $this['adresse_parents'],
-      $this['cp_parent'],
-      $this['ville_parents'],
-      $this['tel_mobile'],
-      $this['tel_fixe'],
-      $this['email_interne'],
       $this['email_externe'],
       $this['status']
       );

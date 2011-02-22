@@ -94,6 +94,7 @@
 </div>
 
 <?php
+if($admin) :
 $carteID = $membre->getCarteID();
 $cotis = $membre->getJustDomicile();
 $justif = $membre->getQuittance();
@@ -118,19 +119,23 @@ $cotis = $membre->getCotisation();
         <td class='<?php echo $cotis? 'vert' : 'rouge' ?>'><?php echo $cotis? 'oui' : 'non' ?></td>
       </tr>
       <tr>
-        <td><?php if($carteID) echo link_to('valider', '@annuaire.valider?element=CarteID'); else echo link_to('dévalider', '@annuaire.devalider?element=CarteID'); ?></td>
-        <td><?php if($cotis) echo link_to('valider', '@annuaire.valider?element=JustDomicile'); else echo link_to('dévalider', '@annuaire.devalider?element=JustDomicile'); ?></td>
-        <td><?php if($justif) echo link_to('valider', '@annuaire.valider?element=Quittance'); else echo link_to('dévalider', '@annuaire.devalider?element=Quittance'); ?></td>
-        <td><?php if($cotis) echo link_to('valider', '@annuaire.valider?element=Cotisation'); else echo link_to('dévalider', '@annuaire.devalider?element=Cotisation'); ?></td>
+        <td><?php if($carteID) echo link_to('dévalider', '@annuaire.devalider?element=CarteID'); else echo link_to('valider', '@annuaire.valider?element=CarteID'); ?></td>
+        <td><?php if($cotis) echo link_to('dévalider', '@annuaire.devalider?element=JustDomicile'); else echo link_to('valider', '@annuaire.valider?element=JustDomicile'); ?></td>
+        <td><?php if($justif) echo link_to('dévalider', '@annuaire.devalider?element=Quittance'); else echo link_to('valider', '@annuaire.valider?element=Quittance'); ?></td>
+        <td><?php if($cotis) echo link_to('dévalider', '@annuaire.devalider?element=Cotisation'); else echo link_to('valider', '@annuaire.valider?element=Cotisation'); ?></td>
       </tr>
     </tbody>
   </table>
 </div>
+<?php endif ?>
 
 <div id='annuaire.show.button'>
   <ul>
+    <?php if($allow_edit) : ?>
+    <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId()) ?>
+    <?php endif ?>
     <li><?php echo link_to('Retour à la liste', '@annuaire') ?></li>
-    <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit') ?>
+
   <?php switch($admin && $membre->getStatus()) {
     case 'Administrateur':
       echo '<li>'.link_to('Désactiver les droits admin', '@annuaire.status?id='.$membre->getId().'&status=Membre').'</li>';
