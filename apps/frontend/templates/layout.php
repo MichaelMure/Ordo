@@ -27,6 +27,7 @@
               <?php if(isset($user)): ?>
               <li><?php echo link_to('Ma fiche', '@annuaire?action=show&id='.$user->getId()) ?></li>
               <?php endif ?>
+              <li><?php echo link_to('Ajouter un membre', '@annuaire?action=new') ?></li>
             </ul>
           <li>Contact commerciaux</li>
           <li>Projets</li>
