@@ -14,7 +14,7 @@ class membreActions extends sfActions
   {
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
-      ->select('a.nom, a.prenom, a.poste, a.tel_mobile, a.tel_mobile, a.promo, a.filiere')
+      ->select('a.id, a.nom, a.prenom, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
       ->execute();
   }
 
@@ -74,6 +74,15 @@ class membreActions extends sfActions
     }
   }
 
+  public function executeDocument(sfWebRequest $request)
+  {
+    $this->membres = Doctrine_Core::getTable('Membre')
+      ->createQuery('a')
+      ->where('a.status != ?', 'Ancien')
+      ->select('a.id, a.nom, a.prenom, a.tel_mobile, a.carte_ID, a.just_domicile, a.quittance, a.cotisation')
+      ->execute();
+  }
+  
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));

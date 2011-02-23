@@ -12,7 +12,7 @@ class MembreForm extends BaseMembreForm
 {
   public function configure()
   {
-
+    $this->widgetSchema['prenom']->setLabel('Prénom');
   }
 }
 

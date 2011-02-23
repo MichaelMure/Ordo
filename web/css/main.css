@@ -88,6 +88,10 @@ body {
 	margin: 4px 0 15px 0;
 }
 
+#entete #login {
+	float: right;
+}
+
 /* Menu de navigation */
 #navigation {
 	width: 18%; /* -> 4 */
@@ -119,6 +123,38 @@ body {
 	line-height: 1.5;
 }
 
+/* Tableau */
+table {
+	border: thin solid #6495ed;
+	border-collapse: collapse;
+	background-color: #ffffff;
+}
+
+th {
+	border: thin solid #6495ed;
+	padding: 5px;
+	background-color: #AFB0EA;
+}
+
+td {
+	border: thin solid #6495ed;
+	padding: 5px;
+	text-align: center;
+}
+
+/* Code couleur */
+.vert {
+	background-color: green;
+}
+
+.rouge {
+	background-color: red;
+}
+
+.Ancien, .Ancien {
+	background-color: #D0D0D0;
+	color: #4B4B4B;
+}
 
 /* --- NOTES ---
 

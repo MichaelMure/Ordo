@@ -22,8 +22,11 @@
         <ul>
           <li>Annuaire</li>
             <ul>
-              <li><?php echo link_to('Liste des membres', 'membre/index') ?></li>
+              <li><?php echo link_to('Liste des membres', '@annuaire?action=index') ?></li>
+              <li><?php echo link_to('Liste des documents', '@annuaire?action=document') ?></li>
+              <?php if(isset($user)): ?>
               <li><?php echo link_to('Ma fiche', '@annuaire?action=show&id='.$user->getId()) ?></li>
+              <?php endif ?>
             </ul>
           <li>Contact commerciaux</li>
           <li>Projets</li>

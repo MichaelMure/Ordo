@@ -96,8 +96,8 @@
 <?php
 if($admin) :
 $carteID = $membre->getCarteID();
-$cotis = $membre->getJustDomicile();
-$justif = $membre->getQuittance();
+$justif= $membre->getJustDomicile();
+$quittance = $membre->getQuittance();
 $cotis = $membre->getCotisation();
 ?>
 
@@ -114,14 +114,14 @@ $cotis = $membre->getCotisation();
     <tbody>
       <tr>
         <td class='<?php echo $carteID? 'vert' : 'rouge' ?>'><?php echo $carteID? 'oui' : 'non' ?></td>
-        <td class='<?php echo $cotis? 'vert' : 'rouge' ?>'><?php echo $cotis? 'oui' : 'non' ?></td>
         <td class='<?php echo $justif? 'vert' : 'rouge' ?>'><?php echo $justif? 'oui' : 'non' ?></td>
+        <td class='<?php echo $quittance? 'vert' : 'rouge' ?>'><?php echo $quittance? 'oui' : 'non' ?></td>
         <td class='<?php echo $cotis? 'vert' : 'rouge' ?>'><?php echo $cotis? 'oui' : 'non' ?></td>
       </tr>
       <tr>
         <td><?php if($carteID) echo link_to('dévalider', '@annuaire.devalider?element=CarteID'); else echo link_to('valider', '@annuaire.valider?element=CarteID'); ?></td>
-        <td><?php if($cotis) echo link_to('dévalider', '@annuaire.devalider?element=JustDomicile'); else echo link_to('valider', '@annuaire.valider?element=JustDomicile'); ?></td>
-        <td><?php if($justif) echo link_to('dévalider', '@annuaire.devalider?element=Quittance'); else echo link_to('valider', '@annuaire.valider?element=Quittance'); ?></td>
+        <td><?php if($justif) echo link_to('dévalider', '@annuaire.devalider?element=JustDomicile'); else echo link_to('valider', '@annuaire.valider?element=JustDomicile'); ?></td>
+        <td><?php if($quittance) echo link_to('dévalider', '@annuaire.devalider?element=Quittance'); else echo link_to('valider', '@annuaire.valider?element=Quittance'); ?></td>
         <td><?php if($cotis) echo link_to('dévalider', '@annuaire.devalider?element=Cotisation'); else echo link_to('valider', '@annuaire.valider?element=Cotisation'); ?></td>
       </tr>
     </tbody>
