@@ -28,10 +28,10 @@ class membreActions extends sfActions
       ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
       ->execute()->getFirst());
 
-    if(isset($request->getParameter('valider')))
-      this->valider($request, $this->membre);
-    if(isset($request->getParameter('devalider')))
-      this->devalider($request, $this->membre);
+    if($request->getParameter('valider'))
+      $this->valider($request, $this->membre);
+    if($request->getParameter('devalider'))
+      $this->devalider($request, $this->membre);
     
     $this->admin = ($user->getStatus() == 'Administrateur');
     $this->allow_edit = ($user == $this->membre);
@@ -81,10 +81,10 @@ class membreActions extends sfActions
 
   public function executeDocument(sfWebRequest $request)
   {
-    if(isset($request->getParameter('valider')))
-      this->valider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
-    if(isset($request->getParameter('devalider')))
-      this->devalider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
+    if($request->getParameter('valider'))
+      $this->valider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
+    if($request->getParameter('devalider'))
+      $this->devalider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
       
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
@@ -146,7 +146,8 @@ class membreActions extends sfActions
 
   protected function valider(sfWebRequest $request, Membre $membre)
   {
-    switch($request->getParameter('valider'))
+    $element = $request->getParameter('valider');
+    switch($element)
     {
       case 'CarteID':
         $membre->setCarteID(true);
@@ -166,7 +167,8 @@ class membreActions extends sfActions
 
   protected function devalider(sfWebRequest $request, Membre $membre)
   {
-    switch($request->getParameter('devalider'))
+    $element = $request->getParameter('devalider');
+    switch($element)
     {
       case 'CarteID':
         $membre->setCarteID(false);
