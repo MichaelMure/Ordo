@@ -28,6 +28,11 @@ class membreActions extends sfActions
       ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
       ->execute()->getFirst());
 
+    if(isset($request->getParameter('valider')))
+      this->valider($request, $this->membre);
+    if(isset($request->getParameter('devalider')))
+      this->devalider($request, $this->membre);
+    
     $this->admin = ($user->getStatus() == 'Administrateur');
     $this->allow_edit = ($user == $this->membre);
   }
@@ -76,6 +81,11 @@ class membreActions extends sfActions
 
   public function executeDocument(sfWebRequest $request)
   {
+    if(isset($request->getParameter('valider')))
+      this->valider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
+    if(isset($request->getParameter('devalider')))
+      this->devalider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
+      
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
       ->where('a.status != ?', 'Ancien')
@@ -132,5 +142,45 @@ class membreActions extends sfActions
 
       $this->redirect('membre/edit?id='.$membre->getId());
     }
+  }
+
+  protected function valider(sfWebRequest $request, Membre $membre)
+  {
+    switch($request->getParameter('valider'))
+    {
+      case 'CarteID':
+        $membre->setCarteID(true);
+        break;
+      case 'JustDomicile':
+        $membre->setJustDomicile(true);
+        break;
+      case 'Quittance':
+        $membre->setQuittance(true);
+        break;
+      case 'Cotisation':
+        $membre->setCotisation(true);
+        break;
+    }
+    $membre->save();
+  }
+
+  protected function devalider(sfWebRequest $request, Membre $membre)
+  {
+    switch($request->getParameter('devalider'))
+    {
+      case 'CarteID':
+        $membre->setCarteID(false);
+        break;
+      case 'JustDomicile':
+        $membre->setJustDomicile(false);
+        break;
+      case 'Quittance':
+        $membre->setQuittance(false);
+        break;
+      case 'Cotisation':
+        $membre->setCotisation(false);
+        break;
+    }
+    $membre->save();
   }
 }

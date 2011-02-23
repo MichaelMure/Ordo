@@ -15,14 +15,6 @@ annuaire.index:
   url:  /annuaire/
   param: { module: membre, action: index }
 
-annuaire.valider:
-  url: /annuaire/valider/:element
-  param: { module: membre, action: valider }
-
-annuaire.devalider:
-  url: /annuaire/devalider/:element
-  param: { module: membre, action: devalider }
-
 annuaire.status:
   url: /annuaire/status/:id/:status
   param: { module: membre, action: status }
