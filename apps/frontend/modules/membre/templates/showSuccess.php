@@ -10,6 +10,18 @@
         <td><?php echo $membre->getNumeroEtudiant() ?></td>
       </tr>
       <tr>
+        <th>Nom</th>
+        <td><?php echo $membre->getNom() ?></td>
+        <th>Poste</th>
+        <td><?php echo $membre->getPoste() ?></td>
+      </tr>
+      <tr>
+        <th>Prenom</th>
+        <td><?php echo $membre->getPrenom() ?></td>
+        <th>Filière</th>
+        <td><?php echo $membre->getFiliere() ?></td>
+      </tr>
+      <tr>
         <th>Adresse locale</th>
         <td><?php echo $membre->getAdresseMulhouse() ?><br/>
             <?php echo $membre->getCpMulhouse() ?><br/>
@@ -22,58 +34,40 @@
         </td>
       </tr>
       <tr>
-        <th>Nom</th>
-        <td><?php echo $membre->getNom() ?></td>
+        <th>Sexe</th>
+        <td><?php echo $membre->getSexe() ?></td>
         <th>Téléphone portable</th>
         <td><?php echo $membre->getTelMobile() ?></td>
       </tr>
       <tr>
-        <th>Prenom</th>
-        <td><?php echo $membre->getPrenom() ?></td>
+        <th>Date de naissance</th>
+        <td><?php echo format_date($membre->getDateNaissance()) ?></td>
         <th>Téléphone fixe</th>
         <td><?php echo $membre->getTelFixe() ?></td>
       </tr>
       <tr>
-        <th>Sexe</th>
-        <td><?php echo $membre->getSexe() ?></td>
+        <th>Ville de naissance</th>
+        <td><?php echo $membre->getVilleNaissance() ?></td>
         <th>Email IARISS</th>
         <td><?php echo $membre->getEmailInterne() ?></td>
       </tr>
       <tr>
-        <th>Date de naissance</th>
-        <td><?php echo format_date($membre->getDateNaissance()) ?></td>
+        <th>Numero de sécu</th>
+        <td><?php echo $membre->getNumeroSecu() ?></td>
         <th>Email externe</th>
         <td><?php echo $membre->getEmailExterne() ?></td>
       </tr>
       <tr>
-        <th>Ville de naissance</th>
-        <td><?php echo $membre->getVilleNaissance() ?></td>
-        <th>Status pour l'annuaire</th>
-        <td><?php echo $membre->getStatus() ?></td>
-      </tr>
-      <tr>
-        <th>Numero de sécu</th>
-        <td><?php echo $membre->getNumeroSecu() ?></td>
         <th>Fiche crée le</th>
         <td><?php echo format_date($membre->getCreatedAt()) ?></td>
-      </tr>
-      <tr>
-        <th>Promotion</th>
-        <td><?php echo $membre->getPromo() ?></td>
         <th>Dernière mise à jour le</th>
         <td><?php echo format_date($membre->getUpdatedAt()) ?></td>
       </tr>
       <tr>
-        <th>Filière</th>
-        <td><?php echo $membre->getFiliere() ?></td>
-        <th></th>
-        <td></td>
-      </tr>
-      <tr>
-        <th>Poste</th>
-        <td><?php echo $membre->getPoste() ?></td>
-        <th></th>
-        <td></td>
+        <th>Status pour l'annuaire</th>
+        <td><?php echo $membre->getStatus() ?></td>
+        <th>Promotion</th>
+        <td><?php echo $membre->getPromo() ?></td>
       </tr>
     </tbody>
   </table>
