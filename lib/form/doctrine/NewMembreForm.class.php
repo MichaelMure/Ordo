@@ -26,6 +26,12 @@ class NewMembreForm extends BaseMembreForm
       $this['status']
       );
 
+    $this->setWidget('passwd', new sfWidgetFormInputPassword());
+
+    $years = range(1970, 2000);
+    $years_list = array_combine($years, $years);
+    $this->setWidget('date_naissance', new sfWidgetFormDate(array('years' => $years_list)));
+
     $this->widgetSchema['prenom']->setLabel('Prénom');
     $this->widgetSchema['passwd']->setLabel('Mot de passe');
     $this->widgetSchema['date_naissance']->setLabel('Date de naissance');

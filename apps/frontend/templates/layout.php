@@ -20,7 +20,7 @@
       </div>
       <div id="navigation">
         <ul>
-          <li>Annuaire</li>
+          <li>Annuaire
             <ul>
               <li><?php echo link_to('Liste des membres', '@annuaire?action=index') ?></li>
               <li><?php echo link_to('Liste des documents', '@annuaire?action=document') ?></li>
@@ -29,8 +29,22 @@
               <?php endif ?>
               <li><?php echo link_to('Ajouter un membre', '@annuaire?action=new') ?></li>
             </ul>
-          <li>Contact commerciaux</li>
-          <li>Projets</li>
+          </li>
+          <li>Contact commerciaux
+            <ul>
+              <li>Liste des prospects</li>
+              <li>Tout les appels</li>
+              <li>Tout les emails</li>
+              <li>Ajouter un contact</li>
+              <li>Statistiques</li>
+            </ul>
+          </li>
+          <li>Projets
+            <ul>
+              <li>Vue d'ensemble</li>
+              <li>Ajouter un projet</li>
+            </ul>
+          </li>
         </ul>
       </div>
       <div id="contenu">
