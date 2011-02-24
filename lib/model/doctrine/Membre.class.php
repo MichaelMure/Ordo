@@ -18,7 +18,11 @@ class Membre extends BaseMembre
   
   public function save(Doctrine_Connection $conn = null)
   {
-    $this->setPasswd(sha1($this->getPasswd()));
+    if(strlen($this->getPasswd()) != 40)
+      $this->setPasswd(sha1($this->getPasswd()));
+
+    if($this->getUsername() == '')
+      $this->setUsername(strtolower($this->getPrenom()[0].'.'.$this->getNom()));
   
     return parent::save($conn);
   }
