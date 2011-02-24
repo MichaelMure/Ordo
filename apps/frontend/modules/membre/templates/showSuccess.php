@@ -6,15 +6,15 @@
       <tr>
         <th>Login</th>
         <td><?php echo $membre->getUsername() ?></td>
+        <th>Numéro étudiant</th>
+        <td><?php echo $membre->getNumeroEtudiant() ?></td>
+      </tr>
+      <tr>
         <th>Adresse locale</th>
         <td><?php echo $membre->getAdresseMulhouse() ?><br/>
             <?php echo $membre->getCpMulhouse() ?><br/>
             <?php echo $membre->getVilleMulhouse() ?>
         </td>
-      </tr>
-      <tr>
-        <th>Numéro étudiant</th>
-        <td><?php echo $membre->getNumeroEtudiant() ?></td>
         <th>Adresse des parents</th>
         <td><?php echo $membre->getAdresseParents() ?><br/>
             <?php echo $membre->getCpParents() ?><br/>
@@ -80,7 +80,6 @@
 </div>
 
 <?php
-if($admin) :
 $carteID = $membre->getCarteID();
 $justif= $membre->getJustDomicile();
 $quittance = $membre->getQuittance();
@@ -104,6 +103,7 @@ $cotis = $membre->getCotisation();
         <td class='<?php echo $quittance? 'vert' : 'rouge' ?>'><?php echo $quittance? 'oui' : 'non' ?></td>
         <td class='<?php echo $cotis? 'vert' : 'rouge' ?>'><?php echo $cotis? 'oui' : 'non' ?></td>
       </tr>
+      <?php if($admin): ?>
       <tr>
         <td><?php if($carteID) echo link_to('dévalider', '@annuaire?action=show&id='.$membre->getId().'&devalider=CarteID');
               else echo link_to('valider', '@annuaire?action=show&id='.$membre->getId().'&valider=CarteID'); ?></td>
@@ -114,16 +114,14 @@ $cotis = $membre->getCotisation();
         <td><?php if($cotis) echo link_to('dévalider', '@annuaire?action=show&id='.$membre->getId().'&devalider=Cotisation');
               else echo link_to('valider', '@annuaire?action=show&id='.$membre->getId().'&valider=Cotisation'); ?></td>
       </tr>
+      <?php endif ?>
     </tbody>
   </table>
 </div>
-<?php endif ?>
 
 <div id='annuaire.show.button'>
   <ul>
-    <?php if($allow_edit) : ?>
     <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId()) ?>
-    <?php endif ?>
     <li><?php echo link_to('Retour à la liste', '@annuaire') ?></li>
 
   <?php switch($admin && $membre->getStatus()) {

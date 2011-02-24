@@ -153,6 +153,10 @@ td {
 	color: #4B4B4B;
 }
 
+.error_list {
+  color: #E7362F;
+}
+
 /* --- NOTES ---
 
 1.	C'est la couleur de fond de div#global qui permet de simuler des colonnes

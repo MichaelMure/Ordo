@@ -14,6 +14,7 @@
         <div id="login">
           <?php echo (isset($_SERVER['PHP_AUTH_USER']) && $user = Doctrine::getTable('Membre')
           ->createQuery('m')
+          ->select('m.nom, m.prenom, m.username')
           ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
           ->execute()->getFirst()) ? $user : "Anonyme" ?>
         </div>
@@ -36,7 +37,7 @@
               <li>Tout les appels</li>
               <li>Tout les emails</li>
               <li>Ajouter un contact</li>
-              <li>Statistiques</li>
+              <li>Indicateurs</li>
             </ul>
           </li>
           <li>Projets

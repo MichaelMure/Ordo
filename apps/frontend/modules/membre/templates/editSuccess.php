@@ -1,3 +1,12 @@
-<h1>Edit Membre</h1>
-
-<?php include_partial('form', array('form' => $form)) ?>
+<?php
+  if($admin)
+  {
+    echo '<h1>'.$titre.'</h1>';
+    include_partial('formAdmin', array('form' => $form));
+  }
+  else
+  {
+    echo '<h1>Ma fiche</h1>';
+    include_partial('formMember', array('form' => $form));
+  }
+?>

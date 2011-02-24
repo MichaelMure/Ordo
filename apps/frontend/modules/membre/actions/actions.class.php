@@ -15,6 +15,7 @@ class membreActions extends sfActions
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
       ->select('a.id, a.nom, a.prenom, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
+      ->orderBy('a.nom')
       ->execute();
   }
 
@@ -28,13 +29,14 @@ class membreActions extends sfActions
       ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
       ->execute()->getFirst());
 
+    $this->admin = ($user->getStatus() == 'Administrateur');
+
+    $this->forward404Unless($this->admin || ($user == $this->membre));
+
     if($request->getParameter('valider'))
       $this->valider($request, $this->membre);
     if($request->getParameter('devalider'))
       $this->devalider($request, $this->membre);
-    
-    $this->admin = ($user->getStatus() == 'Administrateur');
-    $this->allow_edit = ($user == $this->membre);
   }
 
   public function executeNew(sfWebRequest $request)
@@ -65,12 +67,15 @@ class membreActions extends sfActions
     if($user->getStatus()=='Administrateur')
     {
       $this->form = new AdminMembreForm($membre);
+      $this->admin = true;
+      $this->titre = $membre->getPrenom().' '.$membre->getNom();
     }
     else
     {
       if($user->getId()==$request->getParameter('id'))
       {
-        $this->form = new UserMembreForm($membre);
+        $this->form = new EditMembreForm($membre);
+        $this->admin = false;
       }
       else
       {
@@ -90,13 +95,14 @@ class membreActions extends sfActions
       ->createQuery('a')
       ->where('a.status != ?', 'Ancien')
       ->select('a.id, a.nom, a.prenom, a.tel_mobile, a.carte_ID, a.just_domicile, a.quittance, a.cotisation')
+      ->orderBy('a.nom')
       ->execute();
   }
   
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($this->membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
     $this->forward404Unless(isset($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless($user = Doctrine::getTable('Membre')
       ->createQuery('m')
@@ -105,13 +111,16 @@ class membreActions extends sfActions
 
     if($user->getStatus()=='Administrateur')
     {
-      $this->form = new AdminMembreForm($membre);
+      $this->form = new AdminMembreForm($this->membre);
+      $this->admin = true;
+      $this->titre = $this->membre->getPrenom().' '.$this->membre->getNom();
     }
     else
     {
       if($user->getId()==$request->getParameter('id'))
       {
-        $this->form = new UserMembreForm($membre);
+        $this->form = new EditMembreForm($this->membre);
+        $this->admin = false;
       }
       else
       {
@@ -140,7 +149,7 @@ class membreActions extends sfActions
     {
       $membre = $form->save();
 
-      $this->redirect('membre/edit?id='.$membre->getId());
+      $this->redirect('@annuaire.index');
     }
   }
 
