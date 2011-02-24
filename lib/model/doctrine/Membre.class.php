@@ -22,7 +22,11 @@ class Membre extends BaseMembre
       $this->setPasswd(sha1($this->getPasswd()));
 
     if($this->getUsername() == '')
-      $this->setUsername(strtolower($this->getPrenom()[0].'.'.$this->getNom()));
+    {
+      $nom = $this->getNom();
+      $prenom = $this->getPrenom();
+      $this->setUsername(strtolower($prenom[0].'.'.$nom));
+    }
   
     return parent::save($conn);
   }
