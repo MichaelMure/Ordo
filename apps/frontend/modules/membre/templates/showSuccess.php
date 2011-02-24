@@ -58,16 +58,16 @@
         <td><?php echo $membre->getEmailExterne() ?></td>
       </tr>
       <tr>
-        <th>Fiche crée le</th>
-        <td><?php echo format_date($membre->getCreatedAt()) ?></td>
-        <th>Dernière mise à jour le</th>
-        <td><?php echo format_date($membre->getUpdatedAt()) ?></td>
-      </tr>
-      <tr>
         <th>Status pour l'annuaire</th>
         <td><?php echo $membre->getStatus() ?></td>
         <th>Promotion</th>
         <td><?php echo $membre->getPromo() ?></td>
+      </tr>
+      <tr>
+        <th>Fiche crée le</th>
+        <td><?php echo format_date($membre->getCreatedAt()) ?></td>
+        <th>Dernière mise à jour le</th>
+        <td><?php echo format_date($membre->getUpdatedAt()) ?></td>
       </tr>
     </tbody>
   </table>
