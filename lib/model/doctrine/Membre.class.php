@@ -30,7 +30,7 @@ class Membre extends BaseMembre
 
     if($this->getEmailInterne() == '')
     {
-      $this->setEmailInterne($this->getUnsername().'@iariss.fr');
+      $this->setEmailInterne($this->getUsername().'@iariss.fr');
     }
     
     return parent::save($conn);
