@@ -121,7 +121,8 @@ $cotis = $membre->getCotisation();
 
 <div id='annuaire.show.button'>
   <ul>
-    <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId()) ?>
+    <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId()) ?></li>
+    <li><?php echo link_to('Changer mon mot de passe', '@annuaire?action=changeMDP') ?></li>
     <li><?php echo link_to('Retour à la liste', '@annuaire') ?></li>
 
   <?php switch($admin && $membre->getStatus()) {

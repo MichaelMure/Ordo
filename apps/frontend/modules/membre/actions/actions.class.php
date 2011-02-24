@@ -86,6 +86,14 @@ class membreActions extends sfActions
 
   public function executeDocument(sfWebRequest $request)
   {
+    $this->forward404Unless(isset($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless($user = Doctrine::getTable('Membre')
+      ->createQuery('m')
+      ->select('m.status')
+      ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
+      ->execute()->getFirst());
+    $this->forward404Unless($user->getStatus() == 'Administrateur');
+    
     if($request->getParameter('valider'))
       $this->valider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
     if($request->getParameter('devalider'))
@@ -97,6 +105,33 @@ class membreActions extends sfActions
       ->select('a.id, a.nom, a.prenom, a.tel_mobile, a.carte_ID, a.just_domicile, a.quittance, a.cotisation')
       ->orderBy('a.nom')
       ->execute();
+  }
+  
+  public function executeChangeMDP(sfWebRequest $request)
+  {
+    $this->form = new PasswordMembreForm();
+  }
+  
+  public function executeUpdateMDP(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+    $this->forward404Unless(isset($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless($user = Doctrine::getTable('Membre')
+      ->createQuery('m')
+      ->select('m.passwd, m.id')
+      ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
+      ->execute()->getFirst());
+    
+    if(sha1($request->getParameter('ancien_mdp')) == $user->getPasswd())
+    {
+      $user->setPasswd($request->getParameter('nouveau_mdp'));
+      $user->save();
+      $this->redirect('@annuaire?action=show&id='.$user->getId());
+    }
+
+    $this->error = 'L\'ancien mot de passe rentré ne correspond pas.';
+    $this->form = new PasswordMembreForm();
+    $this->setTemplate('changeMDP');
   }
   
   public function executeUpdate(sfWebRequest $request)
