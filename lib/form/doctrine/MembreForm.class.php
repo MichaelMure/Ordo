@@ -21,7 +21,8 @@ class MembreForm extends BaseMembreForm
 
     $years = range(1970, 2000);
     $years_list = array_combine($years, $years);
-    $this->setWidget('date_naissance', new sfWidgetFormDate(array('years' => $years_list)));
+    $this->setWidget('date_naissance', new sfWidgetFormDate(array('years' => $years_list,
+                                                                  'format' => '%day% - %month% - %year%')));
 
     $this->widgetSchema['nom']->setLabel('Nom (*)');
     $this->widgetSchema['prenom']->setLabel('Prénom (*)');
