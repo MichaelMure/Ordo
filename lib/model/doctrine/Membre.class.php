@@ -27,7 +27,12 @@ class Membre extends BaseMembre
       $prenom = $this->getPrenom();
       $this->setUsername(strtolower($prenom[0].'.'.$nom));
     }
-  
+
+    if($this->getEmailInterne() == '')
+    {
+      $this->setEmailInterne($this->getUnsername().'@iariss.fr');
+    }
+    
     return parent::save($conn);
   }
 
