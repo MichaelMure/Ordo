@@ -30,68 +30,74 @@
  * @property boolean $carte_ID
  * @property boolean $just_domicile
  * @property boolean $quittance
+ * @property boolean $reglement_interieur
+ * @property boolean $convention_etudiant
  * @property boolean $cotisation
  * @property enum $status
  * 
- * @method string  getUsername()         Returns the current record's "username" value
- * @method string  getPasswd()           Returns the current record's "passwd" value
- * @method integer getNumeroEtudiant()   Returns the current record's "numero_etudiant" value
- * @method string  getPrenom()           Returns the current record's "prenom" value
- * @method string  getNom()              Returns the current record's "nom" value
- * @method enum    getSexe()             Returns the current record's "sexe" value
- * @method date    getDateNaissance()    Returns the current record's "date_naissance" value
- * @method string  getVilleNaissance()   Returns the current record's "ville_naissance" value
- * @method string  getNumeroSecu()       Returns the current record's "numero_secu" value
- * @method integer getPromo()            Returns the current record's "promo" value
- * @method enum    getFiliere()          Returns the current record's "filiere" value
- * @method string  getPoste()            Returns the current record's "poste" value
- * @method string  getAdresseMulhouse()  Returns the current record's "adresse_mulhouse" value
- * @method integer getCpMulhouse()       Returns the current record's "cp_mulhouse" value
- * @method string  getVilleMulhouse()    Returns the current record's "ville_mulhouse" value
- * @method string  getAdresseParents()   Returns the current record's "adresse_parents" value
- * @method integer getCpParents()        Returns the current record's "cp_parents" value
- * @method string  getVilleParents()     Returns the current record's "ville_parents" value
- * @method string  getTelMobile()        Returns the current record's "tel_mobile" value
- * @method string  getTelFixe()          Returns the current record's "tel_fixe" value
- * @method string  getEmailInterne()     Returns the current record's "email_interne" value
- * @method string  getEmailExterne()     Returns the current record's "email_externe" value
- * @method boolean getCarteID()          Returns the current record's "carte_ID" value
- * @method boolean getJustDomicile()     Returns the current record's "just_domicile" value
- * @method boolean getQuittance()        Returns the current record's "quittance" value
- * @method boolean getCotisation()       Returns the current record's "cotisation" value
- * @method enum    getStatus()           Returns the current record's "status" value
- * @method Membre  setUsername()         Sets the current record's "username" value
- * @method Membre  setPasswd()           Sets the current record's "passwd" value
- * @method Membre  setNumeroEtudiant()   Sets the current record's "numero_etudiant" value
- * @method Membre  setPrenom()           Sets the current record's "prenom" value
- * @method Membre  setNom()              Sets the current record's "nom" value
- * @method Membre  setSexe()             Sets the current record's "sexe" value
- * @method Membre  setDateNaissance()    Sets the current record's "date_naissance" value
- * @method Membre  setVilleNaissance()   Sets the current record's "ville_naissance" value
- * @method Membre  setNumeroSecu()       Sets the current record's "numero_secu" value
- * @method Membre  setPromo()            Sets the current record's "promo" value
- * @method Membre  setFiliere()          Sets the current record's "filiere" value
- * @method Membre  setPoste()            Sets the current record's "poste" value
- * @method Membre  setAdresseMulhouse()  Sets the current record's "adresse_mulhouse" value
- * @method Membre  setCpMulhouse()       Sets the current record's "cp_mulhouse" value
- * @method Membre  setVilleMulhouse()    Sets the current record's "ville_mulhouse" value
- * @method Membre  setAdresseParents()   Sets the current record's "adresse_parents" value
- * @method Membre  setCpParents()        Sets the current record's "cp_parents" value
- * @method Membre  setVilleParents()     Sets the current record's "ville_parents" value
- * @method Membre  setTelMobile()        Sets the current record's "tel_mobile" value
- * @method Membre  setTelFixe()          Sets the current record's "tel_fixe" value
- * @method Membre  setEmailInterne()     Sets the current record's "email_interne" value
- * @method Membre  setEmailExterne()     Sets the current record's "email_externe" value
- * @method Membre  setCarteID()          Sets the current record's "carte_ID" value
- * @method Membre  setJustDomicile()     Sets the current record's "just_domicile" value
- * @method Membre  setQuittance()        Sets the current record's "quittance" value
- * @method Membre  setCotisation()       Sets the current record's "cotisation" value
- * @method Membre  setStatus()           Sets the current record's "status" value
+ * @method string  getUsername()            Returns the current record's "username" value
+ * @method string  getPasswd()              Returns the current record's "passwd" value
+ * @method integer getNumeroEtudiant()      Returns the current record's "numero_etudiant" value
+ * @method string  getPrenom()              Returns the current record's "prenom" value
+ * @method string  getNom()                 Returns the current record's "nom" value
+ * @method enum    getSexe()                Returns the current record's "sexe" value
+ * @method date    getDateNaissance()       Returns the current record's "date_naissance" value
+ * @method string  getVilleNaissance()      Returns the current record's "ville_naissance" value
+ * @method string  getNumeroSecu()          Returns the current record's "numero_secu" value
+ * @method integer getPromo()               Returns the current record's "promo" value
+ * @method enum    getFiliere()             Returns the current record's "filiere" value
+ * @method string  getPoste()               Returns the current record's "poste" value
+ * @method string  getAdresseMulhouse()     Returns the current record's "adresse_mulhouse" value
+ * @method integer getCpMulhouse()          Returns the current record's "cp_mulhouse" value
+ * @method string  getVilleMulhouse()       Returns the current record's "ville_mulhouse" value
+ * @method string  getAdresseParents()      Returns the current record's "adresse_parents" value
+ * @method integer getCpParents()           Returns the current record's "cp_parents" value
+ * @method string  getVilleParents()        Returns the current record's "ville_parents" value
+ * @method string  getTelMobile()           Returns the current record's "tel_mobile" value
+ * @method string  getTelFixe()             Returns the current record's "tel_fixe" value
+ * @method string  getEmailInterne()        Returns the current record's "email_interne" value
+ * @method string  getEmailExterne()        Returns the current record's "email_externe" value
+ * @method boolean getCarteID()             Returns the current record's "carte_ID" value
+ * @method boolean getJustDomicile()        Returns the current record's "just_domicile" value
+ * @method boolean getQuittance()           Returns the current record's "quittance" value
+ * @method boolean getReglementInterieur()  Returns the current record's "reglement_interieur" value
+ * @method boolean getConventionEtudiant()  Returns the current record's "convention_etudiant" value
+ * @method boolean getCotisation()          Returns the current record's "cotisation" value
+ * @method enum    getStatus()              Returns the current record's "status" value
+ * @method Membre  setUsername()            Sets the current record's "username" value
+ * @method Membre  setPasswd()              Sets the current record's "passwd" value
+ * @method Membre  setNumeroEtudiant()      Sets the current record's "numero_etudiant" value
+ * @method Membre  setPrenom()              Sets the current record's "prenom" value
+ * @method Membre  setNom()                 Sets the current record's "nom" value
+ * @method Membre  setSexe()                Sets the current record's "sexe" value
+ * @method Membre  setDateNaissance()       Sets the current record's "date_naissance" value
+ * @method Membre  setVilleNaissance()      Sets the current record's "ville_naissance" value
+ * @method Membre  setNumeroSecu()          Sets the current record's "numero_secu" value
+ * @method Membre  setPromo()               Sets the current record's "promo" value
+ * @method Membre  setFiliere()             Sets the current record's "filiere" value
+ * @method Membre  setPoste()               Sets the current record's "poste" value
+ * @method Membre  setAdresseMulhouse()     Sets the current record's "adresse_mulhouse" value
+ * @method Membre  setCpMulhouse()          Sets the current record's "cp_mulhouse" value
+ * @method Membre  setVilleMulhouse()       Sets the current record's "ville_mulhouse" value
+ * @method Membre  setAdresseParents()      Sets the current record's "adresse_parents" value
+ * @method Membre  setCpParents()           Sets the current record's "cp_parents" value
+ * @method Membre  setVilleParents()        Sets the current record's "ville_parents" value
+ * @method Membre  setTelMobile()           Sets the current record's "tel_mobile" value
+ * @method Membre  setTelFixe()             Sets the current record's "tel_fixe" value
+ * @method Membre  setEmailInterne()        Sets the current record's "email_interne" value
+ * @method Membre  setEmailExterne()        Sets the current record's "email_externe" value
+ * @method Membre  setCarteID()             Sets the current record's "carte_ID" value
+ * @method Membre  setJustDomicile()        Sets the current record's "just_domicile" value
+ * @method Membre  setQuittance()           Sets the current record's "quittance" value
+ * @method Membre  setReglementInterieur()  Sets the current record's "reglement_interieur" value
+ * @method Membre  setConventionEtudiant()  Sets the current record's "convention_etudiant" value
+ * @method Membre  setCotisation()          Sets the current record's "cotisation" value
+ * @method Membre  setStatus()              Sets the current record's "status" value
  * 
  * @package    Annuaire
  * @subpackage model
  * @author     Michael Muré
- * @version    SVN: $Id: Builder.php 7691 2011-02-04 15:43:29Z jwage $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseMembre extends sfDoctrineRecord
 {
@@ -214,6 +220,16 @@ abstract class BaseMembre extends sfDoctrineRecord
              'notnull' => true,
              ));
         $this->hasColumn('quittance', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             'notnull' => true,
+             ));
+        $this->hasColumn('reglement_interieur', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             'notnull' => true,
+             ));
+        $this->hasColumn('convention_etudiant', 'boolean', null, array(
              'type' => 'boolean',
              'default' => false,
              'notnull' => true,

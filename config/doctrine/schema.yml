@@ -38,6 +38,8 @@ Membre:
     carte_ID:            { type: boolean, default: false, notnull: true }
     just_domicile:       { type: boolean, default: false, notnull: true }
     quittance:           { type: boolean, default: false, notnull: true }
+    reglement_interieur: { type: boolean, default: false, notnull: true }
+    convention_etudiant: { type: boolean, default: false, notnull: true }
     
     # Statut Treso
     cotisation:          { type: boolean, default: false, notnull: true }

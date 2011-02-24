@@ -84,6 +84,8 @@ $carteID = $membre->getCarteID();
 $justif= $membre->getJustDomicile();
 $quittance = $membre->getQuittance();
 $cotis = $membre->getCotisation();
+$RI = $membre->getReglementInterieur();
+$CE = $membre->getConventionEtudiant();
 ?>
 
 <div id='annuaire.show.tableauDocument'>
@@ -102,6 +104,8 @@ $cotis = $membre->getCotisation();
         <td class='<?php echo $justif? 'vert' : 'rouge' ?>'><?php echo $justif? 'oui' : 'non' ?></td>
         <td class='<?php echo $quittance? 'vert' : 'rouge' ?>'><?php echo $quittance? 'oui' : 'non' ?></td>
         <td class='<?php echo $cotis? 'vert' : 'rouge' ?>'><?php echo $cotis? 'oui' : 'non' ?></td>
+        <td class='<?php echo $RI? 'vert' : 'rouge' ?>'><?php echo $RI? 'oui' : 'non' ?></td>
+        <td class='<?php echo $CE? 'vert' : 'rouge' ?>'><?php echo $CE? 'oui' : 'non' ?></td>
       </tr>
       <?php if($admin): ?>
       <tr>
@@ -113,6 +117,10 @@ $cotis = $membre->getCotisation();
               else echo link_to('valider', '@annuaire?action=show&id='.$membre->getId().'&valider=Quittance'); ?></td>
         <td><?php if($cotis) echo link_to('dévalider', '@annuaire?action=show&id='.$membre->getId().'&devalider=Cotisation');
               else echo link_to('valider', '@annuaire?action=show&id='.$membre->getId().'&valider=Cotisation'); ?></td>
+        <td><?php if($RI) echo link_to('dévalider', '@annuaire?action=show&id='.$membre->getId().'&devalider=RI');
+              else echo link_to('valider', '@annuaire?action=show&id='.$membre->getId().'&valider=RI'); ?></td>
+        <td><?php if($CE) echo link_to('dévalider', '@annuaire?action=show&id='.$membre->getId().'&devalider=CE');
+              else echo link_to('valider', '@annuaire?action=show&id='.$membre->getId().'&valider=CE'); ?></td>
       </tr>
       <?php endif ?>
     </tbody>
@@ -123,7 +131,6 @@ $cotis = $membre->getCotisation();
   <ul>
     <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId()) ?></li>
     <li><?php echo link_to('Changer mon mot de passe', '@annuaire?action=changeMDP') ?></li>
-    <li><?php echo link_to('Retour à la liste', '@annuaire') ?></li>
 
   <?php switch($admin && $membre->getStatus()) {
     case 'Administrateur':
@@ -138,6 +145,8 @@ $cotis = $membre->getCotisation();
       echo '<li>'.link_to('Marquer comme membre actuel', '@annuaire.status?id='.$membre->getId().'&status=Membre').'</li>';
       break;
     } ?>
+
+    <li><?php echo link_to('Retour à la liste', '@annuaire') ?></li>
   </ul>
 </div>
 

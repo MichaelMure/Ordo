@@ -92,13 +92,15 @@ class membreActions extends sfActions
       ->select('m.status')
       ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
       ->execute()->getFirst());
-    $this->forward404Unless($user->getStatus() == 'Administrateur');
-    
-    if($request->getParameter('valider'))
-      $this->valider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
-    if($request->getParameter('devalider'))
-      $this->devalider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
-      
+
+    if($user->getStatus() == 'Administrateur')
+    {
+      if($request->getParameter('valider'))
+        $this->valider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
+      if($request->getParameter('devalider'))
+        $this->devalider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
+    }
+
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
       ->where('a.status != ?', 'Ancien')
@@ -205,6 +207,12 @@ class membreActions extends sfActions
       case 'Cotisation':
         $membre->setCotisation(true);
         break;
+      case 'RI':
+        $membre->setReglementInterieur(true);
+        break;
+      case 'CE':
+        $membre->setConventionEtudiant(true);
+        break;
     }
     $membre->save();
   }
@@ -225,6 +233,12 @@ class membreActions extends sfActions
         break;
       case 'Cotisation':
         $membre->setCotisation(false);
+        break;
+      case 'RI':
+        $membre->setReglementInterieur(false);
+        break;
+      case 'CE':
+        $membre->setConventionEtudiant(false);
         break;
     }
     $membre->save();

@@ -21,6 +21,8 @@ class NewMembreForm extends MembreForm
       $this['just_domicile'],
       $this['quittance'],
       $this['cotisation'],
+      $this['reglement_interieur'],
+      $this['convention_etudiant'],
       $this['poste'],
       $this['email_interne'],
       $this['status']
