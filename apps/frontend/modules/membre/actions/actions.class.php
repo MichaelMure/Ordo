@@ -17,6 +17,7 @@ class membreActions extends sfActions
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
       ->select('a.id, a.nom, a.prenom, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
+      ->where('a.nom != ?', '')
       ->orderBy('a.nom')
       ->execute();
   }
@@ -89,6 +90,7 @@ class membreActions extends sfActions
       ->createQuery('a')
       ->where('a.status != ?', 'Ancien')
       ->select('a.id, a.nom, a.prenom, a.tel_mobile, a.carte_ID, a.just_domicile, a.quittance, a.cotisation, a.reglement_interieur, a.convention_etudiant')
+      ->where('a.nom != ?', '')
       ->orderBy('a.nom')
       ->execute();
   }
