@@ -19,14 +19,14 @@ class MembreForm extends BaseMembreForm
   
     $this->setWidget('passwd', new sfWidgetFormInputPassword());
     $this->setValidator('email_externe', new sfValidatorEmail());
-    $this->setValidator('nom', new sfValidatorRegex(array('pattern' => '/^[a-zA-Z]*$/', 'max_length' => 255)));
-    $this->setValidator('prenom', new sfValidatorRegex(array('pattern' => '/^[a-zA-Z]*$/', 'max_length' => 255)));
-    $this->setValidator('ville_naissance', new sfValidatorRegex(array('pattern' => '/^[a-zA-Z\s\-]*$/', 'max_length' => 255)));
-    $this->setValidator('ville_parents', new sfValidatorRegex(array('pattern' => '/^[a-zA-Z\s\-]*$/', 'max_length' => 255, 'required' => false)));
-    $this->setValidator('ville_mulhouse', new sfValidatorRegex(array('pattern' => '/^[a-zA-Z\s\-]*$/', 'max_length' => 255)));
+    $this->setValidator('nom', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ]*$/', 'max_length' => 255)));
+    $this->setValidator('prenom', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ]*$/', 'max_length' => 255)));
+    $this->setValidator('ville_naissance', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s\-]*$/', 'max_length' => 255)));
+    $this->setValidator('ville_parents', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s\-]*$/', 'max_length' => 255, 'required' => false)));
+    $this->setValidator('ville_mulhouse', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s\-]*$/', 'max_length' => 255)));
     $this->setValidator('numero_secu', new sfValidatorRegex(array('pattern' => '/^[0-9\s]*$/', 'max_length' => 21, 'required' => false)));
-    $this->setValidator('tel_mobile', new sfValidatorRegex(array('pattern' => '/^[0-9\s]*$/', 'max_length' => 21, 'required' => false)));
-    $this->setValidator('tel_fixe', new sfValidatorRegex(array('pattern' => '/^[0-9\s]*$/', 'max_length' => 21)));
+    $this->setValidator('tel_mobile', new sfValidatorRegex(array('pattern' => '/^[0-9\s]*$/', 'max_length' => 21)));
+    $this->setValidator('tel_fixe', new sfValidatorRegex(array('pattern' => '/^[0-9\s]*$/', 'max_length' => 21, 'required' => false)));
     $this->setValidator('cp_mulhouse', new sfValidatorRegex(array('pattern' => '/^[0-9]{5}$/')));
     $this->setValidator('cp_parents', new sfValidatorRegex(array('pattern' => '/^[0-9]{5}$/', 'required' => false)));
 
