@@ -33,6 +33,8 @@ strong {
 #global {
 	color: #F0E39E;
 	background: #181A12; /* Voir -> Note 1 ci-dessous */
+  border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 
 /* Navigation */
@@ -112,6 +114,8 @@ body {
 #contenu {
 	margin-left: 20%; /* -> 6 */
 	padding: 10px 20px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 #contenu > :first-child {
 	margin-top: 10px;

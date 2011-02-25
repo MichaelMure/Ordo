@@ -37,6 +37,9 @@ class membreActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
+    $this->getProfile($request);
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $this->form = new NewMembreForm();
   }
 

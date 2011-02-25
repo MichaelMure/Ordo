@@ -28,7 +28,9 @@
               <?php if(isset($user)): ?>
               <li><?php echo link_to('Ma fiche', '@annuaire?action=show&id='.$user->getId()) ?></li>
               <?php endif ?>
+              <?php if(isset($user) && !$user->isAncien()): ?>
               <li><?php echo link_to('Ajouter un membre', '@annuaire?action=new') ?></li>
+              <?php endif ?>
             </ul>
           </li>
           <li>Contact commerciaux

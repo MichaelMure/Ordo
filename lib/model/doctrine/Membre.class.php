@@ -20,6 +20,14 @@ class Membre extends BaseMembre
     return ($this->getStatus()=='Administrateur');
   }
   
+  public function isMembre() {
+    return ($this->getStatus()=='Membre');
+  }
+  
+  public function isAncien() {
+    return ($this->getStatus()=='Ancien');
+  }
+  
   public function save(Doctrine_Connection $conn = null)
   {
     if(strlen($this->getPasswd()) != 40)
