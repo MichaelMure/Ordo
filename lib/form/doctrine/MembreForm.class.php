@@ -39,7 +39,7 @@ class MembreForm extends BaseMembreForm
     $this->widgetSchema['adresse_parents']->setLabel('Adresse des parents');
     $this->widgetSchema['cp_parents']->setLabel('Code postal des parents');
     $this->widgetSchema['ville_parents']->setLabel('Ville des parents');
-    $this->widgetSchema['tel_mobile']->setLabel('Téléphone portable');
+    $this->widgetSchema['tel_mobile']->setLabel('Téléphone portable (*)');
     $this->widgetSchema['tel_fixe']->setLabel('Téléphone fixe');
     $this->widgetSchema['email_externe']->setLabel('Email (autre que IARISS)');
 
