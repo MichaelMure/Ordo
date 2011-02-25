@@ -69,7 +69,7 @@ abstract class BaseMembreForm extends BaseFormDoctrine
       'adresse_parents'     => new sfValidatorString(array('max_length' => 4000, 'required' => false)),
       'cp_parents'          => new sfValidatorInteger(array('required' => false)),
       'ville_parents'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'tel_mobile'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'tel_mobile'          => new sfValidatorString(array('max_length' => 255)),
       'tel_fixe'            => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'email_interne'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'email_externe'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),

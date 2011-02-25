@@ -195,6 +195,7 @@ abstract class BaseMembre extends sfDoctrineRecord
              ));
         $this->hasColumn('tel_mobile', 'string', 255, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 255,
              ));
         $this->hasColumn('tel_fixe', 'string', 255, array(

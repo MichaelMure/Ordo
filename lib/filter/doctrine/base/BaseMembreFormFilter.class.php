@@ -31,7 +31,7 @@ abstract class BaseMembreFormFilter extends BaseFormFilterDoctrine
       'adresse_parents'     => new sfWidgetFormFilterInput(),
       'cp_parents'          => new sfWidgetFormFilterInput(),
       'ville_parents'       => new sfWidgetFormFilterInput(),
-      'tel_mobile'          => new sfWidgetFormFilterInput(),
+      'tel_mobile'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'tel_fixe'            => new sfWidgetFormFilterInput(),
       'email_interne'       => new sfWidgetFormFilterInput(),
       'email_externe'       => new sfWidgetFormFilterInput(),
