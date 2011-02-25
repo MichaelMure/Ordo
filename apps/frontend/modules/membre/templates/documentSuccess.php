@@ -9,7 +9,7 @@
       <th>Quittance</th>
       <th>Justificatif de domicile</th>
       <th>Cotisation</th>
-      <th>Reglement intérieur</th>
+      <th>Règlement intérieur &amp; statuts</th>
       <th>Convention étudiant</th>
     </tr>
   </thead>
