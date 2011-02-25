@@ -29,7 +29,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Administrateur
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '2011-02-25 17:49:17'
   Membre_2:
     username: s.szymanski
@@ -61,7 +61,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_3:
     username: t.helleboid
@@ -93,7 +93,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_4:
     username: b.bodin
@@ -125,7 +125,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_5:
     username: d.brun
@@ -157,7 +157,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_6:
     username: j.raybaud
@@ -189,7 +189,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_7:
     username: k.florestal
@@ -221,7 +221,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_8:
     username: s.battin
@@ -253,7 +253,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_9:
     username: b.parimaname
@@ -285,7 +285,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_10:
     username: r.yamoun
@@ -317,7 +317,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_11:
     username: m.griselle
@@ -349,7 +349,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_12:
     username: i.jaafri
@@ -381,7 +381,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_13:
     username: e.dailleux
@@ -413,7 +413,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_14:
     username: r.salci
@@ -445,7 +445,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_15:
     username: jm.zulesi
@@ -477,7 +477,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_16:
     username: y.kerrouzi
@@ -509,7 +509,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_17:
     username: m.ahmednah
@@ -541,7 +541,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_18:
     username: a.berlinet
@@ -573,7 +573,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_19:
     username: a.latour
@@ -605,7 +605,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_20:
     username: a.mandet
@@ -637,7 +637,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_21:
     username: b.saccomano
@@ -669,7 +669,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_22:
     username: n.guignard
@@ -701,7 +701,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_23:
     username: s.techer
@@ -733,7 +733,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_24:
     username: j.salome
@@ -765,7 +765,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_25:
     username: n.courtine
@@ -797,7 +797,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_26:
     username: o.duboeuf
@@ -829,7 +829,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_27:
     username: s.el-rhazi
@@ -861,7 +861,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_28:
     username: m.nicco
@@ -893,7 +893,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_29:
     username: y.saad
@@ -925,7 +925,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_30:
     username: r.seguy
@@ -957,7 +957,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_31:
     username: as.dubois
@@ -989,7 +989,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_32:
     username: a.gerenius
@@ -1021,7 +1021,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_33:
     username: ma.ben-rabah
@@ -1053,7 +1053,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_34:
     username: j.dabon
@@ -1085,7 +1085,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_35:
     username: n.drame
@@ -1117,7 +1117,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_36:
     username: f.fouilloy
@@ -1149,7 +1149,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_37:
     username: a.grossier
@@ -1181,7 +1181,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_38:
     username: m.marie
@@ -1213,7 +1213,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_39:
     username: e.perrin
@@ -1245,7 +1245,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_40:
     username: j.prevost
@@ -1277,7 +1277,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_41:
     username: h.sghari
@@ -1309,7 +1309,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_42:
     username: j.dacleu-ndengue
@@ -1341,7 +1341,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_43:
     username: g.audrain
@@ -1373,7 +1373,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_44:
     username: p.hamonic
@@ -1405,7 +1405,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_45:
     username: j.fayolle
@@ -1437,7 +1437,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_46:
     username: n.iraqi
@@ -1469,7 +1469,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_47:
     username: f.keller
@@ -1501,7 +1501,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_48:
     username: m.palacio
@@ -1533,7 +1533,7 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
   Membre_49:
     username: s.agoujil
@@ -1565,5 +1565,5 @@ Membre:
     convention_etudiant: false
     cotisation: false
     status: Membre
-    created_at: '0000-00-00 00:00:00'
+    created_at: '2011-02-25 00:00:00'
     updated_at: '0000-00-00 00:00:00'
