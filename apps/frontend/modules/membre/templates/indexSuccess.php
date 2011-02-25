@@ -1,3 +1,4 @@
+<?php use_helper('Url') ?>
 <h1>Liste des membres</h1>
 
 <table>
@@ -14,10 +15,11 @@
   <tbody>
     <?php foreach ($membres as $membre): ?>
     <tr class='<?php echo $membre->getStatus() ?>'>
-      <td><?php echo link_to($membre->getPrenom().' '.$membre->getNom(), 'membre/show?id='.$membre->getId()) ?></td>
+      <td><?php if($admin || $membre->getId() == $id) echo link_to($membre->getPrenom().' '.$membre->getNom(), 'membre/show?id='.$membre->getId());
+                else echo $membre->getPrenom().' '.$membre->getNom(); ?></td>
       <td><?php echo $membre->getPoste() ?></td>
       <td><?php echo $membre->getTelMobile() ?></td>
-      <td><?php echo $membre->getEmailInterne() ?></td>
+      <td><?php echo mail_to($membre->getEmailInterne()) ?></td>
       <td><?php echo $membre->getPromo() ?></td>
       <td><?php echo $membre->getFiliere() ?></td>
     </tr>
@@ -25,4 +27,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('membre/new') ?>">Ajouter un membre</a>
+<a href="<?php echo url_for('membre/new') ?>">Ajouter un membre</a>

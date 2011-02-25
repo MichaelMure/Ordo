@@ -12,6 +12,16 @@ class membreActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
+    $this->forward404Unless(isset($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless($user = Doctrine::getTable('Membre')
+      ->createQuery('m')
+      ->select('m.status, m.id')
+      ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
+      ->execute()->getFirst());
+
+    $this->admin = ($user->getStatus() == 'Administrateur');
+    $this->id = $user->getId();
+    
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
       ->select('a.id, a.nom, a.prenom, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
