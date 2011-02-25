@@ -16,6 +16,10 @@ class Membre extends BaseMembre
     return $this->getPrenom().' '.$this->getNom().' ('.$this->getUsername().')';
   }
   
+  public function isAdmin() {
+    return ($this->getStatus()=='Administrateur');
+  }
+  
   public function save(Doctrine_Connection $conn = null)
   {
     if(strlen($this->getPasswd()) != 40)

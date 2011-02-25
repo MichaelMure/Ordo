@@ -1,5 +1,5 @@
 <?php
-  if($admin)
+  if($user->isAdmin())
   {
     echo '<h1>'.$titre.'</h1>';
     include_partial('formAdmin', array('form' => $form));

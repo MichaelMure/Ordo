@@ -120,7 +120,7 @@ $CE = $membre->getConventionEtudiant();
         <td class='<?php echo $RI? 'vert' : 'rouge' ?>'><?php echo $RI? 'oui' : 'non' ?></td>
         <td class='<?php echo $CE? 'vert' : 'rouge' ?>'><?php echo $CE? 'oui' : 'non' ?></td>
       </tr>
-      <?php if($admin): ?>
+      <?php if($user->isAdmin()): ?>
       <tr>
         <td><?php if($carteID) echo link_to('dévalider', '@annuaire?action=show&id='.$membre->getId().'&devalider=CarteID');
               else echo link_to('valider', '@annuaire?action=show&id='.$membre->getId().'&valider=CarteID'); ?></td>
@@ -146,7 +146,7 @@ $CE = $membre->getConventionEtudiant();
     <li><?php echo link_to('Changer mon mot de passe', '@annuaire?action=changeMDP') ?></li>
 
   <?php 
-  if($admin)
+  if($user->isAdmin())
   {
     switch($membre->getStatus()) 
     {

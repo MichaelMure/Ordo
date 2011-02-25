@@ -29,7 +29,7 @@ Membre:
     ville_parents:       { type: string(255) }
 
     # communication
-    tel_mobile:          { type: string(255) }
+    tel_mobile:          { type: string(255), notnull: true }
     tel_fixe:            { type: string(255) }
     email_interne:       { type: string(255) }
     email_externe:       { type: string(255) }
