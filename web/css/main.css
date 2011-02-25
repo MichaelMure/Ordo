@@ -18,6 +18,7 @@
 body {
 	color: #F0E39E;
 	background: #2C2F22;
+  background-image:url('../images/fond2.png');
 }
 a {
 	color: #FF6533;
@@ -52,6 +53,7 @@ strong {
 #contenu {
 	color: #363B29;
 	background: #cbd888;
+  background-image:url('../images/fond1.png');
 }
 #contenu a {
 	color: #332510;
@@ -145,11 +147,11 @@ td {
 
 /* Code couleur */
 .vert {
-	background-color: green;
+	background-color: #80FF80;
 }
 
 .rouge {
-	background-color: red;
+	background-color: #FF8080;
 }
 
 .Ancien {
@@ -162,23 +164,23 @@ td {
 }
 
 .ir {
-  background-color: #3CCC00;
+  background-color: #84CC66;
 }
 
 .meca {
-  background-color: #CB2000;
+  background-color: #CB7565;
 }
 
 .sys {
-  background-color: #FA7B00;
+  background-color: #FABB7D;
 }
 
 .tex {
-  background-color: #0055DB;
+  background-color: #6D98DB;
 }
 
 .prod {
-  background-color: #FED200;
+  background-color: #FEE87F;
 }
 
 /* --- NOTES ---
