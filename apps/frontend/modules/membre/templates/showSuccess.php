@@ -145,19 +145,25 @@ $CE = $membre->getConventionEtudiant();
     <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId()) ?></li>
     <li><?php echo link_to('Changer mon mot de passe', '@annuaire?action=changeMDP') ?></li>
 
-  <?php switch($admin && $membre->getStatus()) {
-    case 'Administrateur':
-      echo '<li>'.link_to('Désactiver les droits admin', '@annuaire.status?id='.$membre->getId().'&status=Membre').'</li>';
-      echo '<li>'.link_to('Marquer comme ancien', '@annuaire.status?id='.$membre->getId().'&status=Ancien').'</li>';
-      break;
-    case 'Membre':
-      echo '<li>'.link_to('Passer administateur', '@annuaire.status?id='.$membre->getId().'&status=Administrateur').'</li>';
-      echo '<li>'.link_to('Marquer comme ancien', '@annuaire.status?id='.$membre->getId().'&status=Ancien').'</li>';
-      break;
-    case 'Ancien':
-      echo '<li>'.link_to('Marquer comme membre actuel', '@annuaire.status?id='.$membre->getId().'&status=Membre').'</li>';
-      break;
-    } ?>
+  <?php 
+  if($admin)
+  {
+    switch($membre->getStatus()) 
+    {
+      case 'Administrateur':
+        echo '<li>'.link_to('Désactiver les droits admin', '@annuaire?action=status&id='.$membre->getId().'&status=Membre').'</li>';
+        echo '<li>'.link_to('Marquer comme ancien', '@annuaire?action=status&id='.$membre->getId().'&status=Ancien').'</li>';
+        break;
+      case 'Membre':
+        echo '<li>'.link_to('Passer administateur', '@annuaire?action=status&id='.$membre->getId().'&status=Administrateur').'</li>';
+        echo '<li>'.link_to('Marquer comme ancien', '@annuaire?action=status&id='.$membre->getId().'&status=Ancien').'</li>';
+        break;
+      case 'Ancien':
+        echo '<li>'.link_to('Marquer comme membre actuel', '@annuaire?action=status&id='.$membre->getId().'&status=Membre').'</li>';
+        break;
+    }
+  }
+  ?>
 
     <li><?php echo link_to('Retour à la liste', '@annuaire') ?></li>
   </ul>

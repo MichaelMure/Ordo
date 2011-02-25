@@ -15,10 +15,6 @@ annuaire.index:
   url:  /annuaire/
   param: { module: membre, action: index }
 
-annuaire.status:
-  url: /annuaire/status/:id/:status
-  param: { module: membre, action: status }
-
 # generic rules
 # please, remove them by adding more specific rules
 #default_index:

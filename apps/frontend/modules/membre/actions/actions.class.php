@@ -146,6 +146,22 @@ class membreActions extends sfActions
     $this->setTemplate('changeMDP');
   }
   
+  public function executeStatus(sfWebRequest $request)
+  {
+    $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless(isset($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless($user = Doctrine::getTable('Membre')
+      ->createQuery('m')
+      ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
+      ->execute()->getFirst());
+    $this->forward404Unless($user->getStatus()=='Administrateur');
+    $this->forward404Unless($status = $request->getParameter('status'));
+    
+    $membre->setStatus($status);
+    $membre->save();
+    $this->redirect('membre/show?id='.$membre->getId());
+  }
+  
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
