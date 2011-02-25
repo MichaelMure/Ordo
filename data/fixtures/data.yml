@@ -2,26 +2,26 @@ Membre:
   Membre_1:
     username: m.mure
     passwd: e881ae4780f39f1af9930670140dccd369bd33d2
-    numero_etudiant: null
+    numero_etudiant: '73'
     prenom: Michael
     nom: Muré
     sexe: Homme
     date_naissance: '1987-01-13'
     ville_naissance: Colmar
-    numero_secu: ''
+    numero_secu: '1 87 01 68 066 103 29'
     promo: '2012'
     filiere: Informatique
     poste: Trésorier
-    adresse_mulhouse: '41 rue François Spoerry'
+    adresse_mulhouse: "Appt 503\r\n41 rue François Spoerry"
     cp_mulhouse: '68100'
     ville_mulhouse: Mulhouse
-    adresse_parents: ''
-    cp_parents: '0'
-    ville_parents: ''
+    adresse_parents: '6 rue Auguste Sontag'
+    cp_parents: '68920'
+    ville_parents: Wintzenheim
     tel_mobile: '06 12 56 01 35'
     tel_fixe: ''
     email_interne: m.mure@iariss.fr
-    email_externe: m.mure@iariss.fr
+    email_externe: batolettre@gmail.com
     carte_ID: false
     just_domicile: false
     quittance: false
@@ -30,7 +30,7 @@ Membre:
     cotisation: false
     status: Administrateur
     created_at: '0000-00-00 00:00:00'
-    updated_at: '2011-02-25 17:45:51'
+    updated_at: '2011-02-25 17:49:17'
   Membre_2:
     username: s.szymanski
     passwd: 36af3592a11423a33bc810fa4e61c3fa5cb749d7

@@ -40,12 +40,12 @@ function getClass($filiere)
       </tr>
       <tr>
         <th>Adresse locale</th>
-        <td><?php echo $membre->getAdresseMulhouse() ?><br/>
+        <td><?php echo nl2br($membre->getAdresseMulhouse()) ?><br/>
             <?php echo $membre->getCpMulhouse() ?><br/>
             <?php echo $membre->getVilleMulhouse() ?>
         </td>
         <th>Adresse des parents</th>
-        <td><?php echo $membre->getAdresseParents() ?><br/>
+        <td><?php echo nl2br($membre->getAdresseParents()) ?><br/>
             <?php echo $membre->getCpParents() ?><br/>
             <?php echo $membre->getVilleParents() ?>
         </td>
