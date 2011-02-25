@@ -63,7 +63,7 @@ class membreActions extends sfActions
     }
     else
     {
-      if($user->getId()==$request->getParameter('id'))
+      if($this->user->getId()==$request->getParameter('id'))
       {
         $this->form = new EditMembreForm($membre);
       }
@@ -106,9 +106,9 @@ class membreActions extends sfActions
     
     if(sha1($request->getParameter('ancien_mdp')) == $this->user->getPasswd())
     {
-      $user->setPasswd($request->getParameter('nouveau_mdp'));
-      $user->save();
-      $this->redirect('@annuaire?action=show&id='.$user->getId());
+      $this->user->setPasswd($request->getParameter('nouveau_mdp'));
+      $this->user->save();
+      $this->redirect('@annuaire?action=show&id='.$this->user->getId());
     }
 
     $this->error = 'L\'ancien mot de passe rentré ne correspond pas.';
@@ -141,7 +141,7 @@ class membreActions extends sfActions
     }
     else
     {
-      if($user->getId()==$request->getParameter('id'))
+      if($this->user->getId()==$request->getParameter('id'))
       {
         $this->form = new EditMembreForm($this->membre);
       }
