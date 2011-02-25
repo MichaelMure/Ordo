@@ -1,4 +1,21 @@
-<?php use_helper('Date') ?>
+<?php use_helper('Date');
+function getClass($filiere)
+{
+  switch($filiere)
+  {
+    case 'Informatique':
+      return 'ir';
+    case 'Automatique':
+      return 'sys';
+    case 'Mécanique':
+      return 'meca';
+    case 'Textile':
+      return 'tex';
+    case 'Système de prod':
+      return 'prod';
+  }
+}
+?>
 
 <div id='annuaire.show.tableauID'>
   <table>
@@ -19,7 +36,7 @@
         <th>Prenom</th>
         <td><?php echo $membre->getPrenom() ?></td>
         <th>Filière</th>
-        <td><?php echo $membre->getFiliere() ?></td>
+        <td class='<?php echo getClass($membre->getFiliere()) ?>'><?php echo $membre->getFiliere() ?></td>
       </tr>
       <tr>
         <th>Adresse locale</th>

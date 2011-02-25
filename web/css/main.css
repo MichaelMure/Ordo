@@ -148,13 +148,33 @@ td {
 	background-color: red;
 }
 
-.Ancien, .Ancien {
+.Ancien {
 	background-color: #D0D0D0;
 	color: #4B4B4B;
 }
 
 .error_list, .error {
   color: #E7362F;
+}
+
+.ir {
+  background-color: #3CCC00;
+}
+
+.meca {
+  background-color: #CB2000;
+}
+
+.sys {
+  background-color: #FA7B00;
+}
+
+.tex {
+  background-color: #0055DB;
+}
+
+.prod {
+  background-color: #FED200;
 }
 
 /* --- NOTES ---

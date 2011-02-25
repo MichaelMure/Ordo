@@ -1,4 +1,21 @@
-<?php use_helper('Url') ?>
+<?php use_helper('Url');
+function getClass($filiere)
+{
+  switch($filiere)
+  {
+    case 'Informatique':
+      return 'ir';
+    case 'Automatique':
+      return 'sys';
+    case 'Mécanique':
+      return 'meca';
+    case 'Textile':
+      return 'tex';
+    case 'Système de prod':
+      return 'prod';
+  }
+}
+?>
 <h1>Liste des membres</h1>
 
 <table>
@@ -21,7 +38,7 @@
       <td><?php echo $membre->getTelMobile() ?></td>
       <td><?php echo mail_to($membre->getEmailInterne()) ?></td>
       <td><?php echo $membre->getPromo() ?></td>
-      <td><?php echo $membre->getFiliere() ?></td>
+      <td class='<?php echo getClass($membre->getFiliere()) ?>'><?php echo $membre->getFiliere() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
