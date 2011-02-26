@@ -42,7 +42,6 @@
               <li><?php echo link_to('Ma carte', '@carte?action=recto&id='.$user->getId()) ?></li>
             </ul>
           </li>
-          <?php endif ?>
           <li>Contact commerciaux
             <ul>
               <li>Liste des prospects</li>
@@ -58,6 +57,7 @@
               <li>Ajouter un projet</li>
             </ul>
           </li>
+          <?php endif ?>
         </ul>
       </div>
       <div id="contenu">
