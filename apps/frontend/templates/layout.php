@@ -24,7 +24,9 @@
           <li>Annuaire
             <ul>
               <li><?php echo link_to('Liste des membres', '@annuaire?action=index') ?></li>
+              <?php if(isset($user) && !$user->isAncien()): ?>
               <li><?php echo link_to('Liste des documents', '@annuaire?action=document') ?></li>
+              <?php endif ?>
               <?php if(isset($user)): ?>
               <li><?php echo link_to('Ma fiche', '@annuaire?action=show&id='.$user->getId()) ?></li>
               <?php endif ?>

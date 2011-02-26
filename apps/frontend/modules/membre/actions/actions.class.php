@@ -80,6 +80,7 @@ class membreActions extends sfActions
   public function executeDocument(sfWebRequest $request)
   {
     $this->getProfile($request);
+    $this->forward404Unless(!$this->user->isAncien());
 
     if($this->user->isAdmin())
     {

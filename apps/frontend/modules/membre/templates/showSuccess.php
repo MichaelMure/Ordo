@@ -99,6 +99,7 @@ $RI = $membre->getReglementInterieur();
 $CE = $membre->getConventionEtudiant();
 ?>
 
+<?php if(!$user->isAncien()): ?>
 <div id='annuaire.show.tableauDocument'>
   <table>
     <thead>
@@ -139,6 +140,7 @@ $CE = $membre->getConventionEtudiant();
     </tbody>
   </table>
 </div>
+<?php endif ?>
 
 <div id='annuaire.show.button'>
   <ul>
