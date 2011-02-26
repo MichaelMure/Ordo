@@ -5,7 +5,7 @@
     <tr>
       <th>Nom</th>
       <th>Numero de téléphone</th>
-      <th>Carte d'identité</th>
+      <th>Pièce d'identité</th>
       <th>Quittance</th>
       <th>Justificatif de domicile</th>
       <th>Cotisation</th>

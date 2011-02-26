@@ -103,7 +103,7 @@ $CE = $membre->getConventionEtudiant();
   <table>
     <thead>
       <tr>
-        <th>Carte ID</th>
+        <th>Pièce d'identité</th>
         <th>Justificatif de domicile</th>
         <th>Quittance</th>
         <th>Cotisation</th>
