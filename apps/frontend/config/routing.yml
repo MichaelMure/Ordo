@@ -15,6 +15,15 @@ annuaire.index:
   url:  /annuaire/
   param: { module: membre, action: index }
 
+## Carte
+carte:
+  url: /carte/:action/*
+  param: { module: carte }
+
+annuaire.index:
+  url:  /carte/
+  param: { module: carte, action: index }
+
 # generic rules
 # please, remove them by adding more specific rules
 #default_index:

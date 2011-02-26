@@ -35,6 +35,14 @@
               <?php endif ?>
             </ul>
           </li>
+          <?php if(isset($user) && !$user->isAncien()): ?>
+          <li>Cartes de visites
+            <ul>
+              <li><?php echo link_to('Liste des cartes', '@carte?action=index') ?></li>
+              <li><?php echo link_to('Ma carte', '@carte?action=recto&id='.$user->getId()) ?></li>
+            </ul>
+          </li>
+          <?php endif ?>
           <li>Contact commerciaux
             <ul>
               <li>Liste des prospects</li>
