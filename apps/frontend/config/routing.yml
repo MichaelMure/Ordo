@@ -20,7 +20,7 @@ carte:
   url: /carte/:action/*
   param: { module: carte }
 
-annuaire.index:
+carte.index:
   url:  /carte/
   param: { module: carte, action: index }
 
