@@ -144,10 +144,11 @@ class contactActions extends sfActions
       $query->limit($limit);
     }
     else
+    {
       $query->limit(30);
+    }
+    
     $this->contacts = $query->execute();
-
-
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

@@ -9,8 +9,5 @@ TypeContact:
     nom: 'Appel décroché'
     logo: fleche-decroche
   TypeContact_4:
-    nom: 'Pas d''appel'
-    logo: pas-appel
-  TypeContact_5:
     nom: 'Email'
     logo: email

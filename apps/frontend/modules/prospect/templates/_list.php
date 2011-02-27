@@ -13,7 +13,7 @@
   <tbody>
     <?php foreach ($prospects as $prospect): ?>
     <tr>
-      <td><a href="<?php echo url_for('@prospect?action=show?id='.$prospect->getId()) ?>"><?php echo $prospect->getNom() ?></a></td>
+      <td><a href="<?php echo url_for('@prospect?action=show&id='.$prospect->getId()) ?>"><?php echo $prospect->getNom() ?></a></td>
       <td><?php echo $prospect->getContact() ?></td>
       <td><?php echo $prospect->getVille() ?></td>
       <td><?php echo $prospect->getTelFixe() ?></td>
