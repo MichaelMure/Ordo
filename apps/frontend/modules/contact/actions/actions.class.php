@@ -23,7 +23,7 @@ class contactActions extends sfActions
     $this->contacts = Doctrine::getTable('Contact')
       ->createQuery('a')
       ->orderBy('a.date')
-      ->where('a.type_contact_id != 5')
+      ->where('a.type_contact_id != 4')
       ->execute();
   }
 
@@ -32,7 +32,7 @@ class contactActions extends sfActions
     $this->contacts = Doctrine::getTable('Contact')
       ->createQuery('a')
       ->orderBy('a.date')
-      ->where('a.type_contact_id = 5')
+      ->where('a.type_contact_id = 4')
       ->execute();
   }
   
