@@ -30,6 +30,7 @@ abstract class BaseProspectForm extends BaseFormDoctrine
       'a_rappeler'     => new sfWidgetFormInputCheckbox(),
       'date_recontact' => new sfWidgetFormDate(),
       'commentaire'    => new sfWidgetFormTextarea(),
+      'activite'       => new sfWidgetFormTextarea(),
       'created_at'     => new sfWidgetFormDateTime(),
       'updated_at'     => new sfWidgetFormDateTime(),
     ));
@@ -50,6 +51,7 @@ abstract class BaseProspectForm extends BaseFormDoctrine
       'a_rappeler'     => new sfValidatorBoolean(array('required' => false)),
       'date_recontact' => new sfValidatorDate(array('required' => false)),
       'commentaire'    => new sfValidatorString(array('max_length' => 4000, 'required' => false)),
+      'activite'       => new sfValidatorString(array('max_length' => 4000, 'required' => false)),
       'created_at'     => new sfValidatorDateTime(),
       'updated_at'     => new sfValidatorDateTime(),
     ));

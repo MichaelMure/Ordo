@@ -19,6 +19,7 @@
  * @property boolean $a_rappeler
  * @property date $date_recontact
  * @property string $commentaire
+ * @property string $activite
  * @property Doctrine_Collection $Contacts
  * 
  * @method string              getNom()            Returns the current record's "nom" value
@@ -35,6 +36,7 @@
  * @method boolean             getARappeler()      Returns the current record's "a_rappeler" value
  * @method date                getDateRecontact()  Returns the current record's "date_recontact" value
  * @method string              getCommentaire()    Returns the current record's "commentaire" value
+ * @method string              getActivite()       Returns the current record's "activite" value
  * @method Doctrine_Collection getContacts()       Returns the current record's "Contacts" collection
  * @method Prospect            setNom()            Sets the current record's "nom" value
  * @method Prospect            setContact()        Sets the current record's "contact" value
@@ -50,6 +52,7 @@
  * @method Prospect            setARappeler()      Sets the current record's "a_rappeler" value
  * @method Prospect            setDateRecontact()  Sets the current record's "date_recontact" value
  * @method Prospect            setCommentaire()    Sets the current record's "commentaire" value
+ * @method Prospect            setActivite()       Sets the current record's "activite" value
  * @method Prospect            setContacts()       Sets the current record's "Contacts" collection
  * 
  * @package    Annuaire
@@ -115,6 +118,10 @@ abstract class BaseProspect extends sfDoctrineRecord
              'type' => 'date',
              ));
         $this->hasColumn('commentaire', 'string', 4000, array(
+             'type' => 'string',
+             'length' => 4000,
+             ));
+        $this->hasColumn('activite', 'string', 4000, array(
              'type' => 'string',
              'length' => 4000,
              ));

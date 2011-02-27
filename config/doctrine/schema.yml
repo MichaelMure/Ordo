@@ -65,6 +65,7 @@ Prospect:
     a_rappeler:         { type: boolean, default: true }
     date_recontact:     { type: date }
     commentaire:        { type: string(4000) } # "Il faut parler fort, il est sourd", etc.
+    activite:           { type: string(4000) }
   relations:
     Contacts:           { class: Contact, local: id, foreign: prospect_id, type: many }
 

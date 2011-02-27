@@ -81,7 +81,7 @@ class prospectActions extends sfActions
     {
       $prospect = $form->save();
 
-      $this->redirect('prospect/show?id='.$prospect->getId());
+      $this->redirect('@prospect?action=show&id='.$prospect->getId());
     }
   }
 }
