@@ -21,5 +21,5 @@
   </tbody>
 </table>
 
-<p>Les cartes de visites sont au format vectoriel SVG et s'ouvre avec le logiciel libre Inkscape. <?php echo link_to('Télécharger Inkscape.', 'http://inkscape.org/download/?lang=fr') ?></p>
-<p>Le verso des cartes est commun à tout les cartes. <?php echo link_to('Télécharger le verso.', '@carte?action=verso') ?></p>
+<p>Les cartes de visites sont au format vectoriel SVG et s'ouvrent avec le logiciel libre Inkscape. <?php echo link_to('Télécharger Inkscape.', 'http://inkscape.org/download/?lang=fr') ?></p>
+<p>Le verso des cartes est commun à tout les cartes. <?php echo link_to('Télécharger le verso', '@carte?action=verso').'.' ?></p>
