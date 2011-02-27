@@ -24,6 +24,24 @@ carte.index:
   url:  /carte/
   param: { module: carte, action: index }
 
+## Prospect
+prospect:
+  url: /prospect/:action/*
+  param: { module: prospect }
+
+prospect.index:
+  url: /prospect/
+  param: { module: prospect, action: index }
+
+## Contact
+contact:
+  url: /contact/:action/*
+  param: { module: contact }
+
+contact.index:
+  url: /contact/
+  param: { module: contact, action: index }
+
 # generic rules
 # please, remove them by adding more specific rules
 #default_index:

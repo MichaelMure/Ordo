@@ -44,11 +44,12 @@
           </li>
           <li>Contact commerciaux
             <ul>
-              <li>Liste des prospects</li>
-              <li>Tout les appels</li>
-              <li>Tout les emails</li>
-              <li>Ajouter un contact</li>
-              <li>Indicateurs</li>
+              <li><?php echo link_to('Liste des prospects', '@prospect.index') ?></li>
+              <li><?php echo link_to('Ajouter un prospect', '@prospect?action=new') ?></li>
+              <li><?php echo link_to('Tout les appels', '@prospect.index') ?></li>
+              <li><?php echo link_to('Tout les emails', '@prospect.index') ?></li>
+              <li><?php echo link_to('Ajouter un contact', '@prospect.index') ?></li>
+              <li><?php echo link_to('Indicateurs', '@prospect.index') ?></li>
             </ul>
           </li>
           <li>Projets
