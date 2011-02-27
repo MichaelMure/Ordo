@@ -4,16 +4,16 @@
 # default rules
 homepage:
   url:   /
-  param: { module: membre, action: index }
+  param: { module: annuaire, action: index }
 
 ### Annuaire
 annuaire:
   url: /annuaire/:action/*
-  param: { module: membre }
+  param: { module: annuaire }
 
 annuaire.index:
   url:  /annuaire/
-  param: { module: membre, action: index }
+  param: { module: annuaire, action: index }
 
 ## Carte
 carte:

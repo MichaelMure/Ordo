@@ -32,7 +32,7 @@ function getClass($filiere)
   <tbody>
     <?php foreach ($membres as $membre): ?>
     <tr class='<?php echo $membre->getStatus() ?>'>
-      <td><?php if($user->isAdmin() || $membre->getId() == $user->getId()) echo link_to($membre->getPrenom().' '.$membre->getNom(), 'membre/show?id='.$membre->getId());
+      <td><?php if($user->isAdmin() || $membre->getId() == $user->getId()) echo link_to($membre->getPrenom().' '.$membre->getNom(), '@annuaire?action=show&id='.$membre->getId());
                 else echo $membre->getPrenom().' '.$membre->getNom(); ?></td>
       <td><?php echo $membre->getPoste() ?></td>
       <td><?php echo $membre->getTelMobile() ?></td>
@@ -44,4 +44,4 @@ function getClass($filiere)
   </tbody>
 </table>
 
-<a href="<?php echo url_for('membre/new') ?>">Ajouter un membre</a>
+<a href="<?php echo url_for('@annuaire?action=new') ?>">Ajouter un membre</a>
