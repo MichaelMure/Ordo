@@ -25,7 +25,6 @@ class contactActions extends sfActions
       ->orderBy('a.date')
       ->where('a.type_contact_id != 5')
       ->execute();
-    $this->setTemplate('index');
   }
 
   public function executeEmail(sfWebRequest $request)
@@ -35,7 +34,6 @@ class contactActions extends sfActions
       ->orderBy('a.date')
       ->where('a.type_contact_id = 5')
       ->execute();
-    $this->setTemplate('index');
   }
   
   public function executeShow(sfWebRequest $request)
@@ -50,7 +48,7 @@ class contactActions extends sfActions
     
     $form = new ContactForm();
     if($prospect_id   = $request->getParameter('prospect_id'))   $form->setDefault('prospect_id', $prospect_id);
-    if($type_appel_id = $request->getParameter('type_appel_id')) $form->setDefault('type_appel_id', $type_appel_id);
+    if($type_contact_id = $request->getParameter('type_contact_id')) $form->setDefault('type_contact_id', $type_contact_id);
 
     $form->setDefault('"membre_id', $this->user->getId());
 
@@ -147,7 +145,7 @@ class contactActions extends sfActions
     }
     else
       $query->limit(30);
-    $this->appels = $query->execute();
+    $this->contacts = $query->execute();
 
 
   }

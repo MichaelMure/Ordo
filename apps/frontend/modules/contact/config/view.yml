@@ -1,0 +1,2 @@
+all:
+  javascripts: [jquery.flot.selection.min.js, jquery.flot.min.js]
