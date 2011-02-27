@@ -12,4 +12,7 @@
  */
 class TypeContact extends BaseTypeContact
 {
+  public function __toString() {
+      return $this->getNom();
+  }
 }

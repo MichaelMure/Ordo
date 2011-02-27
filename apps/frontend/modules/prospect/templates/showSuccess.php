@@ -1,20 +1,14 @@
 <?php use_helper('Date') ?>
 
+<?php echo link_to('Ajouter un appel','@contact?action=new&type_contact_id=1&prospect_id='.$prospect->getId()) ?>
+<?php echo link_to('Ajouter un email','@contact?action=new&type_contact_id=4&prospect_id='.$prospect->getId()) ?>
 
-<a style="float:right; font-size:150%; color:red; " href="<?php echo url_for('@contact?action=new&type_contact_id=1&prospect_id=''.$prospect->getId()) ?>">Ajouter un appel</a>
-<br style="clear:both"/><a style="float:right; font-size:150%; color:red; " href="<?php echo url_for('@contact?action=new&type_contact_id=4&prospect_id=".$prospect->getId()) ?>">Ajouter un email</a>
 <h1><?php echo $prospect->getNom() ?></h1>
 
-<?php if($prospect->getAppels()->count()): ?>
-  <?php include_partial('contact/list', array('appels' => $prospect->getAppels())) ?>
+<?php if($prospect->getContacts()->count()): ?>
+  <?php include_partial('contact/list', array('appels' => $prospect->getContacts())) ?>
 <?php else: ?>
-  <div class="liste-appel"><b>Pas d'appels</b></div>
-<?php endif ?>
-
-<?php if($prospect->getEmails()->count()): ?>
-  <?php include_partial('contact/list', array("emails" => $prospect->getEmails())) ?>
-<?php else: ?>
-  <div class="liste-email"><b>Pas d'emails</b></div>
+  <div class="liste-contact"><b>Pas de contacts</b></div>
 <?php endif ?>
 
 

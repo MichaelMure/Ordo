@@ -4,4 +4,4 @@
 <?php include_partial("list", array("prospects" => $prospects)) ?>
 
 
-  <a href="<?php echo url_for('@prospect?action=new') ?>">Ajouter un prospects</a>
+<a href="<?php echo url_for('@prospect?action=new') ?>">Ajouter un prospects</a>

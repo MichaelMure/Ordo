@@ -46,10 +46,10 @@
             <ul>
               <li><?php echo link_to('Liste des prospects', '@prospect.index') ?></li>
               <li><?php echo link_to('Ajouter un prospect', '@prospect?action=new') ?></li>
-              <li><?php echo link_to('Tout les appels', '@prospect.index') ?></li>
-              <li><?php echo link_to('Tout les emails', '@prospect.index') ?></li>
-              <li><?php echo link_to('Ajouter un contact', '@prospect.index') ?></li>
-              <li><?php echo link_to('Indicateurs', '@prospect.index') ?></li>
+              <li><?php echo link_to('Tout les appels', '@contact?action=appel') ?></li>
+              <li><?php echo link_to('Tout les emails', '@contact?action=email') ?></li>
+              <li><?php echo link_to('Ajouter un contact', '@contact?action=new') ?></li>
+              <li><?php echo link_to('Indicateurs', '@contact?action=stats') ?></li>
             </ul>
           </li>
           <li>Projets

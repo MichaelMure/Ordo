@@ -12,4 +12,7 @@
  */
 class Contact extends BaseContact
 {
+  public function __toString() {
+    return $this->getProspect()->__toString();
+  }
 }
