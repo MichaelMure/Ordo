@@ -1,10 +1,11 @@
 # config/doctrine/schema.yml
 
+## Module Annuaire ##
 Membre:
   actAs: { Timestampable: ~ }
   columns:
-    username:               { type: string(50) }
-    passwd:                 { type: string(50), notnull:true }
+    username:            { type: string(50) }
+    passwd:              { type: string(50), notnull:true }
 
     # info Sec
     numero_etudiant:     { type: integer }
@@ -45,3 +46,42 @@ Membre:
     cotisation:          { type: boolean, default: false, notnull: true }
     
     status:              { type: enum, values: [Administrateur, Membre, Ancien], notnull: true, default: Membre }
+
+## Module Prospection ##
+Prospect:
+  actAs: { Timestampable: ~ }
+  columns:
+    nom:                { type: string(255), notnull: true }
+    contact:            { type: string(255) }
+    fonction:           { type: string(255) }
+    adresse:            { type: string(255) }
+    ville:              { type: string(255) }  # Pour les stats
+    cp:                 { type: string(255) }  # Pour les stats
+    tel_fixe:           { type: string(255) }  # et si plusieurs ? Mobile/fixe au moins
+    tel_portable:       { type: string(255) }
+    email:              { type: string(255) }
+    site_web:           { type: string(255) }
+    origine:            { type: string(255) }
+    a_rappeler:         { type: boolean, default: true }
+    date_recontact:     { type: date }
+    commentaire:        { type: string(4000) } # "Il faut parler fort, il est sourd", etc.
+  relations:
+    Contacts:           { class: Contact, local: id, foreign: prospect_id, type: many }
+
+Contact:
+  actAs: { Timestampable: ~ }
+  columns:
+    date:               { type: date, notnull: true }
+    commentaire:        { type: string(4000) }
+    prospect_id:        { type: integer, notnull: true }
+    membre_id:          { type: integer, notnull: true }
+    type_contact_id:    { type: integer, notnull: true }
+  relations:
+    Prospect:           { local: prospect_id,   foreign: id, type: one }
+    Membre:             { local: membre_id,     foreign: id, type: one }
+    TypeContact:        { local: type_contact_id, foreign: id, type: one }
+
+TypeContact:
+  columns:
+    nom:   { type: string(255) }
+    logo:  { type: string(255) }
