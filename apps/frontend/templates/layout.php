@@ -10,7 +10,7 @@
   <body>
     <div id="global">
       <div id="entete">
-        Annuaire IARISS
+        ERP IARISS
         <div id="login">
           <?php echo (isset($_SERVER['PHP_AUTH_USER']) && $user = Doctrine::getTable('Membre')
           ->createQuery('m')
