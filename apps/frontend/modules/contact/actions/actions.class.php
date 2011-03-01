@@ -104,9 +104,9 @@ class contactActions extends sfActions
   public function executeAjax(sfWebRequest $request)
   {
     $this->getResponse()->setContentType('application/json');
-    $request = Doctrine::getTable("Prospect")->createQuery()
-                  ->where("nom LIKE ?","%".$request->getParameter('q')."%")
-                  ->limit("10")
+    $request = Doctrine::getTable('Prospect')->createQuery()
+                  ->where('nom LIKE ?','%'.$request->getParameter('q').'%')
+                  ->limit('10')
                   ->execute()
                   ->getData();
   
