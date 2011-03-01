@@ -31,4 +31,18 @@ class ContactForm extends BaseContactForm
       'date_widget' => new sfWidgetFormDate(array("format" => '%day%/%month%/%year%')),
     ));
   }
+  
+  public function getJavascripts()
+  {
+    return array('jquery.ui.datepicker-fr.js',
+                 'jquery.flot.selection.min.js',
+                 'jquery.flot.min.js',
+                 'jquery-1.4.2.min.js',
+                 'jquery-ui-1.8.1.custom.min.js');
+  }
+  
+  public function getStylesheets()
+  {
+    return array('ui-lightness/jquery-ui-1.8.1.custom.css' => 'all');
+  }
 }

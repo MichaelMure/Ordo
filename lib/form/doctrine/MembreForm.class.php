@@ -33,8 +33,10 @@ class MembreForm extends BaseMembreForm
 
     $years = range(1970, 2000);
     $years_list = array_combine($years, $years);
-    $this->setWidget('date_naissance', new sfWidgetFormDate(array('years' => $years_list,
-                                                                  'format' => '%day% - %month% - %year%')));
+    $this->setWidget('date_naissance', new sfWidgetFormJQueryDate(array('image'=>'/images/calendar.png',
+                                                                        'culture'=>'fr',
+                                                                        'date_widget' => new sfWidgetFormDate(array("format" => '%day%/%month%/%year%')),
+                     )));
 
     $this->widgetSchema['nom']->setLabel('Nom (*)');
     $this->widgetSchema['prenom']->setLabel('Prénom (*)');
@@ -57,5 +59,19 @@ class MembreForm extends BaseMembreForm
 
     $this->widgetSchema->moveField('prenom', sfWidgetFormSchema::AFTER, 'nom');
     $this->widgetSchema->moveField('passwd', sfWidgetFormSchema::LAST);
+  }
+  
+  public function getJavascripts()
+  {
+    return array('jquery.ui.datepicker-fr.js',
+                 'jquery.flot.selection.min.js',
+                 'jquery.flot.min.js',
+                 'jquery-1.4.2.min.js',
+                 'jquery-ui-1.8.1.custom.min.js');
+  }
+  
+  public function getStylesheets()
+  {
+    return array('ui-lightness/jquery-ui-1.8.1.custom.css' => 'all');
   }
 }
