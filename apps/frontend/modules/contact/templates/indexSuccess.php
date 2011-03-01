@@ -6,9 +6,9 @@
           }
 ?></h1>
 
-<?php echo link_to('Afficher uniquement les mails', '@contact?action=index&filter=email') ?></br>
-<?php echo link_to('Afficher uniquement les appels', '@contact?action=index&filter=appel') ?></br>
-<?php echo link_to('Ne pas filtrer', '@contact?action=index') ?></br>
+<?php echo link_to('Afficher uniquement les mails', '@contact?action=index&filter=email') ?><br />
+<?php echo link_to('Afficher uniquement les appels', '@contact?action=index&filter=appel') ?><br />
+<?php echo link_to('Ne pas filtrer', '@contact?action=index') ?><br />
 
 <?php switch($filter)
       {

@@ -18,7 +18,7 @@
       <td><?php echo $prospect->getVille() ?></td>
       <td><?php echo $prospect->getTelFixe() ?></td>
       <td><?php echo $prospect->getLinkForSiteWeb(ESC_RAW) ?></td>
-      <td class="<?php echo ($prospect->getARappeler()) ? "oui" : "non" ?>"><?php echo ($prospect->getARappeler()) ? "oui" : "non" ?></td>
+      <td class='<?php echo ($prospect->getARappeler()) ? 'vert' : 'rouge' ?>'><?php echo ($prospect->getARappeler()) ? 'oui' : 'non' ?></td>
       <td><?php echo format_date($prospect->getDateRecontact()) ?></td>
     </tr>
     <?php endforeach; ?>
