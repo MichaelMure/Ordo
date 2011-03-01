@@ -16,7 +16,7 @@
           ->createQuery('m')
           ->select('m.nom, m.prenom, m.username')
           ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
-          ->execute()->getFirst()) ? $user : "Anonyme" ?>
+          ->execute()->getFirst()) ? $user.' ('.$user->getUsername().')' : "Anonyme" ?>
         </div>
       </div>
       <div id="navigation">

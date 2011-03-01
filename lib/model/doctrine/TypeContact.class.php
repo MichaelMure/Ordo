@@ -24,4 +24,13 @@ class TypeContact extends BaseTypeContact
                     ->getFirst()
                     ->getId();
   }
+  
+  public static function getAppelTypeId() {
+    return Doctrine::getTable('TypeContact')
+                    ->createQuery('a')
+                    ->where('a.nom = "Appel passé"')
+                    ->execute()
+                    ->getFirst()
+                    ->getId();
+  }
 }

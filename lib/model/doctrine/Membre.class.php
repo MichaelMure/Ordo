@@ -13,7 +13,10 @@
 class Membre extends BaseMembre
 {
   public function __toString() {
-    return $this->getPrenom().' '.$this->getNom().' ('.$this->getUsername().')';
+    if($this->getPrenom() != '' || $this->getNom() != '')
+      return $this->getPrenom().' '.$this->getNom();
+    else
+      return ' ('.$this->getUsername().')';
   }
   
   public function isAdmin() {

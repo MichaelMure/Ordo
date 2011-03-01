@@ -20,17 +20,16 @@ class contactActions extends sfActions
       ->orderBy('c.date DESC');
 
     $this->filter = 'index';
-    
-    $emailId = TypeContact::getEmailTypeId();
+
     switch($request->getParameter('filter'))
     {
       case 'email':
-        $query->where('c.type_contact_id = ?', array($emailId));
+        $query->where('c.type_contact_id = ?', TypeContact::getEmailTypeId());
         $this->filter = 'email';
         break;
 
       case 'appel':
-        $query->where('c.type_contact_id != ?', array($emailId));
+        $query->where('c.type_contact_id != ?', TypeContact::getEmailTypeId());
         $this->titre = 'appel';
         break;
     }
@@ -50,9 +49,17 @@ class contactActions extends sfActions
     
     $form = new ContactForm();
     if($prospect_id   = $request->getParameter('prospect_id'))   $form->setDefault('prospect_id', $prospect_id);
-    if($type_contact_id = $request->getParameter('type_contact_id')) $form->setDefault('type_contact_id', $type_contact_id);
+    switch($request->getParameter('type'))
+    {
+      case 'email':
+        $form->setDefault('type_contact_id', TypeContact::getEmailTypeId());
+        break;
+      case 'appel':
+        $form->setDefault('type_contact_id', TypeContact::getAppelTypeId());
+        break;
+    }
 
-    $form->setDefault('"membre_id', $this->user->getId());
+    $form->setDefault('membre_id', $this->user->getId());
 
     $this->form = $form;
   }
