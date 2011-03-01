@@ -15,4 +15,13 @@ class TypeContact extends BaseTypeContact
   public function __toString() {
       return $this->getNom();
   }
+  
+  public static function getEmailTypeId() {
+    return Doctrine::getTable('TypeContact')
+                    ->createQuery('a')
+                    ->where('a.nom = "Email"')
+                    ->execute()
+                    ->getFirst()
+                    ->getId();
+  }
 }

@@ -12,28 +12,30 @@ class contactActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->contacts = Doctrine::getTable('Contact')
-      ->createQuery('a')
-      ->orderBy('a.date')
-      ->execute();
-  }
+    $query = Doctrine_Query::create()
+      ->select('m.nom, m.prenom, m.id, m.username, t.nom, t.logo, c.date, c.commentaire')
+      ->from('Contact c')
+      ->leftJoin('c.TypeContact t')
+      ->leftJoin('c.Membre m')
+      ->orderBy('c.date DESC');
 
-  public function executeAppel(sfWebRequest $request)
-  {
-    $this->contacts = Doctrine::getTable('Contact')
-      ->createQuery('a')
-      ->orderBy('a.date')
-      ->where('a.type_contact_id != 4')
-      ->execute();
-  }
+    $this->filter = 'index';
+    
+    $emailId = TypeContact::getEmailTypeId();
+    switch($request->getParameter('filter'))
+    {
+      case 'email':
+        $query->where('c.type_contact_id = ?', array($emailId));
+        $this->filter = 'email';
+        break;
 
-  public function executeEmail(sfWebRequest $request)
-  {
-    $this->contacts = Doctrine::getTable('Contact')
-      ->createQuery('a')
-      ->orderBy('a.date')
-      ->where('a.type_contact_id = 4')
-      ->execute();
+      case 'appel':
+        $query->where('c.type_contact_id != ?', array($emailId));
+        $this->titre = 'appel';
+        break;
+    }
+
+    $this->contacts = $query->execute();
   }
   
   public function executeShow(sfWebRequest $request)
