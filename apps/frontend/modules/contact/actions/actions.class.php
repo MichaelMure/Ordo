@@ -40,7 +40,7 @@ class contactActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->contact = Doctrine::getTable('Contact')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->appel);
+    $this->forward404Unless($this->contact);
   }
 
   public function executeNew(sfWebRequest $request)

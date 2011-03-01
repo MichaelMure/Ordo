@@ -1,12 +1,12 @@
 <?php use_helper('Date') ?>
 
-<?php echo link_to('Ajouter un appel','@contact?action=new&type_contact_id=1&prospect_id='.$prospect->getId()) ?>
-<?php echo link_to('Ajouter un email','@contact?action=new&type_contact_id=4&prospect_id='.$prospect->getId()) ?>
+<?php echo link_to('Ajouter un appel','@contact?action=new&type=appel&prospect_id='.$prospect->getId()) ?>
+<?php echo link_to('Ajouter un email','@contact?action=new&type=email&prospect_id='.$prospect->getId()) ?>
 
 <h1><?php echo $prospect->getNom() ?></h1>
 
 <?php if($prospect->getContacts()->count()): ?>
-  <?php include_partial('contact/list', array('appels' => $prospect->getContacts())) ?>
+  <?php include_partial('contact/list', array('contacts' => $prospect->getContacts())) ?>
 <?php else: ?>
   <div class="liste-contact"><b>Pas de contacts</b></div>
 <?php endif ?>
