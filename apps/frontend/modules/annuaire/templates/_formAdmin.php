@@ -11,7 +11,7 @@
         <td colspan="2">
           &nbsp;<a href="<?php echo url_for('@annuaire?action=index') ?>">Retour à la liste des membres</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Supprimer le membre', '@annuaire?action=delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sûr ?')) ?>
+            &nbsp;<?php echo link_to('Supprimer le membre', '@annuaire?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sûr ?')) ?>
           <?php endif; ?>
           <input type="submit" value="Enregistrer" />
         </td>

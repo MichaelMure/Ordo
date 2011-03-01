@@ -129,7 +129,7 @@ class annuaireActions extends sfActions
     
     $membre->setStatus($status);
     $membre->save();
-    $this->redirect('membre/show?id='.$membre->getId());
+    $this->redirect('@annuaire?action=show&id='.$membre->getId());
   }
   
   public function executeUpdate(sfWebRequest $request)
@@ -166,7 +166,7 @@ class annuaireActions extends sfActions
     $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
     $membre->delete();
 
-    $this->redirect('membre/index');
+    $this->redirect('@annuaire.index');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
