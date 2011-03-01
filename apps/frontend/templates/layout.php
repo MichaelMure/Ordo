@@ -42,7 +42,7 @@
               <li><?php echo link_to('Ma carte', '@carte?action=recto&id='.$user->getId()) ?></li>
             </ul>
           </li>
-          <li>Contact commerciaux
+          <li>Contacts commerciaux
             <ul>
               <li><?php echo link_to('Liste des prospects', '@prospect.index') ?></li>
               <li><?php echo link_to('Ajouter un prospect', '@prospect?action=new') ?></li>
