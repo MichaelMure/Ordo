@@ -6,10 +6,10 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
-    #description:  symfony project
+    title:        ERP IARISS
+    description:  ERP simple pour la gestion de la Pépinière Junior-Entreprise IARISS
     #keywords:     symfony, project
-    #language:     en
+    language:     fr
     #robots:       index, follow
 
   stylesheets:    [main.css, ui-lightness/jquery-ui-1.8.1.custom.css]
