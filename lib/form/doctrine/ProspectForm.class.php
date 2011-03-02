@@ -12,6 +12,10 @@ class ProspectForm extends BaseProspectForm
 {
   public function configure()
   {
-      unset($this['created_at'], $this['updated_at']);
+    unset($this['created_at'], $this['updated_at']);
+
+    $this->widgetSchema['nom']->setLabel('Nom (*)');
+    $this->widgetSchema['cp']->setLabel('Code postal');
+    $this->widgetSchema['activite']->setLabel('Activité');
   }
 }
