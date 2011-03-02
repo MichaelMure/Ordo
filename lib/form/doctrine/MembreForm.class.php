@@ -35,7 +35,8 @@ class MembreForm extends BaseMembreForm
     $years_list = array_combine($years, $years);
     $this->setWidget('date_naissance', new sfWidgetFormJQueryDate(array('image'=>'/images/calendar.png',
                                                                         'culture'=>'fr',
-                                                                        'date_widget' => new sfWidgetFormDate(array("format" => '%day%/%month%/%year%')),
+                                                                        'date_widget' => new sfWidgetFormDate(array("format" => '%day%/%month%/%year%',
+                                                                                                                    'years' => $years_list))
                      )));
 
     $this->widgetSchema['nom']->setLabel('Nom (*)');
