@@ -21,10 +21,24 @@
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
       <tr>
+        <th><?php echo $form['prospect_id']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['prospect_id']->renderError() ?>
+          <?php echo $form['prospect_id'] ?>
+        </td>
+      </tr>
+      <tr>
         <th><?php echo $form['date']->renderLabel() ?></th>
         <td>
           <?php echo $form['date']->renderError() ?>
           <?php echo $form['date'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php echo $form['type_contact_id']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['type_contact_id']->renderError() ?>
+          <?php echo $form['type_contact_id'] ?>
         </td>
       </tr>
       <tr>
@@ -35,24 +49,10 @@
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['prospect_id']->renderLabel() ?></th>
-        <td>
-          <?php echo $form['prospect_id']->renderError() ?>
-          <?php echo $form['prospect_id'] ?>
-        </td>
-      </tr>
-      <tr>
         <th><?php echo $form['membre_id']->renderLabel() ?></th>
         <td>
           <?php echo $form['membre_id']->renderError() ?>
           <?php echo $form['membre_id'] ?>
-        </td>
-      </tr>
-      <tr>
-        <th><?php echo $form['type_contact_id']->renderLabel() ?></th>
-        <td>
-          <?php echo $form['type_contact_id']->renderError() ?>
-          <?php echo $form['type_contact_id'] ?>
         </td>
       </tr>
       <tr>
