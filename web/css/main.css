@@ -126,6 +126,11 @@ body {
 	line-height: 1.5;
 }
 
+/* Pager */
+#pager {
+  text-align: center;
+}
+
 /* Tableau */
 table {
 	border: thin solid #6495ed;

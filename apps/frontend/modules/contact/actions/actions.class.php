@@ -38,7 +38,10 @@ class contactActions extends sfActions
         break;
     }
 
-    $this->contacts = $query->execute();
+    $this->pager = new sfDoctrinePager('Contact', 15);
+    $this->pager->setQuery($query);
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->init();
   }
   
   public function executeShow(sfWebRequest $request)
