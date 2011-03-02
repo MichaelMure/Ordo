@@ -17,14 +17,6 @@ class prospectActions extends sfActions
       ->execute();
   }
 
-  public function executeIndexARappeler(sfWebRequest $request)
-  {
-    $this->prospects = Doctrine::getTable('Prospect')
-      ->createQuery('p')
-      ->where('p.a_rappeler = 1')
-      ->execute();
-  }
-
   public function executeShow(sfWebRequest $request)
   {
     $this->prospect = Doctrine::getTable('Prospect')->find(array($request->getParameter('id')));

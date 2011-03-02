@@ -13,7 +13,7 @@ class contactActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $query = Doctrine_Query::create()
-      ->select('m.nom, m.prenom, m.id, m.username, t.nom, t.logo, c.date, c.commentaire, p.nom')
+      ->select('m.nom, m.prenom, m.id, m.username, t.nom, t.logo, c.date, c.commentaire, p.nom, p.a_rappeler')
       ->from('Contact c')
       ->leftJoin('c.TypeContact t')
       ->leftJoin('c.Membre m')
@@ -182,7 +182,6 @@ class contactActions extends sfActions
       ->execute()->getFirst());
   }
 
-    
   public function executeSummary(sfWebRequest $request)
   {
     $this->processSummaryQueries();
