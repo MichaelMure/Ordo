@@ -12,6 +12,9 @@ class prospectActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $this->prospects = Doctrine::getTable('Prospect')
       ->createQuery('p')
       ->execute();
@@ -19,17 +22,26 @@ class prospectActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $this->prospect = Doctrine::getTable('Prospect')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->prospect);
   }
 
   public function executeNew(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $this->form = new ProspectForm();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
     $this->form = new ProspectForm();
@@ -41,6 +53,9 @@ class prospectActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $this->forward404Unless($prospect = Doctrine::getTable('Prospect')->find(array($request->getParameter('id'))), sprintf('Object prospect does not exist (%s).', $request->getParameter('id')));
     $this->form = new ProspectForm($prospect);
   }
@@ -58,6 +73,9 @@ class prospectActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $request->checkCSRFProtection();
 
     $this->forward404Unless($prospect = Doctrine::getTable('Prospect')->find(array($request->getParameter('id'))), sprintf('Object prospect does not exist (%s).', $request->getParameter('id')));

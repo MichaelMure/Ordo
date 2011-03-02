@@ -12,6 +12,9 @@ class contactActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $query = Doctrine_Query::create()
       ->select('m.nom, m.prenom, m.id, m.username, t.nom, t.logo, c.date, c.commentaire, p.nom, p.a_rappeler')
       ->from('Contact c')
@@ -40,6 +43,9 @@ class contactActions extends sfActions
   
   public function executeShow(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $this->contact = Doctrine::getTable('Contact')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->contact);
   }
@@ -47,6 +53,7 @@ class contactActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
     
     $form = new ContactForm();
     if($prospect_id   = $request->getParameter('prospect_id'))   $form->setDefault('prospect_id', $prospect_id);
@@ -78,12 +85,18 @@ class contactActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $this->forward404Unless($contact = Doctrine::getTable('Contact')->find(array($request->getParameter('id'))), sprintf('Object appel does not exist (%s).', $request->getParameter('id')));
     $this->form = new ContactForm($contact);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
     $this->forward404Unless($contact = Doctrine::getTable('Contact')->find(array($request->getParameter('id'))), sprintf('Object contact does not exist (%s).', $request->getParameter('id')));
     $this->form = new ContactForm($contact);
@@ -95,6 +108,9 @@ class contactActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless(!$this->user->isAncien());
+    
     $request->checkCSRFProtection();
 
     $this->forward404Unless($contact = Doctrine::getTable('Contact')->find(array($request->getParameter('id'))), sprintf('Object contact does not exist (%s).', $request->getParameter('id')));
