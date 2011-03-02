@@ -25,16 +25,14 @@ class contactActions extends sfActions
 
     $this->filter = 'index';
 
-    switch($request->getParameter('filter'))
+    switch($this->filter = $request->getParameter('filter'))
     {
       case 'email':
         $query->where('c.type_contact_id = ?', TypeContact::getEmailTypeId());
-        $this->filter = 'email';
         break;
 
       case 'appel':
         $query->where('c.type_contact_id != ?', TypeContact::getEmailTypeId());
-        $this->titre = 'appel';
         break;
     }
 
@@ -222,9 +220,10 @@ class contactActions extends sfActions
         //Set the From address with an associative array
         ->setFrom(array('presidence@iariss.fr' => 'Présidence IARISS'))
         //Set the To addresses with an associative array
-        ->setTo(array('presidence@iariss.fr' => 'Présidence IARISS'))
+        //->setTo(array('presidence@iariss.fr' => 'Présidence IARISS'))
+        ->setTo(array('m.mure@iariss.fr' => 'Michael Mure'))
         ->setBody('
-        Sur http://appel.iariss.fr/ , depuis 7 jours, soit entre
+        Sur http://erp.iariss.fr/ , depuis 7 jours, soit entre
  le '.strftime('%e/%m/%Y', time() - 7*24*3600).' et le '.strftime('%e/%m/%Y').' :
 - '.$this->appels_created.' appels ont été enregistrés,
 - '.($this->appels_updated - $this->appels_created).' appels ont été mis à jour,
@@ -234,7 +233,7 @@ class contactActions extends sfActions
       );
       $this->getMailer()->send($message);
 
-    $this->setTemplate('index');
+    $this->forward('contact','summary');
   }
 
   protected function processSummaryQueries()

@@ -15,11 +15,27 @@ class prospectActions extends sfActions
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless(!$this->user->isAncien());
   
-   $query = Doctrine_Query::create()
+    $query = Doctrine_Query::create()
       ->select('p.nom, p.contact, p.ville, p.tel_fixe, p.site_web, p.a_rappeler, p.date_recontact')
       ->from('Prospect p')
       ->orderBy('p.updated_at DESC');
 
+    $this->filter = 'index';
+
+    switch($this->filter = $request->getParameter('filter'))
+    {
+      case 'my':
+        $query->leftJoin('Contact c')
+              ->leftJoin('Membre m')
+              ->where('m.id = ?', array($this->user->getId()))
+              ->groupBy('p.nom');
+        break;
+
+      case 'recontact':
+        $query->where('p.a_rappeler = 1');
+        break;
+    }
+    
     $this->pager = new sfDoctrinePager('Prospect', 15);
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->setQuery($query);
