@@ -50,5 +50,14 @@ class Membre extends BaseMembre
     
     return parent::save($conn);
   }
+  
+  public static function getProfile($username)
+  {
+    return Doctrine::getTable('Membre')
+          ->createQuery('m')
+          ->select('m.id, m.status')
+          ->where('m.username = ?', $username)
+          ->execute()->getFirst();
+  }
 
 }

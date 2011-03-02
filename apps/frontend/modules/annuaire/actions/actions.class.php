@@ -12,7 +12,7 @@ class annuaireActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->getProfile($request);
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
 
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
@@ -24,7 +24,7 @@ class annuaireActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->getProfile($request);
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->membre);
     $this->forward404Unless($this->user->isAdmin() || ($this->user == $this->membre));
@@ -37,7 +37,7 @@ class annuaireActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->getProfile($request);
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless(!$this->user->isAncien());
     
     $this->form = new NewMembreForm();
@@ -56,7 +56,7 @@ class annuaireActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->getProfile($request);
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
 
     if($this->user->isAdmin())
@@ -79,7 +79,7 @@ class annuaireActions extends sfActions
 
   public function executeDocument(sfWebRequest $request)
   {
-    $this->getProfile($request);
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless(!$this->user->isAncien());
 
     if($this->user->isAdmin())
@@ -106,7 +106,7 @@ class annuaireActions extends sfActions
   
   public function executeUpdateMDP(sfWebRequest $request)
   {
-    $this->getProfile($request);
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     
     if(sha1($request->getParameter('ancien_mdp')) == $this->user->getPasswd())
     {
@@ -123,7 +123,7 @@ class annuaireActions extends sfActions
   public function executeStatus(sfWebRequest $request)
   {
     $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
-    $this->getProfile($request);
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless($this->user->isAdmin());
     $this->forward404Unless($status = $request->getParameter('status'));
     
@@ -136,7 +136,7 @@ class annuaireActions extends sfActions
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
     $this->forward404Unless($this->membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
-    $this->getProfile($request);
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
 
     if($this->user->isAdmin())
     {
@@ -232,15 +232,5 @@ class annuaireActions extends sfActions
         break;
     }
     $membre->save();
-  }
-  
-  protected function getProfile(sfWebRequest $request)
-  {
-    $this->forward404Unless(isset($_SERVER['PHP_AUTH_USER']));
-    $this->forward404Unless($this->user = Doctrine::getTable('Membre')
-      ->createQuery('m')
-      ->select('m.id, m.status')
-      ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
-      ->execute()->getFirst());
   }
 }

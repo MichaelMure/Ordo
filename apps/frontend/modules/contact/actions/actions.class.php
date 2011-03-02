@@ -46,7 +46,7 @@ class contactActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->getProfile($request);
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     
     $form = new ContactForm();
     if($prospect_id   = $request->getParameter('prospect_id'))   $form->setDefault('prospect_id', $prospect_id);
@@ -170,16 +170,6 @@ class contactActions extends sfActions
 
       $this->redirect('@contact?action=show&id='.$contact->getId());
     }
-  }
-
-  protected function getProfile(sfWebRequest $request)
-  {
-    $this->forward404Unless(isset($_SERVER['PHP_AUTH_USER']));
-    $this->forward404Unless($this->user = Doctrine::getTable('Membre')
-      ->createQuery('m')
-      ->select('m.id, m.status')
-      ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
-      ->execute()->getFirst());
   }
 
   public function executeSummary(sfWebRequest $request)
