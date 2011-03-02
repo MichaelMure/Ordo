@@ -26,6 +26,15 @@ class prospectActions extends sfActions
     $this->forward404Unless(!$this->user->isAncien());
     
     $this->prospect = Doctrine::getTable('Prospect')->find(array($request->getParameter('id')));
+    $this->contacts = Doctrine_Query::create()
+                      ->select('p.id, p.nom, p.a_rappeler, c.date, c.commentaire, m.nom, m.prenom, m.username, t.logo')
+                      ->from('Contact c')
+                      ->leftJoin('c.Prospect p')
+                      ->leftJoin('c.Membre m')
+                      ->leftJoin('c.TypeContact t')
+                      ->where('p.id = ?', array($this->prospect->getId()))
+                      ->execute();
+
     $this->forward404Unless($this->prospect);
   }
 

@@ -200,7 +200,7 @@ class contactActions extends sfActions
       
       $prospect->save();
 
-      $this->redirect('@contact?action=show&id='.$contact->getId());
+      $this->redirect('@prospect?action=show&id='.$contact->getProspectId());
     }
   }
 

@@ -5,8 +5,8 @@
 
 <h1><?php echo $prospect->getNom() ?></h1>
 
-<?php if($prospect->getContacts()->count()): ?>
-  <?php include_partial('contact/list', array('contacts' => $prospect->getContacts())) ?>
+<?php if($contacts->count()): ?>
+  <?php include_partial('contact/list', array('contacts' => $contacts)) ?>
 <?php else: ?>
   <div class="liste-contact"><b>Pas de contacts</b></div>
 <?php endif ?>
