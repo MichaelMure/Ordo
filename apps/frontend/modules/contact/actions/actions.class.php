@@ -156,11 +156,13 @@ class contactActions extends sfActions
         break;
       case 'day':
         $query->addgroupby('month');
-        $query->addgroupby('day');        
+        $query->addgroupby('day');
         break;
       case 'year':
+        break;
       default:
-        
+        $query->addgroupby('month');
+        $query->addgroupby('day');
         break;
     }
 
