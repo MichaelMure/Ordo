@@ -12,7 +12,7 @@
   <li><?php echo link_to('Ne pas filtrer', '@contact?action=index') ?></li>
 </ul>
 
-<?php echoAddLinks($filter) ?>
+
 <?php include_partial('commun/pager', array('pager' => $pager, 'route' => '@contact?action=index&filter='.$filter)) ?>
 <?php include_partial('contact/list', array('contacts' => $pager->getResults())) ?>
 <?php include_partial('commun/pager', array('pager' => $pager, 'route' => '@contact?action=index&filter='.$filter)) ?>

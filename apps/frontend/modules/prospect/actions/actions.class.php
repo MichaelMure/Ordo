@@ -14,10 +14,16 @@ class prospectActions extends sfActions
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless(!$this->user->isAncien());
-    
-    $this->prospects = Doctrine::getTable('Prospect')
-      ->createQuery('p')
-      ->execute();
+  
+   $query = Doctrine_Query::create()
+      ->select('p.nom, p.contact, p.ville, p.tel_fixe, p.site_web, p.a_rappeler, p.date_recontact')
+      ->from('Prospect p')
+      ->orderBy('p.updated_at DESC');
+
+    $this->pager = new sfDoctrinePager('Prospect', 15);
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->setQuery($query);
+    $this->pager->init();
   }
 
   public function executeShow(sfWebRequest $request)
