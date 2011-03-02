@@ -55,6 +55,20 @@
           <?php echo $form['type_contact_id'] ?>
         </td>
       </tr>
+      <tr>
+        <th><?php echo $form['a_recontacter']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['a_recontacter']->renderError() ?>
+          <?php echo $form['a_recontacter'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php echo $form['date_recontact']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['date_recontact']->renderError() ?>
+          <?php echo $form['date_recontact'] ?>
+        </td>
+      </tr>
     </tbody>
   </table>
 </form>

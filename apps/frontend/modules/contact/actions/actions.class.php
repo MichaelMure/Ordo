@@ -185,6 +185,20 @@ class contactActions extends sfActions
     if ($form->isValid())
     {
       $contact = $form->save();
+      $prospect = $contact->getProspect();
+      switch($form->getValue('a_recontacter'))
+      {
+        case 'Oui':
+          $prospect->setARappeler(true);
+          break;
+        case 'Non':
+          $prospect->setARappeler(false);
+          break;
+      }
+      
+      $prospect->setDateRecontact($form->getValue('date_recontact'));
+      
+      $prospect->save();
 
       $this->redirect('@contact?action=show&id='.$contact->getId());
     }

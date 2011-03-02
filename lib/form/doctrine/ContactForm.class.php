@@ -30,6 +30,16 @@ class ContactForm extends BaseContactForm
       'culture'=>'fr',
       'date_widget' => new sfWidgetFormDate(array('format' => '%day%/%month%/%year%')),
     ));
+    
+    $this->setWidget('a_recontacter', new sfWidgetFormChoice(array('choices' => array('Oui' => 'Oui', 'Non' => 'Non'))));
+    $this->setValidator('a_recontacter', new sfValidatorChoice(array('choices' => array(0 => 'Oui', 1 => 'Non'))));
+
+    $this->setWidget('date_recontact', new sfWidgetFormJQueryDate(array(
+      'image'=>'/images/calendar.png',
+      'culture'=>'fr',
+      'date_widget' => new sfWidgetFormDate(array('format' => '%day%/%month%/%year%')),
+    )));
+    $this->setValidator('date_recontact', new sfValidatorDate());
   }
   
   public function getJavascripts()

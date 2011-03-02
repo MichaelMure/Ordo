@@ -18,10 +18,10 @@
       <td><?php echo $contact->getMembre() ?></td>
     </tr>
     <tr>
-      <th>Type d'appel</th>
+      <th>Type de contact</th>
       <td>
-        <img src="/images/<?php echo $contact->getTypeAppel()->getLogo() ?>.png" />
-        <?php echo $contact->getTypeAppel() ?>
+        <img src="/images/<?php echo $contact->getTypeContact()->getLogo() ?>.png" />
+        <?php echo $contact->getTypeContact() ?>
       </td>
     </tr>
     <tr>
@@ -41,4 +41,3 @@
 &nbsp;
 <a href="<?php echo url_for('@prospect?action=show&id='.$contact->getProspectId()) ?>">Revenir au prospect</a>
 &nbsp;
-<!--<a href="<?php echo url_for('appel/index') ?>">Revenir à la liste de tous les appels</a>-->
