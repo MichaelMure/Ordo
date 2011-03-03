@@ -22,9 +22,10 @@ class prospectActions extends sfActions
 
     $this->filter = 'index';
 
-    switch($this->filter = $request->getParameter('filter'))
+    switch($request->getParameter('filter'))
     {
       case 'my':
+        $filter = 'my';
         $query->leftJoin('Contact c')
               ->leftJoin('Membre m')
               ->where('m.id = ?', array($this->user->getId()))
@@ -32,6 +33,7 @@ class prospectActions extends sfActions
         break;
 
       case 'recontact':
+        $filter = 'recontact';
         $query->where('p.a_rappeler = 1');
         break;
     }

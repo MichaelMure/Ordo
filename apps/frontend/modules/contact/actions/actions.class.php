@@ -25,13 +25,15 @@ class contactActions extends sfActions
 
     $this->filter = 'index';
 
-    switch($this->filter = $request->getParameter('filter'))
+    switch($request->getParameter('filter'))
     {
       case 'email':
+        $this->filter = 'email';
         $query->where('c.type_contact_id = ?', TypeContact::getEmailTypeId());
         break;
 
       case 'appel':
+        $this->filter = 'appel';
         $query->where('c.type_contact_id != ?', TypeContact::getEmailTypeId());
         break;
     }
