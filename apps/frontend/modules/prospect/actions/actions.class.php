@@ -36,7 +36,7 @@ class prospectActions extends sfActions
         break;
     }
     
-    $this->pager = new sfDoctrinePager('Prospect', 15);
+    $this->pager = new sfDoctrinePager('Prospect', 25);
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->setQuery($query);
     $this->pager->init();

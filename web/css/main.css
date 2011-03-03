@@ -126,9 +126,46 @@ body {
 	line-height: 1.5;
 }
 
+#contenu ul {
+  padding: 5px;
+  margin: 0px;
+}
+
 /* Pager */
 #pager {
   text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+#pager li {
+  list-style: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline;
+}
+
+#pager a {
+  text-decoration: none;
+}
+
+#pager li:hover, #navigation li:focus {
+	background: #6DB568;
+}
+
+#pager #page {
+  color: #E83C31;
+  border: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #cbd888;
+  background-image:url('../images/fond1.png');
+}
+
+#pager .pagerclear {
+  border: none;
+  background: #cbd888;
+  background-image:url('../images/fond1.png');
 }
 
 /* Tableau */

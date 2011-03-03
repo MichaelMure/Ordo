@@ -36,7 +36,7 @@ class contactActions extends sfActions
         break;
     }
 
-    $this->pager = new sfDoctrinePager('Contact', 15);
+    $this->pager = new sfDoctrinePager('Contact', 25);
     $this->pager->setQuery($query);
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
@@ -220,8 +220,7 @@ class contactActions extends sfActions
         //Set the From address with an associative array
         ->setFrom(array('presidence@iariss.fr' => 'Présidence IARISS'))
         //Set the To addresses with an associative array
-        //->setTo(array('presidence@iariss.fr' => 'Présidence IARISS'))
-        ->setTo(array('m.mure@iariss.fr' => 'Michael Mure'))
+        ->setTo(array('presidence@iariss.fr' => 'Présidence IARISS'))
         ->setBody('
         Sur http://erp.iariss.fr/ , depuis 7 jours, soit entre
  le '.strftime('%e/%m/%Y', time() - 7*24*3600).' et le '.strftime('%e/%m/%Y').' :
