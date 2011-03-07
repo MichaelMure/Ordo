@@ -18,6 +18,13 @@ class Membre extends BaseMembre
     else
       return ' ('.$this->getUsername().')';
   }
+
+  public function getFullString() {
+    if($this->getPrenom() != '' || $this->getNom() != '')
+      return $this->getPrenom().' '.$this->getNom().' ('.$this->getUsername().')';
+    else
+      return ' ('.$this->getUsername().')';
+  }
   
   public function isAdmin() {
     return ($this->getStatus()=='Administrateur');
