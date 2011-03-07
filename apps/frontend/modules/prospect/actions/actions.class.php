@@ -26,8 +26,8 @@ class prospectActions extends sfActions
     {
       case 'my':
         $filter = 'my';
-        $query->leftJoin('Contact c')
-              ->leftJoin('Membre m')
+        $query->leftJoin('p.Contacts c')
+              ->leftJoin('c.Membre m')
               ->where('m.id = ?', array($this->user->getId()))
               ->groupBy('p.nom');
         break;
