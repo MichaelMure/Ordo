@@ -16,9 +16,8 @@
 
 /* Général */
 body {
-	color: #F0E39E;
 	background: #2C2F22;
-  background-image:url('../images/fond2.png');
+	background-image:url('../images/fond2.png');
 }
 a {
 	color: #FF6533;
