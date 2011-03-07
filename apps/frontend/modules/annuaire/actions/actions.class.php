@@ -101,22 +101,25 @@ class annuaireActions extends sfActions
   
   public function executeChangeMDP(sfWebRequest $request)
   {
-    $this->form = new PasswordMembreForm();
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->form = new PasswordMembreForm($this->user);
   }
   
   public function executeUpdateMDP(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
-    
-    if(sha1($request->getParameter('ancien_mdp')) == $this->user->getPasswd())
-    {
-      $this->user->setPasswd($request->getParameter('nouveau_mdp'));
-      $this->user->save();
-      $this->redirect('@annuaire?action=show&id='.$this->user->getId());
-    }
 
-    $this->error = 'L\'ancien mot de passe rentré ne correspond pas.';
-    $this->form = new PasswordMembreForm();
+    $this->form = new PasswordMembreForm($this->user);
+    
+    $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+
+    if ($this->form->isValid())
+    {
+      $membre = $this->form->save();
+
+      $this->redirect('@annuaire?action=show&id='.$membre->getId());
+    }
+    
     $this->setTemplate('changeMDP');
   }
   
