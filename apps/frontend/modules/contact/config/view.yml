@@ -1,0 +1,7 @@
+statsSuccess:
+  javascripts:
+    - jquery-1.4.2.min.js
+    - jquery.flot.min.js
+    - jquery.flot.selection.min.js
+    - excanvas.min.js: { condition: IE }
+

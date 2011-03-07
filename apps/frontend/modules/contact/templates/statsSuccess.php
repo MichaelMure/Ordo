@@ -1,7 +1,3 @@
-<?php echo javascript_include_tag('jquery-1.4.2.min.js') ?>
-<?php echo javascript_include_tag('jquery.flot.min.js') ?>
-<?php echo javascript_include_tag('jquery.flot.selection.min.js') ?>
-
 <div id="placeholder" style="width:600px;height:300px;"></div> 
 
 <?php echo link_to('Par année', '@contact?action=stats&by=year') ?> - 
