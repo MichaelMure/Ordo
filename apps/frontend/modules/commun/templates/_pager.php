@@ -1,3 +1,4 @@
+<?php if($pager->haveToPaginate()) : ?>
 <?php $route = htmlspecialchars_decode($route); ?>
 <ul class="pager">
   <?php if($pager->getPage() > $pager->getFirstPage()): ?>
@@ -46,3 +47,4 @@
   <li class="pagerlink"><?php echo link_to('Suivant', $route.'&page='.$pager->getNextPage() ) ?></li>
   <?php endif ?>
 </ul>
+<?php endif ?>
