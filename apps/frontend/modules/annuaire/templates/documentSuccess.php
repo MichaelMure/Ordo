@@ -16,7 +16,7 @@
   <tbody>
     <?php foreach ($membres as $membre): ?>
     <tr>
-      <td><?php if($user->isAdmin() || $membre->getId() == $user->getId()) echo link_to($membre->getPrenom().' '.$membre->getNom(), '@annuaire?action=show?id='.$membre->getId());
+      <td><?php if($user->isAdmin() || $membre->getId() == $user->getId()) echo link_to($membre->getPrenom().' '.$membre->getNom(), '@annuaire?action=show&id='.$membre->getId());
                 else echo $membre->getPrenom().' '.$membre->getNom(); ?></td>
       <td><?php echo $membre->getTelMobile() ?></td>
       <td class='<?php echo $membre->getcarteId() ? 'vert' : 'rouge' ?>'><?php echo $membre->getcarteId() ? 'oui' : 'non' ?></td>
