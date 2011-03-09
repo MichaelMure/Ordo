@@ -9,18 +9,25 @@ O) Framework
   La bdd se configure avec la commande suivante:
   ./symfony configure:database "mysql:host=localhost;dbname=dbname" root mYsEcret
 
-2) Données par défaut
+2) Authentification
+  L'authentification des utilisateurs se fait par le plugin apache mod_auth_mysql (voir INSTALL).
+  Par conséquent:
+    - seul les membres déjà enregistré peuvent donner accès à la création d'autres utilisateurs
+    - il n'est pas possible de se déconnecter. Pour les machine partagées, il faut utiliser le mode de
+      navigation privée des navigateurs.
+
+3) Données par défaut
   Les données par défaut sont situé dans le repertoire data/fixtures
   Elle sont chargées avec la commande:
   ./symfony doctrine:data-load
 
-3) Modules
+4) Modules
   a) Annuaire
-  La gestion des droits du visiteur se fait grace dans le contrôleur grâce à la fonction suivante:
+  La gestion des droits du visiteur se fait dans le contrôleur grâce à la fonction suivante:
   $this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER'])
 
   Le visiteur est reconnu d'après les identifiants qu'il donne au server web. C'est apache qui vérifie
-  qu'il a le droit d'acceder au site. Le profile est chargé dans la variable $this->user (et donc est
+  qu'il a le droit d'acceder au site. Le profil est chargé dans la variable $this->user (et donc est
   disponible dans le template). Le statuts du visiteur peut être vérifié grace aux fonction du modèle
   comme $this->user->isAdmin().
 
@@ -31,7 +38,7 @@ O) Framework
   apps/frontend/modules/carte/templates/versoSuccess.php.
 
   c) Commun
-  Ce module contient des éléments commun aux différent module. Au moment de la rédaction de ce document,
+  Ce module contient des éléments communs aux différents modules. Au moment de la rédaction de ce document,
   le seul élément est le partial qui génère les liens de page pour le pager.
 
   d) Prospect
@@ -42,7 +49,7 @@ O) Framework
   Ce module comporte une fonctionalité "caché". L'action Summary fournis un résumé des changements dans les modules Contact et Prospect dans la dernière semaine. L'action SummaryEmail permet d'envoyer ces informations à des emails particuliers. Le but est de faire effectuer cette action par un cron sur le
   serveur.
 
-4) Contributeurs
+5) Contributeurs
   - développeurs:
     Michael Muré -- batolettre@gmail.com -- développeur principal
     Théophile Helleboid
