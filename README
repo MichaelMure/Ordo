@@ -46,7 +46,9 @@ O) Framework
 
   c) Contact
   Ce module comporte une page indicateur qui fonctionne grâce à de l'AJAX (action executeAjax(...))
-  Ce module comporte une fonctionalité "caché". L'action Summary fournis un résumé des changements dans les modules Contact et Prospect dans la dernière semaine. L'action SummaryEmail permet d'envoyer ces informations à des emails particuliers. Le but est de faire effectuer cette action par un cron sur le
+  Ce module comporte une fonctionalité "caché". L'action Summary fournis un résumé des changements dans
+  les modules Contact et Prospect dans la dernière semaine. L'action SummaryEmail permet d'envoyer ces
+  informations à des emails particuliers. Le but est de faire effectuer cette action par un cron sur le
   serveur.
 
 5) Contributeurs
