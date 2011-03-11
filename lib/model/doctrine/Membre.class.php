@@ -66,5 +66,25 @@ class Membre extends BaseMembre
           ->where('m.username = ?', $username)
           ->execute()->getFirst();
   }
+  
+  static public function retrieveSuggestions($q, $l,$c)
+  {
+    $membres = Doctrine_Query::create()
+            ->select('m.*,LOCATE(:token_raw,m.nom) AS index')
+            ->from('Membre m')
+            ->where('t.nom LIKE :token')
+            ->orderBy('index')
+            ->limit($l)
+            ->execute(array('token_raw' => $q , 'token' => '%'.$q.'%'));
+ 
+    $jsonMembres = array();
+    
+    foreach ($membres as $membre)
+    {
+      $jsonMembres[] =array('caption' => (string) $membre->Translation[$culture]->nom,'value'=> $membre->getPrimaryKey()) ;
+    }
+    return $jsonMembres;
+  }
+
 
 }

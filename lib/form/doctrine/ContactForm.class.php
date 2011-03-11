@@ -11,7 +11,9 @@
 class ContactForm extends BaseContactForm
 {
   public function configure()
-  {    
+  {
+    sfContext::getInstance()->getConfiguration()->loadHelpers('Url');
+
     unset($this['created_at'], $this['updated_at']);
     
     $this->widgetSchema['type_contact_id'] = new sfWidgetFormDoctrineChoice(array(
@@ -22,7 +24,7 @@ class ContactForm extends BaseContactForm
     $this->widgetSchema['prospect_id']->setOption('renderer_class', 'sfWidgetFormDoctrineJQueryAutocompleter');
     $this->widgetSchema['prospect_id']->setOption('renderer_options', array(
       'model' => 'Prospect',
-      'url'   => 'ajax'
+      'url'   => url_for('@prospect?action=ajax')
     ));
 
     $this->widgetSchema['date'] = new sfWidgetFormJQueryDate(array(

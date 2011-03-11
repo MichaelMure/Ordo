@@ -35,6 +35,31 @@ class annuaireActions extends sfActions
       $this->devalider($request, $this->membre);
   }
 
+  public function executeAjax(sfWebRequest $request)
+  {
+    $this->getResponse()->setContentType('application/json');
+    $request = Doctrine::getTable('Membre')->createQuery()
+                  ->where('nom LIKE ?','%'.$request->getParameter('q').'%')
+                  ->limit('10')
+                  ->execute()
+                  ->getData();
+  
+    $membres = array();
+    foreach ( $request as $membre )
+      $membres[$membre->id] = (string) $membre;
+    
+    return $this->renderText(json_encode($membres));
+  }
+  
+  public function executeAutocomplete(sfWebRequest $request)
+  {
+    $this->getResponse()->setHttpHeader('Content-Type','application/json; charset=utf-8');
+
+    $tags = Membre::retrieveSuggestions($request->getParameter('q'), $request->getParameter('l'),$request->getParameter('c'));
+
+    return $this->renderText(json_encode($tags));
+  }
+  
   public function executeNew(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));

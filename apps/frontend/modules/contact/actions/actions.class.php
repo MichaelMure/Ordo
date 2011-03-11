@@ -121,21 +121,6 @@ class contactActions extends sfActions
 
     $this->redirect('@contact');
   }
-  public function executeAjax(sfWebRequest $request)
-  {
-    $this->getResponse()->setContentType('application/json');
-    $request = Doctrine::getTable('Prospect')->createQuery()
-                  ->where('nom LIKE ?','%'.$request->getParameter('q').'%')
-                  ->limit('10')
-                  ->execute()
-                  ->getData();
-  
-    $entreprises = array();
-    foreach ( $request as $entreprise )
-      $entreprises[$entreprise->id] = (string) $entreprise;
-    
-    return $this->renderText(json_encode($entreprises));
-  }
 
   public function executeStats(sfWebRequest $request)
   {

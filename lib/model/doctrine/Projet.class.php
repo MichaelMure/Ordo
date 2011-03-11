@@ -12,4 +12,9 @@
  */
 class Projet extends BaseProjet
 {
+  
+  public function getRespo()
+  {
+    return $this->getMembre();
+  }
 }

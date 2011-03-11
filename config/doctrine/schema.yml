@@ -94,20 +94,22 @@ TypeContact:
 Projet:
   actAs: { Timestampable: ~ , SoftDelete: ~}
   columns:
-    numero:             { type: integer }
-    nom:                { type: string(50) }
+    numero:             { type: integer, notnull: true}
+    nom:                { type: string(50), notnull: true }
     date_debut:         { type: date, notnull: true }
     date_cloture:       { type: date }
 
+    respo_id:           { type: integer, notnull: true }
     prospect_id:        { type: integer, notnull: true }
-    respo_id:           { type: integer }
 
   relations:
+    Membre:             { local: respo_id, foreign: id, type: one }
     Prospect:           { local: prospect_id, foreign: id, type: one }
     Participants:       { class: Membre, refClass: LienMembreProjet, local: projet_id, foreign: membre_id }
 
 LienMembreProjet:
   columns:
+    role:               { type: enum, values: [Intervenant, Commercial, Contact, Redacteur], notnull: true }
     projet_id:          { type: integer, notnull: true }
     membre_id:          { type: integer, notnull: true }
 

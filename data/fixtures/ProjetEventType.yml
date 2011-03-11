@@ -50,3 +50,6 @@ ProjetEventType:
   ProjetEventType_18:
     abreviation: LMD
     description: Lettre de mise en demeure
+  ProjetEventType_19:
+    abreviation: QS
+    description: Questionnaire satisfaction

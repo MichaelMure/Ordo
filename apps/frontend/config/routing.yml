@@ -42,6 +42,16 @@ contact.index:
   url: /contact/
   param: { module: contact, action: index }
 
+## Projet
+projet:
+  url: /projet/:action/*
+  param: { module: projet }
+
+projet.index:
+  url: /projet/
+  param: { module: projet, action: index }
+  
+  
 # generic rules
 # please, remove them by adding more specific rules
 #default_index:
