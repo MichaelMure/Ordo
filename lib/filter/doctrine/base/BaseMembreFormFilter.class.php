@@ -44,6 +44,7 @@ abstract class BaseMembreFormFilter extends BaseFormFilterDoctrine
       'status'              => new sfWidgetFormChoice(array('choices' => array('' => '', 'Administrateur' => 'Administrateur', 'Membre' => 'Membre', 'Ancien' => 'Ancien'))),
       'created_at'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'projets_list'        => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Projet')),
     ));
 
     $this->setValidators(array(
@@ -78,6 +79,7 @@ abstract class BaseMembreFormFilter extends BaseFormFilterDoctrine
       'status'              => new sfValidatorChoice(array('required' => false, 'choices' => array('Administrateur' => 'Administrateur', 'Membre' => 'Membre', 'Ancien' => 'Ancien'))),
       'created_at'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'projets_list'        => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Projet', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('membre_filters[%s]');
@@ -87,6 +89,24 @@ abstract class BaseMembreFormFilter extends BaseFormFilterDoctrine
     $this->setupInheritance();
 
     parent::setup();
+  }
+
+  public function addProjetsListColumnQuery(Doctrine_Query $query, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $query
+      ->leftJoin($query->getRootAlias().'.LienMembreProjet LienMembreProjet')
+      ->andWhereIn('LienMembreProjet.projet_id', $values)
+    ;
   }
 
   public function getModelName()
@@ -129,6 +149,7 @@ abstract class BaseMembreFormFilter extends BaseFormFilterDoctrine
       'status'              => 'Enum',
       'created_at'          => 'Date',
       'updated_at'          => 'Date',
+      'projets_list'        => 'ManyKey',
     );
   }
 }

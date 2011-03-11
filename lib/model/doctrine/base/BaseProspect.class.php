@@ -21,6 +21,7 @@
  * @property string $commentaire
  * @property string $activite
  * @property Doctrine_Collection $Contacts
+ * @property Doctrine_Collection $Projet
  * 
  * @method string              getNom()            Returns the current record's "nom" value
  * @method string              getContact()        Returns the current record's "contact" value
@@ -38,6 +39,7 @@
  * @method string              getCommentaire()    Returns the current record's "commentaire" value
  * @method string              getActivite()       Returns the current record's "activite" value
  * @method Doctrine_Collection getContacts()       Returns the current record's "Contacts" collection
+ * @method Doctrine_Collection getProjet()         Returns the current record's "Projet" collection
  * @method Prospect            setNom()            Sets the current record's "nom" value
  * @method Prospect            setContact()        Sets the current record's "contact" value
  * @method Prospect            setFonction()       Sets the current record's "fonction" value
@@ -54,6 +56,7 @@
  * @method Prospect            setCommentaire()    Sets the current record's "commentaire" value
  * @method Prospect            setActivite()       Sets the current record's "activite" value
  * @method Prospect            setContacts()       Sets the current record's "Contacts" collection
+ * @method Prospect            setProjet()         Sets the current record's "Projet" collection
  * 
  * @package    Annuaire
  * @subpackage model
@@ -131,6 +134,10 @@ abstract class BaseProspect extends sfDoctrineRecord
     {
         parent::setUp();
         $this->hasMany('Contact as Contacts', array(
+             'local' => 'id',
+             'foreign' => 'prospect_id'));
+
+        $this->hasMany('Projet', array(
              'local' => 'id',
              'foreign' => 'prospect_id'));
 

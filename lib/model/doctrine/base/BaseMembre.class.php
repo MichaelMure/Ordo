@@ -34,7 +34,9 @@
  * @property boolean $convention_etudiant
  * @property boolean $cotisation
  * @property enum $status
+ * @property Doctrine_Collection $Projets
  * @property Doctrine_Collection $Contact
+ * @property Doctrine_Collection $ProjetEvent
  * 
  * @method string              getUsername()            Returns the current record's "username" value
  * @method string              getPasswd()              Returns the current record's "passwd" value
@@ -65,7 +67,9 @@
  * @method boolean             getConventionEtudiant()  Returns the current record's "convention_etudiant" value
  * @method boolean             getCotisation()          Returns the current record's "cotisation" value
  * @method enum                getStatus()              Returns the current record's "status" value
+ * @method Doctrine_Collection getProjets()             Returns the current record's "Projets" collection
  * @method Doctrine_Collection getContact()             Returns the current record's "Contact" collection
+ * @method Doctrine_Collection getProjetEvent()         Returns the current record's "ProjetEvent" collection
  * @method Membre              setUsername()            Sets the current record's "username" value
  * @method Membre              setPasswd()              Sets the current record's "passwd" value
  * @method Membre              setNumeroEtudiant()      Sets the current record's "numero_etudiant" value
@@ -95,7 +99,9 @@
  * @method Membre              setConventionEtudiant()  Sets the current record's "convention_etudiant" value
  * @method Membre              setCotisation()          Sets the current record's "cotisation" value
  * @method Membre              setStatus()              Sets the current record's "status" value
+ * @method Membre              setProjets()             Sets the current record's "Projets" collection
  * @method Membre              setContact()             Sets the current record's "Contact" collection
+ * @method Membre              setProjetEvent()         Sets the current record's "ProjetEvent" collection
  * 
  * @package    Annuaire
  * @subpackage model
@@ -259,7 +265,16 @@ abstract class BaseMembre extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasMany('Projet as Projets', array(
+             'refClass' => 'LienMembreProjet',
+             'local' => 'membre_id',
+             'foreign' => 'projet_id'));
+
         $this->hasMany('Contact', array(
+             'local' => 'id',
+             'foreign' => 'membre_id'));
+
+        $this->hasMany('ProjetEvent', array(
              'local' => 'id',
              'foreign' => 'membre_id'));
 

@@ -1,0 +1,52 @@
+ProjetEventType:
+  ProjetEventType_1:
+    abreviation: 
+    description: Commentaire
+  ProjetEventType_2:
+    abreviation: 
+    description: Devis
+  ProjetEventType_3:
+    abreviation: AP
+    description: Avant-projet
+  ProjetEventType_4:
+    abreviation: COC
+    description: Convention client
+  ProjetEventType_5:
+    abreviation: FACAC
+    description: Facture d'acompte
+  ProjetEventType_6:
+    abreviation: PFACAC
+    description: Paiement de la facture d'acompte
+  ProjetEventType_7:
+    abreviation: OM
+    description: Ordre de mission
+  ProjetEventType_8:
+    abreviation: ACOC
+    description: Avenant à la convention client
+  ProjetEventType_9:
+    abreviation: AOM
+    description: Avenant à l'ordre de mission
+  ProjetEventType_10:
+    abreviation: PVR
+    description: Procès verbal de recette
+  ProjetEventType_11:
+    abreviation: FAC
+    description: Facture
+  ProjetEventType_12:
+    abreviation: PFAC
+    description: Paiement de la facture
+  ProjetEventType_13:
+    abreviation: RP
+    description: Rapport pédagogique
+  ProjetEventType_14:
+    abreviation: AFM
+    description: Attestation de fin de mission
+  ProjetEventType_15:
+    abreviation: BV
+    description: Bulletin de versement
+  ProjetEventType_17:
+    abreviation: LR
+    description: Lettre de relance de paiement
+  ProjetEventType_18:
+    abreviation: LMD
+    description: Lettre de mise en demeure

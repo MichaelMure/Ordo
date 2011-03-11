@@ -47,6 +47,9 @@ Membre:
     
     status:              { type: enum, values: [Administrateur, Membre, Ancien], notnull: true, default: Membre }
 
+  relations:
+    Projets:             { class: Projet, refClass: LienMembreProjet, local: membre_id, foreign: projet_id }
+
 ## Module Prospection ##
 Prospect:
   actAs: { Timestampable: ~ }
@@ -86,3 +89,42 @@ TypeContact:
   columns:
     nom:   { type: string(255) }
     logo:  { type: string(255) }
+
+## Module Projet ##
+Projet:
+  actAs: { Timestampable: ~ , SoftDelete: ~}
+  columns:
+    numero:             { type: integer }
+    nom:                { type: string(50) }
+    date_debut:         { type: date, notnull: true }
+    date_cloture:       { type: date }
+
+    prospect_id:        { type: integer, notnull: true }
+    respo_id:           { type: integer }
+
+  relations:
+    Prospect:           { local: prospect_id, foreign: id, type: one }
+    Participants:       { class: Membre, refClass: LienMembreProjet, local: projet_id, foreign: membre_id }
+
+LienMembreProjet:
+  columns:
+    projet_id:          { type: integer, notnull: true }
+    membre_id:          { type: integer, notnull: true }
+
+ProjetEvent:
+  actAs: { Timestampable: ~ }
+  columns:
+    commentaire:        { type: string(4000) }
+    type_id:            { type: integer, notnull: true }
+    membre_id:          { type: integer, notnull: true }
+    projet_id:          { type: integer, notnull: true }
+  relations:
+    ProjetEventType:    { local: type_id, foreign: id, type: one }
+    Membre:             { local: membre_id, foreign: id, type: one }
+    Projet:             { local: projet_id, foreign: id, type: one }
+
+ProjetEventType:
+  columns:
+    abreviation:        { type: string(10) }
+    description:        { type: string(50) }
+
