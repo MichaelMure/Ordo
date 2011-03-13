@@ -29,6 +29,24 @@
 <h2>Commentaire</h2>
 <?php echo $projet->getRawValue()->getCommentaire() ?>
 
+<h2>Participants</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Membre</th>
+      <th>Rôle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <?php foreach ($participants as $participant): ?>
+      <td><?php echo $participant->getMembre() ?></td>
+      <td><?php echo $participant->getRole() ?></td>
+      <?php endforeach; ?>
+    </tr>
+  </tbody>
+</table>
+
 <h2>Évenements</h2>
 <ul id='projetEvent'>
   <?php foreach ($events as $event): ?>

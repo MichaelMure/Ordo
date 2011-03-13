@@ -31,4 +31,14 @@ class Projet extends BaseProjet
   {
     return '';
   }
+  
+  public static function getAllParticipants($projetId)
+  {
+    return Doctrine_Core::getTable('LienMembreProjet')
+      ->createQuery('l')
+      ->select('m.id, m.nom, m.prenom, m.username, l.role')
+      ->leftJoin('l.Membre m')
+      ->where('l.projet_id = ?', array($projetId))
+      ->execute();
+  }
 }

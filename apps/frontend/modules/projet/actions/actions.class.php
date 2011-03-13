@@ -31,7 +31,9 @@ class projetActions extends sfActions
       ->leftJoin('a.Prospect p')
       ->leftJoin('a.Membre m')
       ->where('a.id = ?', array($request->getParameter('id')))
-      ->execute()->getFirst();    
+      ->execute()->getFirst();
+    
+    $this->participants = Projet::getAllParticipants($request->getParameter('id'));
     
     $this->forward404Unless($this->projet);
     $this->events = Doctrine_Core::getTable('ProjetEvent')

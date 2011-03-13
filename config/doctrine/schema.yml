@@ -114,6 +114,8 @@ LienMembreProjet:
     role:               { type: enum, values: [Intervenant, Commercial, Contact, Redacteur], notnull: true }
     projet_id:          { type: integer, notnull: true }
     membre_id:          { type: integer, notnull: true }
+  relations:
+    Membre:             { local: membre_id, foreign: id, type: one }
 
 ProjetEvent:
   actAs: { Timestampable: ~ }
