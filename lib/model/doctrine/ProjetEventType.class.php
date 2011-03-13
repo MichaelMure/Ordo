@@ -12,4 +12,7 @@
  */
 class ProjetEventType extends BaseProjetEventType
 {
+  public function __toString() {
+    return $this->getAbreviation();
+  }
 }

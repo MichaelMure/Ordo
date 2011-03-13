@@ -21,11 +21,17 @@ class projetActions extends sfActions
       ->execute();
   }
 
-
   public function executeShow(sfWebRequest $request)
   {
     $this->projet = Doctrine_Core::getTable('Projet')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->projet);
+    $this->events = Doctrine_Core::getTable('ProjetEvent')
+      ->createQuery('e')
+      ->select('e.commentaire, t.abreviation, t.description, m.id, m.nom, m.prenom, m.username')
+      ->leftJoin('e.ProjetEventType t')
+      ->leftJoin('e.Membre m')
+      ->where('e.projet_id = ?', array($request->getParameter('id')))
+      ->execute();
   }
 
   public function executeNew(sfWebRequest $request)

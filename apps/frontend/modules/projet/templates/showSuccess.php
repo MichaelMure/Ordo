@@ -1,50 +1,46 @@
+<?php use_helper('Date') ?>
+
+<h1>Projet <?php echo $projet->getNumero().' / '.$projet->getNom() ?></h1>
 <table>
+  <thead>
+    <tr>
+      <th>État</th>
+      <th>Qualité</th>
+      <th>Prospect</th>
+      <th>Chef de projet</th>
+      <th>Budget</th>
+      <th>Date debut</th>
+      <th>Date cloture</th>
+      <th>Crée le</th>
+      <th>Mis à jour le</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <th>Id:</th>
-      <td><?php echo $projet->getId() ?></td>
-    </tr>
-    <tr>
-      <th>Numero:</th>
-      <td><?php echo $projet->getNumero() ?></td>
-    </tr>
-    <tr>
-      <th>Nom:</th>
-      <td><?php echo $projet->getNom() ?></td>
-    </tr>
-    <tr>
-      <th>Date debut:</th>
-      <td><?php echo $projet->getDateDebut() ?></td>
-    </tr>
-    <tr>
-      <th>Date cloture:</th>
-      <td><?php echo $projet->getDateCloture() ?></td>
-    </tr>
-    <tr>
-      <th>Prospect:</th>
-      <td><?php echo $projet->getProspectId() ?></td>
-    </tr>
-    <tr>
-      <th>Respo:</th>
-      <td><?php echo $projet->getRespoId() ?></td>
-    </tr>
-    <tr>
-      <th>Created at:</th>
-      <td><?php echo $projet->getCreatedAt() ?></td>
-    </tr>
-    <tr>
-      <th>Updated at:</th>
-      <td><?php echo $projet->getUpdatedAt() ?></td>
-    </tr>
-    <tr>
-      <th>Deleted at:</th>
-      <td><?php echo $projet->getDeletedAt() ?></td>
+      <td><?php echo $projet->getEtat() ?></td>
+      <td><?php echo $projet->getQualite() ?></td>
+      <td><a href="<?php echo url_for('@prospect?action=show&id='.$projet->getProspectId()) ?>"><?php echo $projet->getProspect() ?></td>
+      <td><a href="<?php echo url_for('@annuaire?action=show&id='.$projet->getRespoId()) ?>"><?php echo $projet->getRespo() ?></td>
+      <td><?php echo $projet->getBudget() ?> €</td>
+      <td><?php echo format_date($projet->getDateDebut()) ?></td>
+      <td><?php echo format_date($projet->getDateCloture()) ?></td>
+      <td><?php echo format_date($projet->getCreatedAt()) ?></td>
+      <td><?php echo format_date($projet->getUpdatedAt()) ?></td>
     </tr>
   </tbody>
 </table>
 
-<hr />
+<h2>Commentaire</h2>
+<?php echo $projet->getRawValue()->getCommentaire() ?>
 
-<a href="<?php echo url_for('projet/edit?id='.$projet->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('projet/index') ?>">List</a>
+<h2>Évenements</h2>
+<ul id='projetEvent'>
+  <?php foreach ($events as $event): ?>
+  <li><?php echo $event->getMembre().' '.$event->getProjetEventType().' '.$event->getCommentaire() ?></li>
+  <?php endforeach; ?>
+</ul>
+
+<ul>
+  <li><?php echo link_to('Editer le projet', '@projet?action=edit&id='.$projet->getId()) ?></li>
+  <li><?php echo link_to('Retour à la liste', '@projet.index') ?></li>
+</ul>
