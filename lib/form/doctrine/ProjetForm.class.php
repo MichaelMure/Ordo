@@ -48,8 +48,7 @@ class ProjetForm extends BaseProjetForm
 
     $this->widgetSchema['commentaire'] = new sfWidgetFormTextareaTinyMCE(array(
       'width'  => 550,
-      'height' => 350,
-      'config' => 'theme_advanced_disable: "anchor,image,cleanup,help"',
+      'height' => 350
     ));
 
     /*
