@@ -215,6 +215,22 @@ td {
   background-color: #FEE87F;
 }
 
+/* Actions */
+.actionnew {
+  padding-left: 20px;
+  background: url(../images/new.png) no-repeat 0 0;
+}
+
+.actionedit {
+  padding-left: 20px;
+  background: url(../images/edit.png) no-repeat 0 0;
+}
+
+.actionlist {
+  padding-left: 20px;
+  background: url(../images/list.png) no-repeat 0 0;
+}
+
 /* --- NOTES ---
 
 1.	C'est la couleur de fond de div#global qui permet de simuler des colonnes

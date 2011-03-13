@@ -30,4 +30,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('@projet?action=new') ?>">Ajouter un projet</a>
+<?php echo link_to('Ajouter un projet', '@projet?action=new', array('class'  => 'actionnew')) ?>

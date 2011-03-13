@@ -36,12 +36,18 @@
 <h2>Évenements</h2>
 <ul id='projetEvent'>
   <?php foreach ($events as $event): ?>
-  <li><?php echo $event->getMembre().' '.$event->getProjetEventType().' '.$event->getCommentaire() ?></li>
+  <li class='<?php echo $event->getProjetEventType() ?>'><?php
+    echo $event->getMembre().' a ajouter l\'évenement ';
+    echo $event->getProjetEventType().' le ';
+    echo format_date($event->getUpdatedAt());
+    if($event->getCommentaire())
+      echo '<span class=\'commentaire\'>'.$event->getCommentaire().'</span>';
+  ?></li>
   <?php endforeach; ?>
 </ul>
 
 <ul>
-  <li><?php echo link_to('Ajouter un evenement', '@projetevent?action=new&membre='.$user->getId().'&projet='.$projet->getId()) ?></li>
-  <li><?php echo link_to('Editer le projet', '@projet?action=edit&id='.$projet->getId()) ?></li>
-  <li><?php echo link_to('Retour à la liste', '@projet.index') ?></li>
+  <li><?php echo link_to('Ajouter un evenement', '@projetevent?action=new&membre='.$user->getId().'&projet='.$projet->getId(), array('class'  => 'actionnew')) ?></li>
+  <li><?php echo link_to('Editer le projet', '@projet?action=edit&id='.$projet->getId(), array('class'  => 'actionedit')) ?></li>
+  <li><?php echo link_to('Retour à la liste', '@projet.index', array('class'  => 'actionlist')) ?></li>
 </ul>
