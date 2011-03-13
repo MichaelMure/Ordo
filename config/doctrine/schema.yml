@@ -98,6 +98,8 @@ Projet:
     nom:                { type: string(50), notnull: true }
     date_debut:         { type: date, notnull: true }
     date_cloture:       { type: date }
+    commentaire:        { type: text }
+    budget:             { type: real }
 
     respo_id:           { type: integer, notnull: true }
     prospect_id:        { type: integer, notnull: true }

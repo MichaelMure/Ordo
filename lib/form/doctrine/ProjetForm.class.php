@@ -45,7 +45,8 @@ class ProjetForm extends BaseProjetForm
       'model' => 'Membre',
       'url'   => url_for('@annuaire?action=ajax')
     ));
-    
+
+    /*
     $autocompleteWidget = new sfWidgetFormChoice(array(
           'multiple'         => true,
           'choices'          => $this->getObject()->getParticipants(),
@@ -59,7 +60,7 @@ class ProjetForm extends BaseProjetForm
                 maxshownitems: 8        
               }')
         ));
-    $this->widgetSchema['participants_list'] = $autocompleteWidget;
+    $this->widgetSchema['participants_list'] = $autocompleteWidget;*/
 
     $this->widgetSchema['numero']->setLabel('Numéro (*)');
     $this->widgetSchema['nom']->setLabel('Nom (*)');

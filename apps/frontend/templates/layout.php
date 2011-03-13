@@ -53,8 +53,9 @@
           </li>
           <li>Projets
             <ul>
-              <li>Vue d'ensemble</li>
-              <li>Ajouter un projet</li>
+              <li><?php echo link_to('Vue d\'ensemble', '@projet.index') ?></li>
+              <li><?php echo link_to('Ajouter un projet', '@projet?action=new') ?></li>
+              <li><?php echo link_to('Vue des documents', '@projet?action=document') ?></li>
             </ul>
           </li>
           <?php endif ?>
