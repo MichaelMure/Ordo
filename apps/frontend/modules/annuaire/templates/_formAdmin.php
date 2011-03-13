@@ -9,9 +9,9 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('@annuaire?action=index') ?>">Retour à la liste des membres</a>
+          <?php echo link_to('Retour à la liste des membres', '@annuaire?action=index', array('class'  => 'actionlist')) ?>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Supprimer le membre', '@annuaire?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sûr ?')) ?>
+            &nbsp;<?php echo link_to('Supprimer le membre', '@annuaire?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sûr ?', 'class'  => 'actiondelete')) ?>
           <?php endif; ?>
           <input type="submit" value="Enregistrer" />
         </td>

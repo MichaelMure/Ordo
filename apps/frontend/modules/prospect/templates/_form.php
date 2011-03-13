@@ -10,7 +10,7 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a href="<?php echo url_for('@prospect.index') ?>">Retour à la liste</a>
+          <?php echo link_to('Retour à la liste', '@prospect.index', array('class'  => 'actionlist')) ?>
           <?php if (!$form->getObject()->isNew()): ?>
             &nbsp;<?php echo link_to('Supprimer', '@prospect?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sûr ?')) ?>
           <?php endif; ?>

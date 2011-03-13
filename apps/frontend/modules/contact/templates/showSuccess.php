@@ -35,9 +35,8 @@
   </tbody>
 </table>
 
-<hr />
+<ul>
+  <li><?php echo link_to('Modifier', '@contact?action=edit&id='.$contact->getId(), array('class' => 'actionedit')) ?></li>
+  <li><?php echo link_to('Revenir au prospect', '@prospect?action=show&id='.$contact->getProspectId(), array('class' => 'actionlist')) ?></li>
+</ul>
 
-<a href="<?php echo url_for('@contact?action=edit&id='.$contact->getId()) ?>">Modifier</a>
-&nbsp;
-<a href="<?php echo url_for('@prospect?action=show&id='.$contact->getProspectId()) ?>">Revenir au prospect</a>
-&nbsp;

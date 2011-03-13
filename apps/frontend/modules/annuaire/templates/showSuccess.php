@@ -144,7 +144,7 @@ $CE = $membre->getConventionEtudiant();
 
 <div id='annuaire.show.button'>
   <ul>
-    <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId()) ?></li>
+    <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId(), array('class' => 'actionedit')) ?></li>
     <li><?php echo link_to('Changer mon mot de passe', '@annuaire?action=changeMDP') ?></li>
 
   <?php 
@@ -167,7 +167,7 @@ $CE = $membre->getConventionEtudiant();
   }
   ?>
 
-    <li><?php echo link_to('Retour à la liste', '@annuaire') ?></li>
+    <li><?php echo link_to('Retour à la liste', '@annuaire', array('class' => 'actionlist')) ?></li>
   </ul>
 </div>
 

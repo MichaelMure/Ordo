@@ -9,7 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('@annuaire?action=index') ?>">Retour à la liste des membres</a>
+          <?php echo link_to('Retour à la liste des membres', '@annuaire?action=index', array('class'  => 'actionlist')) ?>
           <input type="submit" value="Enregistrer" />
         </td>
       </tr>

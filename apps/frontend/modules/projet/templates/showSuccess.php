@@ -37,9 +37,9 @@
 <ul id='projetEvent'>
   <?php foreach ($events as $event): ?>
   <li class='<?php echo $event->getProjetEventType() ?>'><?php
-    echo $event->getMembre().' a ajouter l\'évenement ';
-    echo $event->getProjetEventType().' le ';
-    echo format_date($event->getUpdatedAt());
+    echo format_date($event->getUpdatedAt()).' | ';
+    echo $event->getMembre().' a ajouté ';
+    echo $event->getProjetEventType()->getDescription();
     if($event->getCommentaire())
       echo '<span class=\'commentaire\'>'.$event->getCommentaire().'</span>';
   ?></li>

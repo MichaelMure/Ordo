@@ -231,6 +231,11 @@ td {
   background: url(../images/list.png) no-repeat 0 0;
 }
 
+.actiondelete {
+  padding-left: 20px;
+  background: url(../images/delete.png) no-repeat 0 0;
+}
+
 /* --- NOTES ---
 
 1.	C'est la couleur de fond de div#global qui permet de simuler des colonnes

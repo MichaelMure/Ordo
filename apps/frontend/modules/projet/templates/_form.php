@@ -9,7 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('@projet.index') ?>">Retour à la liste</a>
+          <?php echo link_to('Retour à la liste', '@projet.index', array('class'  => 'actionlist')) ?>
           <?php if (!$form->getObject()->isNew()): ?>
             &nbsp;<?php echo link_to('Supprimer', '@projet?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sur ?')) ?>
           <?php endif; ?>

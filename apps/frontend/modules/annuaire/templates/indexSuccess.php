@@ -44,4 +44,4 @@ function getClass($filiere)
   </tbody>
 </table>
 
-<a href="<?php echo url_for('@annuaire?action=new') ?>">Ajouter un membre</a>
+<?php echo link_to('Ajouter un membre', '@annuaire?action=new', array('class'  => 'actionnew')) ?>

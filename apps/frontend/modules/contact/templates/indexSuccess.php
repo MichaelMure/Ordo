@@ -23,9 +23,9 @@ function echoAddLinks($filter)
 {
   switch($filter)
   {
-    case 'index': echo link_to('Ajouter un contact', '@contact?action=new'); break;
-    case 'email': echo link_to('Ajouter un email', '@contact?action=new&type=email'); break;
-    case 'appel': echo link_to('Ajouter un appel', '@contact?action=new&type=appel'); break;
+    case 'index': echo link_to('Ajouter un contact', '@contact?action=new', array('class'=>'actionnew')); break;
+    case 'email': echo link_to('Ajouter un email', '@contact?action=new&type=email', array('class'=>'actionnew')); break;
+    case 'appel': echo link_to('Ajouter un appel', '@contact?action=new&type=appel', array('class'=>'actionnew')); break;
   }
 }
 
