@@ -23,6 +23,7 @@ class projetActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->projet = Doctrine_Core::getTable('Projet')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->projet);
     $this->events = Doctrine_Core::getTable('ProjetEvent')

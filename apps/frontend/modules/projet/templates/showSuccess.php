@@ -1,6 +1,6 @@
 <?php use_helper('Date') ?>
 
-<h1>Projet <?php echo $projet->getNumero().' / '.$projet->getNom() ?></h1>
+<h1>Projet <?php echo $projet ?></h1>
 <table>
   <thead>
     <tr>
@@ -41,6 +41,7 @@
 </ul>
 
 <ul>
+  <li><?php echo link_to('Ajouter un evenement', '@projetevent?action=new&membre='.$user->getId().'&projet='.$projet->getId()) ?></li>
   <li><?php echo link_to('Editer le projet', '@projet?action=edit&id='.$projet->getId()) ?></li>
   <li><?php echo link_to('Retour à la liste', '@projet.index') ?></li>
 </ul>

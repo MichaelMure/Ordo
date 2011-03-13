@@ -10,16 +10,13 @@
  */
 class projeteventActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->projet_events = Doctrine_Core::getTable('ProjetEvent')
-      ->createQuery('a')
-      ->execute();
-  }
-
   public function executeNew(sfWebRequest $request)
   {
+    $this->forward404Unless($request->getParameter('membre'));
+    $this->forward404Unless($request->getParameter('projet'));
     $this->form = new ProjetEventForm();
+    $this->form->setDefault('membre_id', $request->getParameter('membre'));
+    $this->form->setDefault('projet_id', $request->getParameter('projet'));
   }
 
   public function executeCreate(sfWebRequest $request)
@@ -67,7 +64,7 @@ class projeteventActions extends sfActions
     {
       $projet_event = $form->save();
 
-      $this->redirect('projetevent/edit?id='.$projet_event->getId());
+      $this->redirect('@projet?action=show&id='.$projet_event->getProjetId());
     }
   }
 }

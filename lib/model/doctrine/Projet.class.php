@@ -12,7 +12,11 @@
  */
 class Projet extends BaseProjet
 {
-  
+  public function __toString()
+  {
+    return $this->getNumero().' / '.$this->getNom();
+  }
+
   public function getRespo()
   {
     return $this->getMembre();
