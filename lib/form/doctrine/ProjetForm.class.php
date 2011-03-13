@@ -31,7 +31,7 @@ class ProjetForm extends BaseProjetForm
       'culture'=>'fr',
       'date_widget' => new sfWidgetFormDate(array('format' => '%day%/%month%/%year%')),
     ));
-    $this->setValidator('date_cloture', new sfValidatorDate(array('max' => date('Y-m-d'))));
+    $this->setValidator('date_cloture', new sfValidatorDate(array('max' => date('Y-m-d'), 'required' => false)));
     $this->setDefault('date_cloture', date('Y-m-d'));
     
     $this->widgetSchema['prospect_id']->setOption('renderer_class', 'sfWidgetFormDoctrineJQueryAutocompleter');
@@ -44,6 +44,12 @@ class ProjetForm extends BaseProjetForm
     $this->widgetSchema['respo_id']->setOption('renderer_options', array(
       'model' => 'Membre',
       'url'   => url_for('@annuaire?action=ajax')
+    ));
+
+    $this->widgetSchema['commentaire'] = new sfWidgetFormTextareaTinyMCE(array(
+      'width'  => 550,
+      'height' => 350,
+      'config' => 'theme_advanced_disable: "anchor,image,cleanup,help"',
     ));
 
     /*
@@ -74,10 +80,9 @@ class ProjetForm extends BaseProjetForm
   {
     return array('jquery-1.4.2.min.js',
                  'jquery.ui.datepicker-fr.js',
-                 'jquery.flot.selection.min.js',
-                 'jquery.flot.min.js',
                  'jquery-ui-1.8.1.custom.min.js',
-                 '/sfFormExtraPlugin/js/jquery.autocompleter.js');
+                 '/sfFormExtraPlugin/js/jquery.autocompleter.js',
+                 'tiny_mce/tiny_mce.js');
   }
   
   public function getStylesheets()

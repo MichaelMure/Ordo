@@ -62,6 +62,22 @@ class prospectActions extends sfActions
     $this->forward404Unless($this->prospect);
   }
 
+  public function executeAjax(sfWebRequest $request)
+  {
+    $this->getResponse()->setContentType('application/json');
+    $request = Doctrine::getTable('Prospect')->createQuery('p')
+                  ->where('p.nom LIKE ?','%'.$request->getParameter('q').'%')
+                  ->limit('10')
+                  ->execute()
+                  ->getData();
+
+    $prospects = array();
+    foreach ( $request as $prospect )
+      $prospects[$prospect->id] = (string) $prospect;
+    
+    return $this->renderText(json_encode($prospects));
+  }
+  
   public function executeNew(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
