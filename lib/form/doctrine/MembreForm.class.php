@@ -14,13 +14,14 @@ class MembreForm extends BaseMembreForm
   {
     unset(
       $this['created_at'],
-      $this['updated_at']
+      $this['updated_at'],
+      $this['projets_list']
     );
   
     $this->setWidget('passwd', new sfWidgetFormInputPassword());
     $this->setValidator('email_externe', new sfValidatorEmail());
-    $this->setValidator('nom', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ]*$/', 'max_length' => 255)));
-    $this->setValidator('prenom', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ]*$/', 'max_length' => 255)));
+    $this->setValidator('nom', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s\-]*$/', 'max_length' => 255)));
+    $this->setValidator('prenom', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s\-]*$/', 'max_length' => 255)));
     $this->setValidator('ville_naissance', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s\-]*$/', 'max_length' => 255)));
     $this->setValidator('ville_parents', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s\-]*$/', 'max_length' => 255, 'required' => false)));
     $this->setValidator('ville_mulhouse', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s\-]*$/', 'max_length' => 255)));

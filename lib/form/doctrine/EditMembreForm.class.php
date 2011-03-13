@@ -23,7 +23,6 @@ class EditMembreForm extends MembreForm
       $this['cotisation'],
       $this['reglement_interieur'],
       $this['convention_etudiant'],
-      $this['poste'],
       $this['email_interne'],
       $this['status'],
       $this['passwd']
