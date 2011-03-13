@@ -13,6 +13,7 @@ abstract class BaseProjetEventFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
+      'date'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'commentaire' => new sfWidgetFormFilterInput(),
       'type_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ProjetEventType'), 'add_empty' => true)),
       'membre_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Membre'), 'add_empty' => true)),
@@ -22,6 +23,7 @@ abstract class BaseProjetEventFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
+      'date'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'commentaire' => new sfValidatorPass(array('required' => false)),
       'type_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('ProjetEventType'), 'column' => 'id')),
       'membre_id'   => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Membre'), 'column' => 'id')),
@@ -48,6 +50,7 @@ abstract class BaseProjetEventFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'          => 'Number',
+      'date'        => 'Date',
       'commentaire' => 'Text',
       'type_id'     => 'ForeignKey',
       'membre_id'   => 'ForeignKey',

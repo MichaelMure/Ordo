@@ -4,8 +4,7 @@
 <table>
   <thead>
     <tr>
-      <th>Numéro</th>
-      <th>Nom</th>
+      <th>Projet</th>
       <th>État</th>
       <th>Qualité</th>
       <th>Prospect</th>
@@ -17,8 +16,7 @@
   <tbody>
     <?php foreach ($projets as $projet): ?>
     <tr>
-      <td><a href="<?php echo url_for('@projet?action=show&id='.$projet->getId()) ?>"><?php echo $projet->getNumero() ?></a></td>
-      <td><?php echo $projet->getNom() ?></td>
+      <td><a href="<?php echo url_for('@projet?action=show&id='.$projet->getId()) ?>"><?php echo $projet ?></a></td>
       <td><?php echo $projet->getEtat() ?></td>
       <td><?php echo $projet->getQualite() ?></td>
       <td><a href="<?php echo url_for('@prospect?action=show&id='.$projet->getProspectId()) ?>"><?php echo $projet->getProspect() ?></td>

@@ -9,47 +9,59 @@ ProjetEventType:
     abreviation: AP
     description: Avant-projet
   ProjetEventType_4:
+    abreviation: SAP
+    description: Signature de l'avant-projet
+  ProjetEventType_5:
     abreviation: COC
     description: Convention client
-  ProjetEventType_5:
+  ProjetEventType_6:
+    abreviation: SCOC
+    description: Signature de la convention client
+  ProjetEventType_7:
     abreviation: FACAC
     description: Facture d'acompte
-  ProjetEventType_6:
+  ProjetEventType_8:
     abreviation: PFACAC
     description: Paiement de la facture d'acompte
-  ProjetEventType_7:
+  ProjetEventType_9:
     abreviation: OM
     description: Ordre de mission
-  ProjetEventType_8:
+  ProjetEventType_10:
     abreviation: ACOC
     description: Avenant à la convention client
-  ProjetEventType_9:
+  ProjetEventType_11:
+    abreviation: SACOC
+    description: Signature de l'avenant à la convention client
+  ProjetEventType_12:
     abreviation: AOM
     description: Avenant à l'ordre de mission
-  ProjetEventType_10:
+  ProjetEventType_13:
     abreviation: PVR
     description: Procès verbal de recette
-  ProjetEventType_11:
+  ProjetEventType_14:
+    abreviation: SPVR
+    description: Signature du procès verbal de recette
+  ProjetEventType_15:
     abreviation: FAC
     description: Facture
-  ProjetEventType_12:
+  ProjetEventType_16:
     abreviation: PFAC
     description: Paiement de la facture
-  ProjetEventType_13:
+  ProjetEventType_17:
     abreviation: RP
     description: Rapport pédagogique
-  ProjetEventType_14:
+  ProjetEventType_18:
     abreviation: AFM
     description: Attestation de fin de mission
-  ProjetEventType_15:
+  ProjetEventType_19:
     abreviation: BV
     description: Bulletin de versement
-  ProjetEventType_17:
+  ProjetEventType_20:
     abreviation: LR
     description: Lettre de relance de paiement
-  ProjetEventType_18:
+  ProjetEventType_21:
     abreviation: LMD
     description: Lettre de mise en demeure
-  ProjetEventType_19:
+  ProjetEventType_22:
     abreviation: QS
     description: Questionnaire satisfaction

@@ -1,4 +1,4 @@
-<?php use_helper('Date') ?>
+<?php use_helper('Date', 'Number') ?>
 
 <h1>Projet <?php echo $projet ?></h1>
 <table>
@@ -19,7 +19,7 @@
       <td><?php echo $projet->getQualite() ?></td>
       <td><a href="<?php echo url_for('@prospect?action=show&id='.$projet->getProspectId()) ?>"><?php echo $projet->getProspect() ?></td>
       <td><a href="<?php echo url_for('@annuaire?action=show&id='.$projet->getRespoId()) ?>"><?php echo $projet->getRespo() ?></td>
-      <td><?php echo $projet->getBudget() ? $projet->getBudget().' €' : '' ?></td>
+      <td><?php echo $projet->getBudget() ? format_number($projet->getBudget()).' €' : '' ?></td>
       <td><?php echo format_date($projet->getDateDebut()) ?></td>
       <td><?php echo $projet->getDateCloture() ? format_date($projet->getDateCloture()) : 'non cloturé' ?></td>
     </tr>

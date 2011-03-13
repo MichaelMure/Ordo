@@ -1,3 +1,3 @@
-<h1>New Projet event</h1>
+<h1>Ajouter un évenement</h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

@@ -118,6 +118,7 @@ LienMembreProjet:
 ProjetEvent:
   actAs: { Timestampable: ~ }
   columns:
+    date:               { type: date }
     commentaire:        { type: string(4000) }
     type_id:            { type: integer, notnull: true }
     membre_id:          { type: integer, notnull: true }
