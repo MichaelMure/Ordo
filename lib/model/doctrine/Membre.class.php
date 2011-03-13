@@ -63,7 +63,7 @@ class Membre extends BaseMembre
     return Doctrine::getTable('Membre')
           ->createQuery('m')
           ->select('m.id, m.status')
-          ->where('m.username = ?', $username)
+          ->where('m.username = ?', array($username))
           ->execute()->getFirst();
   }
   

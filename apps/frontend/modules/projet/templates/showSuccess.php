@@ -11,8 +11,6 @@
       <th>Budget</th>
       <th>Date debut</th>
       <th>Date cloture</th>
-      <th>Crée le</th>
-      <th>Mis à jour le</th>
     </tr>
   </thead>
   <tbody>
@@ -21,11 +19,9 @@
       <td><?php echo $projet->getQualite() ?></td>
       <td><a href="<?php echo url_for('@prospect?action=show&id='.$projet->getProspectId()) ?>"><?php echo $projet->getProspect() ?></td>
       <td><a href="<?php echo url_for('@annuaire?action=show&id='.$projet->getRespoId()) ?>"><?php echo $projet->getRespo() ?></td>
-      <td><?php echo $projet->getBudget() ?> €</td>
+      <td><?php echo $projet->getBudget() ? $projet->getBudget().' €' : '' ?></td>
       <td><?php echo format_date($projet->getDateDebut()) ?></td>
-      <td><?php echo format_date($projet->getDateCloture()) ?></td>
-      <td><?php echo format_date($projet->getCreatedAt()) ?></td>
-      <td><?php echo format_date($projet->getUpdatedAt()) ?></td>
+      <td><?php echo $projet->getDateCloture() ? format_date($projet->getDateCloture()) : 'non cloturé' ?></td>
     </tr>
   </tbody>
 </table>
