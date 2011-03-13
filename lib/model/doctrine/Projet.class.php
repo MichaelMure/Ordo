@@ -17,4 +17,14 @@ class Projet extends BaseProjet
   {
     return $this->getMembre();
   }
+
+  public function getEtat()
+  {
+    return '';
+  }
+
+  public function getQualite()
+  {
+    return '';
+  }
 }

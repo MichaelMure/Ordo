@@ -14,7 +14,7 @@
         <div id="login">
           <?php echo (isset($_SERVER['PHP_AUTH_USER']) && $user = Doctrine::getTable('Membre')
           ->createQuery('m')
-          ->select('m.nom, m.prenom, m.username')
+          ->select('m.nom, m.prenom, m.username, m.status')
           ->where('m.username = ?', array($_SERVER['PHP_AUTH_USER']))
           ->execute()->getFirst()) ? $user->getFullString() : "Anonyme" ?>
         </div>
@@ -53,7 +53,7 @@
           </li>
           <li>Projets
             <ul>
-              <li><?php echo link_to('Vue d\'ensemble', '@projet.index') ?></li>
+              <li><?php echo link_to('Liste des projets', '@projet.index') ?></li>
               <li><?php echo link_to('Ajouter un projet', '@projet?action=new') ?></li>
               <li><?php echo link_to('Vue des documents', '@projet?action=document') ?></li>
             </ul>

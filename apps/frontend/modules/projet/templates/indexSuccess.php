@@ -1,36 +1,33 @@
-<h1>Projets List</h1>
+<?php use_helper('Date') ?>
+<h1>Liste des projets</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Numero</th>
+      <th>Numéro</th>
       <th>Nom</th>
+      <th>État</th>
+      <th>Qualité</th>
+      <th>Prospect</th>
+      <th>Chef de projet</th>
       <th>Date debut</th>
       <th>Date cloture</th>
-      <th>Prospect</th>
-      <th>Respo</th>
-      <th>Created at</th>
-      <th>Updated at</th>
-      <th>Deleted at</th>
     </tr>
   </thead>
   <tbody>
     <?php foreach ($projets as $projet): ?>
     <tr>
-      <td><a href="<?php echo url_for('projet/show?id='.$projet->getId()) ?>"><?php echo $projet->getId() ?></a></td>
-      <td><?php echo $projet->getNumero() ?></td>
+      <td><a href="<?php echo url_for('@projet?action=show&id='.$projet->getId()) ?>"><?php echo $projet->getNumero() ?></a></td>
       <td><?php echo $projet->getNom() ?></td>
-      <td><?php echo $projet->getDateDebut() ?></td>
-      <td><?php echo $projet->getDateCloture() ?></td>
-      <td><?php echo $projet->getProspectId() ?></td>
-      <td><?php echo $projet->getRespoId() ?></td>
-      <td><?php echo $projet->getCreatedAt() ?></td>
-      <td><?php echo $projet->getUpdatedAt() ?></td>
-      <td><?php echo $projet->getDeletedAt() ?></td>
+      <td><?php echo $projet->getEtat() ?></td>
+      <td><?php echo $projet->getQualite() ?></td>
+      <td><a href="<?php echo url_for('@prospect?action=show&id='.$projet->getProspectId()) ?>"><?php echo $projet->getProspect() ?></td>
+      <td><a href="<?php echo url_for('@annuaire?action=show&id='.$projet->getRespoId()) ?>"><?php echo $projet->getRespo() ?></td>
+      <td><?php echo format_date($projet->getDateDebut()) ?></td>
+      <td><?php echo format_date($projet->getDateCloture()) ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('projet/new') ?>">New</a>
+  <a href="<?php echo url_for('@projet?action=new') ?>">Ajouter un projet</a>

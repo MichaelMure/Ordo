@@ -14,8 +14,13 @@ class projetActions extends sfActions
   {
     $this->projets = Doctrine_Core::getTable('Projet')
       ->createQuery('a')
+      ->select('a.id, a.nom, a.numero, a.date_debut, a.date_cloture, p.nom, p.id, m.id, m.nom, m.prenom, m.username')
+      ->leftJoin('a.Prospect p')
+      ->leftJoin('a.Membre m')
+      ->where('a.deleted_at IS NULL')
       ->execute();
   }
+
 
   public function executeShow(sfWebRequest $request)
   {
@@ -25,14 +30,14 @@ class projetActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new ProjetForm();
+    $this->form = new NewProjetForm();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->form = new ProjetForm();
+    $this->form = new NewProjetForm();
 
     $this->processForm($request, $this->form);
 
@@ -63,7 +68,7 @@ class projetActions extends sfActions
     $this->forward404Unless($projet = Doctrine_Core::getTable('Projet')->find(array($request->getParameter('id'))), sprintf('Object projet does not exist (%s).', $request->getParameter('id')));
     $projet->delete();
 
-    $this->redirect('projet/index');
+    $this->redirect('@projet.index');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -73,7 +78,7 @@ class projetActions extends sfActions
     {
       $projet = $form->save();
 
-      $this->redirect('projet/edit?id='.$projet->getId());
+      $this->redirect('@projet?action=show&id='.$projet->getId());
     }
   }
 }
