@@ -50,7 +50,15 @@ projet:
 projet.index:
   url: /projet/
   param: { module: projet, action: index }
-  
+
+## ProjetEvent
+projetevent:
+  url: /projetevent/:action/*
+  param: { module: projetevent }
+
+projetevent.index:
+  url: /projetevent/
+  param: { module: projetevent, action: index }
   
 # generic rules
 # please, remove them by adding more specific rules
