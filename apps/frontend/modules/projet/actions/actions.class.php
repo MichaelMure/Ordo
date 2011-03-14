@@ -38,7 +38,7 @@ class projetActions extends sfActions
     $this->forward404Unless($this->projet);
     $this->events = Doctrine_Core::getTable('ProjetEvent')
       ->createQuery('e')
-      ->select('e.commentaire, e.url, e.updated_at, t.abreviation, t.description, m.id, m.nom, m.prenom, m.username')
+      ->select('e.commentaire, e.url, e.date, e.updated_at, t.abreviation, t.description, m.id, m.nom, m.prenom, m.username')
       ->leftJoin('e.ProjetEventType t')
       ->leftJoin('e.Membre m')
       ->where('e.projet_id = ?', array($request->getParameter('id')))

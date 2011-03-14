@@ -30,8 +30,10 @@
   <li><?php echo link_to('Editer le projet', '@projet?action=edit&id='.$projet->getId(), array('class'  => 'actionedit')) ?></li>
 </ul>
 
+<?php if($projet->getCommentaire()) : ?>
 <h2>Commentaire</h2>
 <?php echo $projet->getRawValue()->getCommentaire() ?>
+<?php endif ?>
 
 <h2>Participants</h2>
 <table>
@@ -63,12 +65,19 @@
     <div class='projetEventDate'><?php echo format_date($event->getUpdatedAt()) ?></div>
     <div class='projetEventDetail'>
       <span class='projetEventAuteur'><?php echo $event->getMembre() ?></span> a ajouté <?php
-      echo link_to($event->getProjetEventType()->getDescription(), '@projetevent?action=edit&id='.$event->getId());
-      if($event->getCommentaire())
-        echo '<div class=\'projetEventInfo\'>'.$event->getCommentaire().'</div>';
-      if($event->getUrl())
-        echo '<div class=\'projetEventInfo\'><a href="'.$event->getUrl().'" >'.$event->getUrl().'</a></div>';
-      ?>
+      echo link_to($event->getProjetEventType()->getDescription(), '@projetevent?action=edit&id='.$event->getId()); ?>
+      
+      <?php if($event->getDate()) : ?>
+      <div class='projetEventInfo'>La date du document est le <?php echo format_date($event->getDate()) ?></div>
+      <?php endif ?>
+      
+      <?php if($event->getCommentaire()) : ?>
+      <div class='projetEventInfo'><?php echo $event->getCommentaire() ?></div>
+      <?php endif ?>
+      
+      <?php if($event->getUrl()) : ?>
+      <div class='projetEventInfo'><a href='<?php echo $event->getUrl() ?>'><?php echo $event->getUrl() ?></a></div>
+      <?php endif ?>
     </div>
   </div>
   <?php endforeach; ?>

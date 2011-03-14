@@ -123,7 +123,7 @@ LienMembreProjet:
 ProjetEvent:
   actAs: { Timestampable: ~ }
   columns:
-    date:               { type: date, notnull: true }
+    date:               { type: date }
     commentaire:        { type: string(4000) }
     url:                { type: string(255) }
     type_id:            { type: integer, notnull: true }

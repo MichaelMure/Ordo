@@ -46,7 +46,6 @@ abstract class BaseProjetEvent extends sfDoctrineRecord
         $this->setTableName('projet_event');
         $this->hasColumn('date', 'date', null, array(
              'type' => 'date',
-             'notnull' => true,
              ));
         $this->hasColumn('commentaire', 'string', 4000, array(
              'type' => 'string',

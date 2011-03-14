@@ -42,15 +42,17 @@ class ProjetEventForm extends BaseProjetEventForm
   
   public function checkEvent($validator, $values)
   {
-    switch($values['type_id'])
+    if($values['type_id'] == 1) // est un commentaire
     {
-      case 1: //Commentaire
-        if(!$values['commentaire'])
+      if(!$values['commentaire'])
           throw new sfValidatorError($validator, 'Un commentaire doit être présent.');
-        break;
+    }
+    else
+    {
+      if(!$values['date'])
+        throw new sfValidatorError($validator, 'Une date doit être présente.');
     }
 
-    // password is correct, return the clean values
     return $values;
   }
 
