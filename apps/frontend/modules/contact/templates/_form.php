@@ -12,7 +12,7 @@
           <?php echo $form->renderHiddenFields(false) ?>
           <?php echo link_to('Retour à la liste des contact', '@contact', array('class'  => 'actionlist')) ?>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', '@contact?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Supprimer', '@contact?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sûr ?', 'class'  => 'actiondelete')) ?>
           <?php endif; ?>
           <input type="submit" value="Save" />
         </td>

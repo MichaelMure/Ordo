@@ -11,7 +11,7 @@
         <td colspan="2">
           <?php echo link_to('Retour au projet', '@projet?action=show&id='.$form->getDefault('projet_id'), array('class'  => 'actionlist')) ?>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'projetevent/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Supprimer', '@projetevent?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sûr ?', 'class'  => 'actiondelete')) ?>
           <?php endif; ?>
           <input type="submit" value="Enregistrer" />
         </td>

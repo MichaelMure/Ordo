@@ -54,7 +54,7 @@ class projeteventActions extends sfActions
     $this->forward404Unless($projet_event = Doctrine_Core::getTable('ProjetEvent')->find(array($request->getParameter('id'))), sprintf('Object projet_event does not exist (%s).', $request->getParameter('id')));
     $projet_event->delete();
 
-    $this->redirect('projetevent/index');
+    $this->redirect('@projet?action=show&id='.$projet_event->getProjetId());
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

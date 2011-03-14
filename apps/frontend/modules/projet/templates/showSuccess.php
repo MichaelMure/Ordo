@@ -58,7 +58,7 @@
   <div class='<?php echo $event->getProjetEventType() ?>'><?php
     echo format_date($event->getUpdatedAt()).' | ';
     echo $event->getMembre().' a ajouté ';
-    echo $event->getProjetEventType()->getDescription();
+    echo link_to($event->getProjetEventType()->getDescription(), '@projetevent?action=edit&id='.$event->getId());
     if($event->getCommentaire())
       echo '<div class=\'commentaire\'>'.$event->getCommentaire().'</div>';
     if($event->getUrl())
