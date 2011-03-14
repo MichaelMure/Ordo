@@ -39,26 +39,31 @@
   </thead>
   <tbody>
     <tr>
-      <?php foreach ($participants as $participant): ?>
+      <td><?php echo $projet->getRespo() ?></td>
+      <td>Chef de projet</td>
+    </tr>
+    <?php foreach ($participants as $participant): ?>
+    <tr>
       <td><?php echo $participant->getMembre() ?></td>
       <td><?php echo $participant->getRole() ?></td>
-      <?php endforeach; ?>
     </tr>
+    <?php endforeach; ?>
   </tbody>
 </table>
 
+
 <h2>Évenements</h2>
-<ul id='projetEvent'>
+<div id='projetEvent'>
   <?php foreach ($events as $event): ?>
-  <li class='<?php echo $event->getProjetEventType() ?>'><?php
+  <div class='<?php echo $event->getProjetEventType() ?>'><?php
     echo format_date($event->getUpdatedAt()).' | ';
     echo $event->getMembre().' a ajouté ';
     echo $event->getProjetEventType()->getDescription();
     if($event->getCommentaire())
-      echo '<span class=\'commentaire\'>'.$event->getCommentaire().'</span>';
-  ?></li>
+      echo '<div class=\'commentaire\'>'.$event->getCommentaire().'</div>';
+  ?></div>
   <?php endforeach; ?>
-</ul>
+</div>
 
 <ul>
   <li><?php echo link_to('Ajouter un evenement', '@projetevent?action=new&membre='.$user->getId().'&projet='.$projet->getId(), array('class'  => 'actionnew')) ?></li>

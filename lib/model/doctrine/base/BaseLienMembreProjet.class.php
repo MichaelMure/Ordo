@@ -9,15 +9,18 @@
  * @property integer $projet_id
  * @property integer $membre_id
  * @property Membre $Membre
+ * @property Projet $Projet
  * 
  * @method enum             getRole()      Returns the current record's "role" value
  * @method integer          getProjetId()  Returns the current record's "projet_id" value
  * @method integer          getMembreId()  Returns the current record's "membre_id" value
  * @method Membre           getMembre()    Returns the current record's "Membre" value
+ * @method Projet           getProjet()    Returns the current record's "Projet" value
  * @method LienMembreProjet setRole()      Sets the current record's "role" value
  * @method LienMembreProjet setProjetId()  Sets the current record's "projet_id" value
  * @method LienMembreProjet setMembreId()  Sets the current record's "membre_id" value
  * @method LienMembreProjet setMembre()    Sets the current record's "Membre" value
+ * @method LienMembreProjet setProjet()    Sets the current record's "Projet" value
  * 
  * @package    Annuaire
  * @subpackage model
@@ -55,6 +58,10 @@ abstract class BaseLienMembreProjet extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('Membre', array(
              'local' => 'membre_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('Projet', array(
+             'local' => 'projet_id',
              'foreign' => 'id'));
     }
 }

@@ -35,9 +35,9 @@
  * @property boolean $cotisation
  * @property enum $status
  * @property Doctrine_Collection $Projets
+ * @property Doctrine_Collection $LiensMembreProjet
  * @property Doctrine_Collection $Contact
  * @property Doctrine_Collection $Projet
- * @property Doctrine_Collection $LienMembreProjet
  * @property Doctrine_Collection $ProjetEvent
  * 
  * @method string              getUsername()            Returns the current record's "username" value
@@ -70,9 +70,9 @@
  * @method boolean             getCotisation()          Returns the current record's "cotisation" value
  * @method enum                getStatus()              Returns the current record's "status" value
  * @method Doctrine_Collection getProjets()             Returns the current record's "Projets" collection
+ * @method Doctrine_Collection getLiensMembreProjet()   Returns the current record's "LiensMembreProjet" collection
  * @method Doctrine_Collection getContact()             Returns the current record's "Contact" collection
  * @method Doctrine_Collection getProjet()              Returns the current record's "Projet" collection
- * @method Doctrine_Collection getLienMembreProjet()    Returns the current record's "LienMembreProjet" collection
  * @method Doctrine_Collection getProjetEvent()         Returns the current record's "ProjetEvent" collection
  * @method Membre              setUsername()            Sets the current record's "username" value
  * @method Membre              setPasswd()              Sets the current record's "passwd" value
@@ -104,9 +104,9 @@
  * @method Membre              setCotisation()          Sets the current record's "cotisation" value
  * @method Membre              setStatus()              Sets the current record's "status" value
  * @method Membre              setProjets()             Sets the current record's "Projets" collection
+ * @method Membre              setLiensMembreProjet()   Sets the current record's "LiensMembreProjet" collection
  * @method Membre              setContact()             Sets the current record's "Contact" collection
  * @method Membre              setProjet()              Sets the current record's "Projet" collection
- * @method Membre              setLienMembreProjet()    Sets the current record's "LienMembreProjet" collection
  * @method Membre              setProjetEvent()         Sets the current record's "ProjetEvent" collection
  * 
  * @package    Annuaire
@@ -276,6 +276,10 @@ abstract class BaseMembre extends sfDoctrineRecord
              'local' => 'membre_id',
              'foreign' => 'projet_id'));
 
+        $this->hasMany('LienMembreProjet as LiensMembreProjet', array(
+             'local' => 'id',
+             'foreign' => 'membre_id'));
+
         $this->hasMany('Contact', array(
              'local' => 'id',
              'foreign' => 'membre_id'));
@@ -283,10 +287,6 @@ abstract class BaseMembre extends sfDoctrineRecord
         $this->hasMany('Projet', array(
              'local' => 'id',
              'foreign' => 'respo_id'));
-
-        $this->hasMany('LienMembreProjet', array(
-             'local' => 'id',
-             'foreign' => 'membre_id'));
 
         $this->hasMany('ProjetEvent', array(
              'local' => 'id',

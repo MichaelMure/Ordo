@@ -49,6 +49,7 @@ Membre:
 
   relations:
     Projets:             { class: Projet, refClass: LienMembreProjet, local: membre_id, foreign: projet_id }
+    LiensMembreProjet:    { class: LienMembreProjet, local: id, foreign: membre_id, type: many }
 
 ## Module Prospection ##
 Prospect:
@@ -117,6 +118,7 @@ LienMembreProjet:
     membre_id:          { type: integer, notnull: true }
   relations:
     Membre:             { local: membre_id, foreign: id, type: one }
+    Projet:             { local: projet_id, foreign: id, type: one }
 
 ProjetEvent:
   actAs: { Timestampable: ~ }
