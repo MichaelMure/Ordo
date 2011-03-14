@@ -1,0 +1,33 @@
+.projetEvent
+{
+  background: #C7D095;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: solid thin #7D806A;
+}
+
+.projetEventInfo
+{
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  background: #F2FFAD;
+}
+
+.projetEventDate
+{
+  display: table-cell;
+  font-weight: bold;
+  padding: 2px 10px 0px;
+}
+
+.projetEventDetail
+{
+  display: table-cell;
+  width: 100%;
+  
+}
+
+.projetEventAuteur
+{
+  color: #440E1B;
+}

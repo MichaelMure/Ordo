@@ -26,6 +26,10 @@
   </tbody>
 </table>
 
+<ul>
+  <li><?php echo link_to('Editer le projet', '@projet?action=edit&id='.$projet->getId(), array('class'  => 'actionedit')) ?></li>
+</ul>
+
 <h2>Commentaire</h2>
 <?php echo $projet->getRawValue()->getCommentaire() ?>
 
@@ -53,17 +57,20 @@
 
 
 <h2>Évenements</h2>
-<div id='projetEvent'>
+<div id='projetEvents'>
   <?php foreach ($events as $event): ?>
-  <div class='<?php echo $event->getProjetEventType() ?>'><?php
-    echo format_date($event->getUpdatedAt()).' | ';
-    echo $event->getMembre().' a ajouté ';
-    echo link_to($event->getProjetEventType()->getDescription(), '@projetevent?action=edit&id='.$event->getId());
-    if($event->getCommentaire())
-      echo '<div class=\'commentaire\'>'.$event->getCommentaire().'</div>';
-    if($event->getUrl())
-      echo '<div class=\'commentaire\'><a href="'.$event->getUrl().'" >'.$event->getUrl().'</a></div>';
-  ?></div>
+  <div class='projetEvent'>
+    <div class='projetEventDate'><?php echo format_date($event->getUpdatedAt()) ?></div>
+    <div class='projetEventDetail'>
+      <span class='projetEventAuteur'><?php echo $event->getMembre() ?></span> a ajouté <?php
+      echo link_to($event->getProjetEventType()->getDescription(), '@projetevent?action=edit&id='.$event->getId());
+      if($event->getCommentaire())
+        echo '<div class=\'projetEventInfo\'>'.$event->getCommentaire().'</div>';
+      if($event->getUrl())
+        echo '<div class=\'projetEventInfo\'><a href="'.$event->getUrl().'" >'.$event->getUrl().'</a></div>';
+      ?>
+    </div>
+  </div>
   <?php endforeach; ?>
 </div>
 

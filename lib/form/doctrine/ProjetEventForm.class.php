@@ -34,6 +34,24 @@ class ProjetEventForm extends BaseProjetEventForm
     $this->widgetSchema['date']->setLabel('Date (*)');
     $this->widgetSchema->moveField('type_id', sfWidgetFormSchema::FIRST);
     $this->widgetSchema->moveField('commentaire', sfWidgetFormSchema::LAST);
+    
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorCallback(array('callback' => array($this, 'checkEvent')))
+    );
+  }
+  
+  public function checkEvent($validator, $values)
+  {
+    switch($values['type_id'])
+    {
+      case 1: //Commentaire
+        if(!$values['commentaire'])
+          throw new sfValidatorError($validator, 'Un commentaire doit être présent.');
+        break;
+    }
+
+    // password is correct, return the clean values
+    return $values;
   }
 
   public function getJavascripts()

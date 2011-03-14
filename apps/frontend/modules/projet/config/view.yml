@@ -1,0 +1,2 @@
+default:
+  stylesheets: [main.css, projet.css]
