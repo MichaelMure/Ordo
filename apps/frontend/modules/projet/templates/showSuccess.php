@@ -68,7 +68,7 @@
       echo link_to($event->getProjetEventType()->getDescription(), '@projetevent?action=edit&id='.$event->getId()); ?>
       
       <?php if($event->getDate()) : ?>
-      <div class='projetEventInfo'>La date du document est le <?php echo format_date($event->getDate()) ?></div>
+      <div class='projetEventInfo'>La date est le <?php echo format_date($event->getDate()) ?></div>
       <?php endif ?>
       
       <?php if($event->getCommentaire()) : ?>

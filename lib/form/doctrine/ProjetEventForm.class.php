@@ -25,7 +25,7 @@ class ProjetEventForm extends BaseProjetEventForm
       'culture'=>'fr',
       'date_widget' => new sfWidgetFormDate(array('format' => '%day%/%month%/%year%')),
     ));
-    $this->setValidator('date', new sfValidatorDate(array('max' => date('Y-m-d'))));
+    $this->setValidator('date', new sfValidatorDate(array('max' => date('Y-m-d'), 'required' => false)));
     $this->setDefault('date', date('Y-m-d'));
 
     $this->setValidator('url', new sfValidatorUrl(array('required' => false)));
