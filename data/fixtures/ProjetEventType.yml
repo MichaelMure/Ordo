@@ -18,20 +18,20 @@ ProjetEventType:
     abreviation: SCOC
     description: Signature de la convention client
   ProjetEventType_7:
-    abreviation: FACAC
-    description: Facture d'acompte
-  ProjetEventType_8:
-    abreviation: PFACAC
-    description: Paiement de la facture d'acompte
-  ProjetEventType_9:
-    abreviation: OM
-    description: Ordre de mission
-  ProjetEventType_10:
     abreviation: ACOC
     description: Avenant à la convention client
-  ProjetEventType_11:
+  ProjetEventType_8:
     abreviation: SACOC
     description: Signature de l'avenant à la convention client
+  ProjetEventType_9:
+    abreviation: FACAC
+    description: Facture d'acompte
+  ProjetEventType_10:
+    abreviation: PFACAC
+    description: Paiement de la facture d'acompte
+  ProjetEventType_11:
+    abreviation: OM
+    description: Ordre de mission
   ProjetEventType_12:
     abreviation: AOM
     description: Avenant à l'ordre de mission
