@@ -55,6 +55,9 @@ class Membre extends BaseMembre
       $this->setEmailInterne($this->getUsername().'@iariss.fr');
     }
     
+    $this->setTelMobile(wordwrap($this->getTelMobile(), 2, ' ', true));
+    $this->setTelFixe(wordwrap($this->getTelFixe(), 2, ' ', true));
+    
     return parent::save($conn);
   }
   
