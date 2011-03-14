@@ -11,6 +11,7 @@
  * @property date $date_cloture
  * @property text $commentaire
  * @property real $budget
+ * @property integer $delai_realisation
  * @property integer $respo_id
  * @property integer $prospect_id
  * @property Membre $Membre
@@ -18,30 +19,32 @@
  * @property Doctrine_Collection $Participants
  * @property Doctrine_Collection $ProjetEvent
  * 
- * @method integer             getNumero()       Returns the current record's "numero" value
- * @method string              getNom()          Returns the current record's "nom" value
- * @method date                getDateDebut()    Returns the current record's "date_debut" value
- * @method date                getDateCloture()  Returns the current record's "date_cloture" value
- * @method text                getCommentaire()  Returns the current record's "commentaire" value
- * @method real                getBudget()       Returns the current record's "budget" value
- * @method integer             getRespoId()      Returns the current record's "respo_id" value
- * @method integer             getProspectId()   Returns the current record's "prospect_id" value
- * @method Membre              getMembre()       Returns the current record's "Membre" value
- * @method Prospect            getProspect()     Returns the current record's "Prospect" value
- * @method Doctrine_Collection getParticipants() Returns the current record's "Participants" collection
- * @method Doctrine_Collection getProjetEvent()  Returns the current record's "ProjetEvent" collection
- * @method Projet              setNumero()       Sets the current record's "numero" value
- * @method Projet              setNom()          Sets the current record's "nom" value
- * @method Projet              setDateDebut()    Sets the current record's "date_debut" value
- * @method Projet              setDateCloture()  Sets the current record's "date_cloture" value
- * @method Projet              setCommentaire()  Sets the current record's "commentaire" value
- * @method Projet              setBudget()       Sets the current record's "budget" value
- * @method Projet              setRespoId()      Sets the current record's "respo_id" value
- * @method Projet              setProspectId()   Sets the current record's "prospect_id" value
- * @method Projet              setMembre()       Sets the current record's "Membre" value
- * @method Projet              setProspect()     Sets the current record's "Prospect" value
- * @method Projet              setParticipants() Sets the current record's "Participants" collection
- * @method Projet              setProjetEvent()  Sets the current record's "ProjetEvent" collection
+ * @method integer             getNumero()            Returns the current record's "numero" value
+ * @method string              getNom()               Returns the current record's "nom" value
+ * @method date                getDateDebut()         Returns the current record's "date_debut" value
+ * @method date                getDateCloture()       Returns the current record's "date_cloture" value
+ * @method text                getCommentaire()       Returns the current record's "commentaire" value
+ * @method real                getBudget()            Returns the current record's "budget" value
+ * @method integer             getDelaiRealisation()  Returns the current record's "delai_realisation" value
+ * @method integer             getRespoId()           Returns the current record's "respo_id" value
+ * @method integer             getProspectId()        Returns the current record's "prospect_id" value
+ * @method Membre              getMembre()            Returns the current record's "Membre" value
+ * @method Prospect            getProspect()          Returns the current record's "Prospect" value
+ * @method Doctrine_Collection getParticipants()      Returns the current record's "Participants" collection
+ * @method Doctrine_Collection getProjetEvent()       Returns the current record's "ProjetEvent" collection
+ * @method Projet              setNumero()            Sets the current record's "numero" value
+ * @method Projet              setNom()               Sets the current record's "nom" value
+ * @method Projet              setDateDebut()         Sets the current record's "date_debut" value
+ * @method Projet              setDateCloture()       Sets the current record's "date_cloture" value
+ * @method Projet              setCommentaire()       Sets the current record's "commentaire" value
+ * @method Projet              setBudget()            Sets the current record's "budget" value
+ * @method Projet              setDelaiRealisation()  Sets the current record's "delai_realisation" value
+ * @method Projet              setRespoId()           Sets the current record's "respo_id" value
+ * @method Projet              setProspectId()        Sets the current record's "prospect_id" value
+ * @method Projet              setMembre()            Sets the current record's "Membre" value
+ * @method Projet              setProspect()          Sets the current record's "Prospect" value
+ * @method Projet              setParticipants()      Sets the current record's "Participants" collection
+ * @method Projet              setProjetEvent()       Sets the current record's "ProjetEvent" collection
  * 
  * @package    Annuaire
  * @subpackage model
@@ -74,6 +77,9 @@ abstract class BaseProjet extends sfDoctrineRecord
              ));
         $this->hasColumn('budget', 'real', null, array(
              'type' => 'real',
+             ));
+        $this->hasColumn('delai_realisation', 'integer', null, array(
+             'type' => 'integer',
              ));
         $this->hasColumn('respo_id', 'integer', null, array(
              'type' => 'integer',

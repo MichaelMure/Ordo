@@ -100,6 +100,7 @@ Projet:
     date_cloture:       { type: date }
     commentaire:        { type: text }
     budget:             { type: real }
+    delai_realisation:  { type: integer }
 
     respo_id:           { type: integer, notnull: true }
     prospect_id:        { type: integer, notnull: true }
@@ -120,7 +121,7 @@ LienMembreProjet:
 ProjetEvent:
   actAs: { Timestampable: ~ }
   columns:
-    date:               { type: date }
+    date:               { type: date, notnull: true }
     commentaire:        { type: string(4000) }
     type_id:            { type: integer, notnull: true }
     membre_id:          { type: integer, notnull: true }

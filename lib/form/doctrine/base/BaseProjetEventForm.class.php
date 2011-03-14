@@ -27,7 +27,7 @@ abstract class BaseProjetEventForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'date'        => new sfValidatorDate(array('required' => false)),
+      'date'        => new sfValidatorDate(),
       'commentaire' => new sfValidatorString(array('max_length' => 4000, 'required' => false)),
       'type_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('ProjetEventType'))),
       'membre_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Membre'))),
