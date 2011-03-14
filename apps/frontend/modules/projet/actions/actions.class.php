@@ -18,7 +18,7 @@ class projetActions extends sfActions
       ->leftJoin('a.Prospect p')
       ->leftJoin('a.Membre m')
       ->where('a.deleted_at IS NULL')
-      ->orderBy('a.numero')
+      ->orderBy('a.numero DESC')
       ->execute();
   }
 
