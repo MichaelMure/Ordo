@@ -61,6 +61,8 @@
     echo $event->getProjetEventType()->getDescription();
     if($event->getCommentaire())
       echo '<div class=\'commentaire\'>'.$event->getCommentaire().'</div>';
+    if($event->getUrl())
+      echo '<div class=\'commentaire\'><a href="'.$event->getUrl().'" >'.$event->getUrl().'</a></div>';
   ?></div>
   <?php endforeach; ?>
 </div>

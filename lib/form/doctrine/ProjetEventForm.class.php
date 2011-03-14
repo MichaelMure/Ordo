@@ -27,7 +27,9 @@ class ProjetEventForm extends BaseProjetEventForm
     ));
     $this->setValidator('date', new sfValidatorDate(array('max' => date('Y-m-d'))));
     $this->setDefault('date', date('Y-m-d'));
-    
+
+    $this->setValidator('url', new sfValidatorUrl(array('required' => false)));
+        
     $this->widgetSchema['type_id']->setLabel('Type (*)');
     $this->widgetSchema['date']->setLabel('Date (*)');
     $this->widgetSchema->moveField('type_id', sfWidgetFormSchema::FIRST);

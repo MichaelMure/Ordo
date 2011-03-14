@@ -18,7 +18,8 @@ class NewProjetForm extends ProjetForm
       $this['date_cloture'],
       $this['commentaire'],
       $this['budget'],
-      $this['participants_list']
+      $this['participants_list'],
+      $this['delai_realisation']
       );
 
   }

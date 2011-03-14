@@ -7,6 +7,7 @@
  * 
  * @property date $date
  * @property string $commentaire
+ * @property string $url
  * @property integer $type_id
  * @property integer $membre_id
  * @property integer $projet_id
@@ -16,6 +17,7 @@
  * 
  * @method date            getDate()            Returns the current record's "date" value
  * @method string          getCommentaire()     Returns the current record's "commentaire" value
+ * @method string          getUrl()             Returns the current record's "url" value
  * @method integer         getTypeId()          Returns the current record's "type_id" value
  * @method integer         getMembreId()        Returns the current record's "membre_id" value
  * @method integer         getProjetId()        Returns the current record's "projet_id" value
@@ -24,6 +26,7 @@
  * @method Projet          getProjet()          Returns the current record's "Projet" value
  * @method ProjetEvent     setDate()            Sets the current record's "date" value
  * @method ProjetEvent     setCommentaire()     Sets the current record's "commentaire" value
+ * @method ProjetEvent     setUrl()             Sets the current record's "url" value
  * @method ProjetEvent     setTypeId()          Sets the current record's "type_id" value
  * @method ProjetEvent     setMembreId()        Sets the current record's "membre_id" value
  * @method ProjetEvent     setProjetId()        Sets the current record's "projet_id" value
@@ -48,6 +51,10 @@ abstract class BaseProjetEvent extends sfDoctrineRecord
         $this->hasColumn('commentaire', 'string', 4000, array(
              'type' => 'string',
              'length' => 4000,
+             ));
+        $this->hasColumn('url', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
              ));
         $this->hasColumn('type_id', 'integer', null, array(
              'type' => 'integer',

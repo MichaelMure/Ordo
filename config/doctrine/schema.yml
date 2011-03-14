@@ -125,6 +125,7 @@ ProjetEvent:
   columns:
     date:               { type: date, notnull: true }
     commentaire:        { type: string(4000) }
+    url:                { type: string(255) }
     type_id:            { type: integer, notnull: true }
     membre_id:          { type: integer, notnull: true }
     projet_id:          { type: integer, notnull: true }

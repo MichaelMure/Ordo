@@ -73,6 +73,7 @@ class ProjetForm extends BaseProjetForm
     $this->widgetSchema['date_cloture']->setLabel('Date de cloture');
     $this->widgetSchema['respo_id']->setLabel('Chef de projet (*)');
     $this->widgetSchema['prospect_id']->setLabel('Prospect (*)');
+    $this->widgetSchema['delai_realisation']->setLabel('Délai de réalisation (jours)');
   }
   
   public function getJavascripts()
