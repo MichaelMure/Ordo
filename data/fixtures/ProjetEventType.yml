@@ -1,67 +1,67 @@
 ProjetEventType:
   ProjetEventType_1:
-    abreviation: 
+    abreviation: null
     description: Commentaire
   ProjetEventType_2:
-    abreviation: 
+    abreviation: null
     description: Devis
   ProjetEventType_3:
     abreviation: AP
     description: Avant-projet
   ProjetEventType_4:
     abreviation: SAP
-    description: Signature de l'avant-projet
+    description: 'Signature de l''avant-projet'
   ProjetEventType_5:
     abreviation: COC
-    description: Convention client
+    description: 'Convention client'
   ProjetEventType_6:
     abreviation: SCOC
-    description: Signature de la convention client
+    description: 'Signature de la convention client'
   ProjetEventType_7:
     abreviation: ACOC
-    description: Avenant à la convention client
+    description: 'Avenant à la convention client'
   ProjetEventType_8:
     abreviation: SACOC
-    description: Signature de l'avenant à la convention client
+    description: 'Signature de l''avenant à la convention client'
   ProjetEventType_9:
     abreviation: FACAC
-    description: Facture d'acompte
+    description: 'Facture d''acompte'
   ProjetEventType_10:
     abreviation: PFACAC
-    description: Paiement de la facture d'acompte
+    description: 'Paiement de la facture d''acompte'
   ProjetEventType_11:
     abreviation: OM
-    description: Ordre de mission
+    description: 'Ordre de mission'
   ProjetEventType_12:
     abreviation: AOM
-    description: Avenant à l'ordre de mission
+    description: 'Avenant à l''ordre de mission'
   ProjetEventType_13:
     abreviation: PVR
-    description: Procès verbal de recette
+    description: 'Procès verbal de recette'
   ProjetEventType_14:
     abreviation: SPVR
-    description: Signature du procès verbal de recette
+    description: 'Signature du procès verbal de recette'
   ProjetEventType_15:
     abreviation: FAC
     description: Facture
   ProjetEventType_16:
     abreviation: PFAC
-    description: Paiement de la facture
+    description: 'Paiement de la facture'
   ProjetEventType_17:
     abreviation: RP
-    description: Rapport pédagogique
+    description: 'Rapport pédagogique'
   ProjetEventType_18:
     abreviation: AFM
-    description: Attestation de fin de mission
+    description: 'Attestation de fin de mission'
   ProjetEventType_19:
     abreviation: BV
-    description: Bulletin de versement
+    description: 'Bulletin de versement'
   ProjetEventType_20:
     abreviation: LR
-    description: Lettre de relance de paiement
+    description: 'Lettre de relance de paiement'
   ProjetEventType_21:
     abreviation: LMD
-    description: Lettre de mise en demeure
+    description: 'Lettre de mise en demeure'
   ProjetEventType_22:
     abreviation: QS
-    description: Questionnaire satisfaction
+    description: 'Questionnaire satisfaction'

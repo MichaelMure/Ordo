@@ -51,12 +51,15 @@
     <?php foreach ($participants as $participant): ?>
     <tr>
       <td><?php echo $participant->getMembre() ?></td>
-      <td><?php echo $participant->getRole() ?></td>
+      <td><?php echo link_to($participant->getRole(), '@projetparticipant?action=edit&id='.$participant->getId())  ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
+<ul>
+  <li><?php echo link_to('Ajouter un participant', '@projetparticipant?action=new&projet='.$projet->getId(), array('class'  => 'actionnew')) ?></li>
+</ul>
 
 <h2>Évenements</h2>
 <div id='projetEvents'>

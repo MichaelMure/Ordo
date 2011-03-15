@@ -114,6 +114,7 @@ Projet:
 LienMembreProjet:
   columns:
     role:               { type: enum, values: [Intervenant, Commercial, Contact, Redacteur], notnull: true }
+    JEH:                { type: integer }
     projet_id:          { type: integer, notnull: true }
     membre_id:          { type: integer, notnull: true }
   relations:
