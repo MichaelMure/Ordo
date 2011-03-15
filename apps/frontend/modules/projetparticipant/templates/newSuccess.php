@@ -1,3 +1,3 @@
-<h1>New Lien membre projet</h1>
+<h1>Ajouter un participant</h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

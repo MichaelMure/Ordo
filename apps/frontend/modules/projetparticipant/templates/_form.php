@@ -9,11 +9,11 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('projetparticipant/index') ?>">Back to list</a>
+          <?php echo link_to('Retour au projet', '@projet?action=show&id='.$form->getDefault('projet_id'), array('class'  => 'actionlist')) ?>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'projetparticipant/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Supprimer', '@projetparticipant?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sûr ?', 'class'  => 'actiondelete')) ?>
           <?php endif; ?>
-          <input type="submit" value="Save" />
+          <input type="submit" value="Ajouter" />
         </td>
       </tr>
     </tfoot>
