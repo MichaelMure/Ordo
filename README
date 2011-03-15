@@ -1,57 +1,14 @@
-Points intéressants de l'application:
+    README
 
-O) Framework
-  Ce site fonctionne avec le framework Symfony. Ce framework est très structurant pour l'application,
-  et un développeur familié avec Symfony n'aura que peu de mal à comprendre le fonctionnement.
-  Si vous n'êtes pas familié avec Symfony, il est temps d'apprendre. Et ça vaut le coup.
+0) Introduction
+  Cette application est un ERP simple destiné à la gestion d'une Junior-Entreprise. Il a été développé 
+  en premier lieu pour les besoins de la Pépinière Junior-Entreprise IARISS (http://iariss.fr).
 
-1) Base de donnée
-  La bdd se configure avec la commande suivante:
-  ./symfony configure:database "mysql:host=localhost;dbname=dbname" root mYsEcret
+1) License
+  Sauf mention contraire, l'ensemble de cette application est placé sous license GPLv3. 
+  Les détails de cette license se trouve dans le fichier LICENSE.
 
-2) Authentification
-  L'authentification des utilisateurs se fait par le plugin apache mod_auth_mysql (voir INSTALL).
-  Par conséquent:
-    - seul les membres déjà enregistré peuvent donner accès à la création d'autres utilisateurs
-    - il n'est pas possible de se déconnecter. Pour les machine partagées, il faut utiliser le mode de
-      navigation privée des navigateurs.
-
-3) Données par défaut
-  Les données par défaut sont situé dans le repertoire data/fixtures
-  Elle sont chargées avec la commande:
-  ./symfony doctrine:data-load
-
-4) Modules
-  a) Annuaire
-  La gestion des droits du visiteur se fait dans le contrôleur grâce à la fonction suivante:
-  $this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER'])
-
-  Le visiteur est reconnu d'après les identifiants qu'il donne au server web. C'est apache qui vérifie
-  qu'il a le droit d'acceder au site. Le profil est chargé dans la variable $this->user (et donc est
-  disponible dans le template). Le statuts du visiteur peut être vérifié grace aux fonction du modèle
-  comme $this->user->isAdmin().
-
-  b) Carte de visite
-  Les cartes de visite sont générées d'après les données de l'annuaire. Les cartes de visites sont au
-  format vectoriel SVG. Pour changer le template de la carte, il faut modifier les fichiers
-  apps/frontend/modules/carte/templates/rectoSuccess.php et
-  apps/frontend/modules/carte/templates/versoSuccess.php.
-
-  c) Commun
-  Ce module contient des éléments communs aux différents modules. Au moment de la rédaction de ce document,
-  le seul élément est le partial qui génère les liens de page pour le pager.
-
-  d) Prospect
-  Ce module n'a rien de particulier.
-
-  c) Contact
-  Ce module comporte une page indicateur qui fonctionne grâce à de l'AJAX (action executeAjax(...))
-  Ce module comporte une fonctionalité "caché". L'action Summary fournis un résumé des changements dans
-  les modules Contact et Prospect dans la dernière semaine. L'action SummaryEmail permet d'envoyer ces
-  informations à des emails particuliers. Le but est de faire effectuer cette action par un cron sur le
-  serveur.
-
-5) Contributeurs
+2) Contributeurs
   - développeurs:
     Michael Muré -- batolettre@gmail.com -- développeur principal
     Théophile Helleboid

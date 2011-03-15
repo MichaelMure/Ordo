@@ -1,63 +1,72 @@
-Ce site nécessite d'activer pour apache le mod_auth_mysql
+    INSTALL
 
-Exemple de VirtualHost (Debian, Ubuntu):
 
-<VirtualHost *:80>
-        DocumentRoot /home/data/www/annuaire/web/
-        ServerName annuaire.iariss.com
-        ServerAlias annuaire.iariss.fr
-
-        Alias /sf /home/data/www/annuaire/lib/vendor/symfony/data/web/sf
-
-        <Directory /home/data/www/annuaire>
-                Options FollowSymLinks MultiViews
-                AllowOverride All
-                Order allow,deny
-                allow from all
-        </Directory>
+1) Base de donnée
+  La bdd se configure avec la commande suivante:
+  ./symfony configure:database "mysql:host=localhost;dbname=dbname" root mYsEcret
   
-        <Location />
-                AuthType Basic
-                AuthName "IARISS erp"
+2) Configuration d'Apache
 
-                AuthMySQL on
-                AuthUserFile /dev/null
-                AuthBasicAuthoritative Off
-                Auth_MySQL_Authoritative off
-                Auth_MySQL_Host localhost
-                Auth_MySQL_User erp
-                Auth_MySQL_Password erp
-                AuthMySQL_DB erp
-                AuthMySQL_Password_Table membre
-                AuthMySQL_Username_Field username
-                AuthMySQL_Password_Field passwd
-                AuthMySQL_Empty_Passwords off
-                AuthMySQL_Encryption_Types SHA1Sum
-                Require valid-user
-        </Location>
+  Ce site nécessite d'activer pour apache le mod_auth_mysql
 
-  CustomLog /var/log/apache2/annuaire_log combined
-  ErrorLog /var/log/apache2/annuaire_error
-</VirtualHost>
+  Exemple de VirtualHost (Debian, Ubuntu):
 
-Sur Archlinux, j'ai du compiler le mod manuellement, et la syntaxe est différente:
+  <VirtualHost *:80>
+          DocumentRoot /home/data/www/annuaire/web/
+          ServerName annuaire.iariss.com
+          ServerAlias annuaire.iariss.fr
 
-<Location />
-        AuthType Basic
-        AuthName "IARISS erp"
+          Alias /sf /home/data/www/annuaire/lib/vendor/symfony/data/web/sf
 
-        AuthMySQLEnable on
-        AuthUserFile /dev/null
-        AuthBasicAuthoritative Off
-        AuthMySQLAuthoritative On
-        AuthMySQLHost localhost
-        AuthMySQLUser erp
-        AuthMySQLPassword erp
-        AuthMySQLDB erp
-        AuthMySQLUserTable membre
-        AuthMySQLNameField username
-        AuthMySQLPasswordField passwd
-        AuthMySQLNoPasswd off
-        AuthMySQLPwEncryption sha1
-        Require valid-user
-</Location>
+          <Directory /home/data/www/annuaire>
+                  Options FollowSymLinks MultiViews
+                  AllowOverride All
+                  Order allow,deny
+                  allow from all
+          </Directory>
+    
+          <Location />
+                  AuthType Basic
+                  AuthName "IARISS erp"
+
+                  AuthMySQL on
+                  AuthUserFile /dev/null
+                  AuthBasicAuthoritative Off
+                  Auth_MySQL_Authoritative off
+                  Auth_MySQL_Host localhost
+                  Auth_MySQL_User erp
+                  Auth_MySQL_Password erp
+                  AuthMySQL_DB erp
+                  AuthMySQL_Password_Table membre
+                  AuthMySQL_Username_Field username
+                  AuthMySQL_Password_Field passwd
+                  AuthMySQL_Empty_Passwords off
+                  AuthMySQL_Encryption_Types SHA1Sum
+                  Require valid-user
+          </Location>
+
+    CustomLog /var/log/apache2/annuaire_log combined
+    ErrorLog /var/log/apache2/annuaire_error
+  </VirtualHost>
+
+  Sur Archlinux, j'ai du compiler le mod manuellement, et la syntaxe est différente:
+
+  <Location />
+          AuthType Basic
+          AuthName "IARISS erp"
+
+          AuthMySQLEnable on
+          AuthUserFile /dev/null
+          AuthBasicAuthoritative Off
+          AuthMySQLAuthoritative On
+          AuthMySQLHost localhost
+          AuthMySQLUser erp
+          AuthMySQLPassword erp
+          AuthMySQLDB erp
+          AuthMySQLUserTable membre
+          AuthMySQLNameField username
+          AuthMySQLPasswordField passwd
+          AuthMySQLNoPasswd off
+          AuthMySQLPwEncryption sha1
+          Require valid-user
+  </Location>
