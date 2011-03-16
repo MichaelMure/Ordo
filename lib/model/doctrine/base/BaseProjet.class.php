@@ -12,9 +12,7 @@
  * @property text $commentaire
  * @property real $budget
  * @property integer $delai_realisation
- * @property integer $respo_id
  * @property integer $prospect_id
- * @property Membre $Membre
  * @property Prospect $Prospect
  * @property Doctrine_Collection $Participants
  * @property Doctrine_Collection $LienMembreProjet
@@ -27,9 +25,7 @@
  * @method text                getCommentaire()       Returns the current record's "commentaire" value
  * @method real                getBudget()            Returns the current record's "budget" value
  * @method integer             getDelaiRealisation()  Returns the current record's "delai_realisation" value
- * @method integer             getRespoId()           Returns the current record's "respo_id" value
  * @method integer             getProspectId()        Returns the current record's "prospect_id" value
- * @method Membre              getMembre()            Returns the current record's "Membre" value
  * @method Prospect            getProspect()          Returns the current record's "Prospect" value
  * @method Doctrine_Collection getParticipants()      Returns the current record's "Participants" collection
  * @method Doctrine_Collection getLienMembreProjet()  Returns the current record's "LienMembreProjet" collection
@@ -41,9 +37,7 @@
  * @method Projet              setCommentaire()       Sets the current record's "commentaire" value
  * @method Projet              setBudget()            Sets the current record's "budget" value
  * @method Projet              setDelaiRealisation()  Sets the current record's "delai_realisation" value
- * @method Projet              setRespoId()           Sets the current record's "respo_id" value
  * @method Projet              setProspectId()        Sets the current record's "prospect_id" value
- * @method Projet              setMembre()            Sets the current record's "Membre" value
  * @method Projet              setProspect()          Sets the current record's "Prospect" value
  * @method Projet              setParticipants()      Sets the current record's "Participants" collection
  * @method Projet              setLienMembreProjet()  Sets the current record's "LienMembreProjet" collection
@@ -84,10 +78,6 @@ abstract class BaseProjet extends sfDoctrineRecord
         $this->hasColumn('delai_realisation', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('respo_id', 'integer', null, array(
-             'type' => 'integer',
-             'notnull' => true,
-             ));
         $this->hasColumn('prospect_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
@@ -97,10 +87,6 @@ abstract class BaseProjet extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Membre', array(
-             'local' => 'respo_id',
-             'foreign' => 'id'));
-
         $this->hasOne('Prospect', array(
              'local' => 'prospect_id',
              'foreign' => 'id'));

@@ -14,9 +14,8 @@ class projetActions extends sfActions
   {
     $this->projets = Doctrine_Core::getTable('Projet')
       ->createQuery('a')
-      ->select('a.id, a.nom, a.numero, a.date_debut, a.date_cloture, p.nom, p.id, m.id, m.nom, m.prenom, m.username')
+      ->select('a.id, a.nom, a.numero, a.date_debut, a.date_cloture, p.nom, p.id')
       ->leftJoin('a.Prospect p')
-      ->leftJoin('a.Membre m')
       ->where('a.deleted_at IS NULL')
       ->orderBy('a.numero DESC')
       ->execute();
@@ -27,15 +26,16 @@ class projetActions extends sfActions
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->projet = Doctrine_Core::getTable('Projet')
       ->createQuery('a')
-      ->select('a.id, a.nom, a.numero, a.budget, a.commentaire, a.date_debut, a.date_cloture, p.nom, p.id, m.id, m.nom, m.prenom, m.username')
+      ->select('a.id, a.nom, a.numero, a.budget, a.commentaire, a.date_debut, a.date_cloture, p.nom, p.id')
       ->leftJoin('a.Prospect p')
-      ->leftJoin('a.Membre m')
       ->where('a.id = ?', array($request->getParameter('id')))
       ->execute()->getFirst();
-    
-    $this->participants = Projet::getAllParticipants($request->getParameter('id'));
-    
+
     $this->forward404Unless($this->projet);
+
+    $this->participations = $this->projet->getParticipations();
+    $this->respo = $this->projet->getRespo();
+
     $this->events = Doctrine_Core::getTable('ProjetEvent')
       ->createQuery('e')
       ->select('e.commentaire, e.url, e.date, e.updated_at, t.abreviation, t.description, m.id, m.nom, m.prenom, m.username')

@@ -20,7 +20,7 @@
       <td><?php echo $projet->getEtat() ?></td>
       <td><?php echo $projet->getQualite() ?></td>
       <td><a href="<?php echo url_for('@prospect?action=show&id='.$projet->getProspectId()) ?>"><?php echo $projet->getProspect() ?></td>
-      <td><a href="<?php echo url_for('@annuaire?action=show&id='.$projet->getRespoId()) ?>"><?php echo $projet->getRespo() ?></td>
+      <td><a href="<?php echo url_for('@annuaire?action=show&id='.$projet->getRespo()->getId()) ?>"><?php echo $projet->getRespo() ?></td>
       <td><?php echo format_date($projet->getDateDebut()) ?></td>
       <td><?php echo format_date($projet->getDateCloture()) ?></td>
     </tr>

@@ -13,17 +13,19 @@ abstract class BaseLienMembreProjetFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'role'      => new sfWidgetFormChoice(array('choices' => array('' => '', 'Intervenant' => 'Intervenant', 'Commercial' => 'Commercial', 'Contact' => 'Contact', 'Redacteur' => 'Redacteur'))),
-      'JEH'       => new sfWidgetFormFilterInput(),
-      'projet_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Projet'), 'add_empty' => true)),
-      'membre_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Membre'), 'add_empty' => true)),
+      'role'        => new sfWidgetFormChoice(array('choices' => array('' => '', 'Chef de projet' => 'Chef de projet', 'Intervenant' => 'Intervenant', 'Commercial' => 'Commercial', 'Contact' => 'Contact', 'Redacteur' => 'Redacteur'))),
+      'JEH'         => new sfWidgetFormFilterInput(),
+      'commentaire' => new sfWidgetFormFilterInput(),
+      'projet_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Projet'), 'add_empty' => true)),
+      'membre_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Membre'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
-      'role'      => new sfValidatorChoice(array('required' => false, 'choices' => array('Intervenant' => 'Intervenant', 'Commercial' => 'Commercial', 'Contact' => 'Contact', 'Redacteur' => 'Redacteur'))),
-      'JEH'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'projet_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Projet'), 'column' => 'id')),
-      'membre_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Membre'), 'column' => 'id')),
+      'role'        => new sfValidatorChoice(array('required' => false, 'choices' => array('Chef de projet' => 'Chef de projet', 'Intervenant' => 'Intervenant', 'Commercial' => 'Commercial', 'Contact' => 'Contact', 'Redacteur' => 'Redacteur'))),
+      'JEH'         => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'commentaire' => new sfValidatorPass(array('required' => false)),
+      'projet_id'   => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Projet'), 'column' => 'id')),
+      'membre_id'   => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Membre'), 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('lien_membre_projet_filters[%s]');
@@ -43,11 +45,12 @@ abstract class BaseLienMembreProjetFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'        => 'Number',
-      'role'      => 'Enum',
-      'JEH'       => 'Number',
-      'projet_id' => 'ForeignKey',
-      'membre_id' => 'ForeignKey',
+      'id'          => 'Number',
+      'role'        => 'Enum',
+      'JEH'         => 'Number',
+      'commentaire' => 'Text',
+      'projet_id'   => 'ForeignKey',
+      'membre_id'   => 'ForeignKey',
     );
   }
 }

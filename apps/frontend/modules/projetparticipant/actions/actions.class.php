@@ -59,7 +59,7 @@ class projetparticipantActions extends sfActions
     $this->forward404Unless($lien_membre_projet = Doctrine_Core::getTable('LienMembreProjet')->find(array($request->getParameter('id'))), sprintf('Object lien_membre_projet does not exist (%s).', $request->getParameter('id')));
     $lien_membre_projet->delete();
 
-    $this->redirect('projetparticipant/index');
+    $this->redirect('@projet?action=show&id='.$lien_membre_projet->getProjetId());
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

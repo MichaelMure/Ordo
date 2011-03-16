@@ -7,23 +7,26 @@
  * 
  * @property enum $role
  * @property integer $JEH
+ * @property string $commentaire
  * @property integer $projet_id
  * @property integer $membre_id
  * @property Membre $Membre
  * @property Projet $Projet
  * 
- * @method enum             getRole()      Returns the current record's "role" value
- * @method integer          getJEH()       Returns the current record's "JEH" value
- * @method integer          getProjetId()  Returns the current record's "projet_id" value
- * @method integer          getMembreId()  Returns the current record's "membre_id" value
- * @method Membre           getMembre()    Returns the current record's "Membre" value
- * @method Projet           getProjet()    Returns the current record's "Projet" value
- * @method LienMembreProjet setRole()      Sets the current record's "role" value
- * @method LienMembreProjet setJEH()       Sets the current record's "JEH" value
- * @method LienMembreProjet setProjetId()  Sets the current record's "projet_id" value
- * @method LienMembreProjet setMembreId()  Sets the current record's "membre_id" value
- * @method LienMembreProjet setMembre()    Sets the current record's "Membre" value
- * @method LienMembreProjet setProjet()    Sets the current record's "Projet" value
+ * @method enum             getRole()        Returns the current record's "role" value
+ * @method integer          getJEH()         Returns the current record's "JEH" value
+ * @method string           getCommentaire() Returns the current record's "commentaire" value
+ * @method integer          getProjetId()    Returns the current record's "projet_id" value
+ * @method integer          getMembreId()    Returns the current record's "membre_id" value
+ * @method Membre           getMembre()      Returns the current record's "Membre" value
+ * @method Projet           getProjet()      Returns the current record's "Projet" value
+ * @method LienMembreProjet setRole()        Sets the current record's "role" value
+ * @method LienMembreProjet setJEH()         Sets the current record's "JEH" value
+ * @method LienMembreProjet setCommentaire() Sets the current record's "commentaire" value
+ * @method LienMembreProjet setProjetId()    Sets the current record's "projet_id" value
+ * @method LienMembreProjet setMembreId()    Sets the current record's "membre_id" value
+ * @method LienMembreProjet setMembre()      Sets the current record's "Membre" value
+ * @method LienMembreProjet setProjet()      Sets the current record's "Projet" value
  * 
  * @package    Annuaire
  * @subpackage model
@@ -39,15 +42,20 @@ abstract class BaseLienMembreProjet extends sfDoctrineRecord
              'type' => 'enum',
              'values' => 
              array(
-              0 => 'Intervenant',
-              1 => 'Commercial',
-              2 => 'Contact',
-              3 => 'Redacteur',
+              0 => 'Chef de projet',
+              1 => 'Intervenant',
+              2 => 'Commercial',
+              3 => 'Contact',
+              4 => 'Redacteur',
              ),
              'notnull' => true,
              ));
         $this->hasColumn('JEH', 'integer', null, array(
              'type' => 'integer',
+             ));
+        $this->hasColumn('commentaire', 'string', 100, array(
+             'type' => 'string',
+             'length' => 100,
              ));
         $this->hasColumn('projet_id', 'integer', null, array(
              'type' => 'integer',

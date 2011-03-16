@@ -18,7 +18,13 @@
       <td><?php echo $projet->getEtat() ?></td>
       <td><?php echo $projet->getQualite() ?></td>
       <td><a href="<?php echo url_for('@prospect?action=show&id='.$projet->getProspectId()) ?>"><?php echo $projet->getProspect() ?></td>
-      <td><a href="<?php echo url_for('@annuaire?action=show&id='.$projet->getRespoId()) ?>"><?php echo $projet->getRespo() ?></td>
+
+      <?php if($respo) : ?>
+      <td><a href="<?php echo url_for('@annuaire?action=show&id='.$respo->getId()) ?>"><?php echo $respo ?></td>
+      <?php else : ?>
+      <td>Pas de chef de projet assigné !</td>
+      <?php endif ?>
+
       <td><?php echo $projet->getBudget() ? format_number($projet->getBudget()).' €' : '' ?></td>
       <td><?php echo format_date($projet->getDateDebut()) ?></td>
       <td><?php echo $projet->getDateCloture() ? format_date($projet->getDateCloture()) : 'non cloturé' ?></td>
@@ -41,17 +47,15 @@
     <tr>
       <th>Membre</th>
       <th>Rôle</th>
+      <th>JEH</th>
     </tr>
   </thead>
   <tbody>
+    <?php foreach ($participations as $participation): ?>
     <tr>
-      <td><?php echo $projet->getRespo() ?></td>
-      <td>Chef de projet</td>
-    </tr>
-    <?php foreach ($participants as $participant): ?>
-    <tr>
-      <td><?php echo $participant->getMembre() ?></td>
-      <td><?php echo link_to($participant->getRole(), '@projetparticipant?action=edit&id='.$participant->getId())  ?></td>
+      <td><?php echo $participation->getMembre() ?></td>
+      <td><?php echo link_to($participation->getRole(), '@projetparticipant?action=edit&id='.$participation->getId())  ?></td>
+      <td><?php echo $participation->getJEH() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
@@ -69,15 +73,15 @@
     <div class='projetEventDetail'>
       <span class='projetEventAuteur'><?php echo $event->getMembre() ?></span> a ajouté <?php
       echo link_to($event->getProjetEventType()->getDescription(), '@projetevent?action=edit&id='.$event->getId()); ?>
-      
+
       <?php if($event->getDate()) : ?>
       <div class='projetEventInfo'>La date est le <?php echo format_date($event->getDate()) ?></div>
       <?php endif ?>
-      
+
       <?php if($event->getCommentaire()) : ?>
       <div class='projetEventInfo'><?php echo $event->getCommentaire() ?></div>
       <?php endif ?>
-      
+
       <?php if($event->getUrl()) : ?>
       <div class='projetEventInfo'><a href='<?php echo $event->getUrl() ?>'><?php echo $event->getUrl() ?></a></div>
       <?php endif ?>

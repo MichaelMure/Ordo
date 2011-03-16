@@ -20,7 +20,7 @@ Membre:
     promo:               { type: integer, notnull: true }
     filiere:             { type: enum, values: [Informatique, Automatique, Mécanique, Textile, Système de prod], notnull: true }
     poste:               { type: string(50) }
-    
+
     # adresses
     adresse_mulhouse:    { type: string(4000), notnull: true }
     cp_mulhouse:         { type: integer, notnull: true }
@@ -34,17 +34,17 @@ Membre:
     tel_fixe:            { type: string(255) }
     email_interne:       { type: string(255) }
     email_externe:       { type: string(255) }
-    
+
     # Statut Sec
     carte_ID:            { type: boolean, default: false, notnull: true }
     just_domicile:       { type: boolean, default: false, notnull: true }
     quittance:           { type: boolean, default: false, notnull: true }
     reglement_interieur: { type: boolean, default: false, notnull: true }
     convention_etudiant: { type: boolean, default: false, notnull: true }
-    
+
     # Statut Treso
     cotisation:          { type: boolean, default: false, notnull: true }
-    
+
     status:              { type: enum, values: [Administrateur, Membre, Ancien], notnull: true, default: Membre }
 
   relations:
@@ -103,18 +103,18 @@ Projet:
     budget:             { type: real }
     delai_realisation:  { type: integer }
 
-    respo_id:           { type: integer, notnull: true }
     prospect_id:        { type: integer, notnull: true }
 
   relations:
-    Membre:             { local: respo_id, foreign: id, type: one }
     Prospect:           { local: prospect_id, foreign: id, type: one }
+    LienMembreProjets:  { local: id, foreign: projet_id, type: many }
     Participants:       { class: Membre, refClass: LienMembreProjet, local: projet_id, foreign: membre_id }
 
 LienMembreProjet:
   columns:
-    role:               { type: enum, values: [Intervenant, Commercial, Contact, Redacteur], notnull: true }
+    role:               { type: enum, values: [Chef de projet, Intervenant, Commercial, Contact, Redacteur], notnull: true }
     JEH:                { type: integer }
+    commentaire:        { type: string(100) }
     projet_id:          { type: integer, notnull: true }
     membre_id:          { type: integer, notnull: true }
   relations:
