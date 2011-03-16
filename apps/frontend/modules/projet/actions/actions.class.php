@@ -45,6 +45,11 @@ class projetActions extends sfActions
       ->execute();
   }
 
+  public function executeDocument(sfWebRequest $request)
+  {
+    //TODO
+  }
+
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new NewProjetForm();
