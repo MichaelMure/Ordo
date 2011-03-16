@@ -15,16 +15,22 @@ class ContactForm extends BaseContactForm
     sfContext::getInstance()->getConfiguration()->loadHelpers('Url');
 
     unset($this['created_at'], $this['updated_at']);
-    
+
     $this->widgetSchema['type_contact_id'] = new sfWidgetFormDoctrineChoice(array(
       'expanded'     => true,
       'model'        => 'TypeContact',
     ));
-    
+
     $this->widgetSchema['prospect_id']->setOption('renderer_class', 'sfWidgetFormDoctrineJQueryAutocompleter');
     $this->widgetSchema['prospect_id']->setOption('renderer_options', array(
       'model' => 'Prospect',
       'url'   => url_for('@prospect?action=ajax')
+    ));
+
+    $this->widgetSchema['membre_id']->setOption('renderer_class', 'sfWidgetFormDoctrineJQueryAutocompleter');
+    $this->widgetSchema['membre_id']->setOption('renderer_options', array(
+      'model' => 'Membre',
+      'url'   => url_for('@annuaire?action=ajax')
     ));
 
     $this->widgetSchema['date'] = new sfWidgetFormJQueryDate(array(
@@ -34,8 +40,8 @@ class ContactForm extends BaseContactForm
     ));
     $this->setValidator('date', new sfValidatorDate(array('max' => date('Y-m-d'))));
     $this->setDefault('date', date('Y-m-d'));
-    
-    
+
+
     $this->setWidget('a_recontacter', new sfWidgetFormChoice(array('choices' => array('Oui' => 'Oui', 'Non' => 'Non'))));
     $this->setValidator('a_recontacter', new sfValidatorChoice(array('choices' => array(0 => 'Oui', 1 => 'Non'))));
 
@@ -48,7 +54,7 @@ class ContactForm extends BaseContactForm
     $this->setValidator('date_recontact', new sfValidatorDate());
     $this->setDefault('date_recontact', date('Y-m-d', strtotime('today +14 day')));
   }
-  
+
   public function getJavascripts()
   {
     return array('jquery-1.4.2.min.js',
@@ -58,7 +64,7 @@ class ContactForm extends BaseContactForm
                  'jquery-ui-1.8.1.custom.min.js',
                  '/sfFormExtraPlugin/js/jquery.autocompleter.js');
   }
-  
+
   public function getStylesheets()
   {
     return array('ui-lightness/jquery-ui-1.8.1.custom.css' => 'all',
