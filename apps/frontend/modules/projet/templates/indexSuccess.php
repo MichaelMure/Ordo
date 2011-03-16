@@ -1,4 +1,4 @@
-<?php use_helper('Date') ?>
+<?php use_helper('Date', 'Number') ?>
 <h1>Liste des projets</h1>
 
 <table>
@@ -9,6 +9,7 @@
       <th>Qualité</th>
       <th>Prospect</th>
       <th>Chef de projet</th>
+      <th>Budget</th>
       <th>Date debut</th>
       <th>Date cloture</th>
     </tr>
@@ -27,6 +28,7 @@
       <td>Pas de chef de projet assigné !</td>
       <?php endif ?>
 
+      <td><?php echo $projet->getBudget() ? format_number($projet->getBudget()).' €' : '' ?></td>
       <td><?php echo format_date($projet->getDateDebut()) ?></td>
       <td><?php echo format_date($projet->getDateCloture()) ?></td>
     </tr>

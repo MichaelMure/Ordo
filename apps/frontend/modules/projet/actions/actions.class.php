@@ -14,7 +14,7 @@ class projetActions extends sfActions
   {
     $this->projets = Doctrine_Core::getTable('Projet')
       ->createQuery('a')
-      ->select('a.id, a.nom, a.numero, a.date_debut, a.date_cloture, p.nom, p.id')
+      ->select('a.id, a.nom, a.numero, a.date_debut, a.date_cloture, a.budget, p.nom, p.id')
       ->leftJoin('a.Prospect p')
       ->where('a.deleted_at IS NULL')
       ->orderBy('a.numero DESC')
