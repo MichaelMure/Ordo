@@ -18,7 +18,7 @@ class annuaireActions extends sfActions
       ->createQuery('a')
       ->select('a.id, a.nom, a.prenom, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
       ->where('a.nom != ?', '')
-      ->orderBy('a.nom')
+      ->orderBy('a.status, a.nom')
       ->execute();
   }
 
@@ -38,8 +38,10 @@ class annuaireActions extends sfActions
   public function executeAjax(sfWebRequest $request)
   {
     $this->getResponse()->setContentType('application/json');
-    $request = Doctrine::getTable('Membre')->createQuery()
-                  ->where('CONCAT(prenom, username) LIKE ?','%'.$request->getParameter('q').'%')
+    $request = Doctrine::getTable('Membre')->createQuery('m')
+                  ->select('m.id, m.nom, m.prenom')
+                  ->where('CONCAT(m.prenom, m.username) LIKE ?', array('%'.$request->getParameter('q').'%'))
+                  ->andWhere('m.status != "Ancien"')
                   ->limit('10')
                   ->execute()
                   ->getData();
