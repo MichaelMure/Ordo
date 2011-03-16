@@ -113,7 +113,7 @@ Projet:
 LienMembreProjet:
   columns:
     role:               { type: enum, values: [Chef de projet, Intervenant, Commercial, Contact, Redacteur], notnull: true }
-    JEH:                { type: integer }
+    JEH:                { type: integer, notnull: true }
     commentaire:        { type: string(100) }
     projet_id:          { type: integer, notnull: true }
     membre_id:          { type: integer, notnull: true }

@@ -26,7 +26,7 @@ class projetActions extends sfActions
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->projet = Doctrine_Core::getTable('Projet')
       ->createQuery('a')
-      ->select('a.id, a.nom, a.numero, a.budget, a.commentaire, a.date_debut, a.date_cloture, p.nom, p.id')
+      ->select('a.id, a.nom, a.numero, a.budget, a.commentaire, a.date_debut, a.date_cloture, a.delai_realisation, p.nom, p.id')
       ->leftJoin('a.Prospect p')
       ->where('a.id = ?', array($request->getParameter('id')))
       ->execute()->getFirst();

@@ -20,7 +20,13 @@
       <td><?php echo $projet->getEtat() ?></td>
       <td><?php echo $projet->getQualite() ?></td>
       <td><a href="<?php echo url_for('@prospect?action=show&id='.$projet->getProspectId()) ?>"><?php echo $projet->getProspect() ?></td>
-      <td><a href="<?php echo url_for('@annuaire?action=show&id='.$projet->getRespo()->getId()) ?>"><?php echo $projet->getRespo() ?></td>
+
+      <?php if($respo = $projet->getRespo()) : ?>
+      <td><a href="<?php echo url_for('@annuaire?action=show&id='.$respo->getId()) ?>"><?php echo $respo ?></td>
+      <?php else : ?>
+      <td>Pas de chef de projet assigné !</td>
+      <?php endif ?>
+
       <td><?php echo format_date($projet->getDateDebut()) ?></td>
       <td><?php echo format_date($projet->getDateCloture()) ?></td>
     </tr>

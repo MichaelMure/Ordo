@@ -10,6 +10,7 @@
       <th>Chef de projet</th>
       <th>Budget</th>
       <th>Date debut</th>
+      <th>Délai de réalisation</th>
       <th>Date cloture</th>
     </tr>
   </thead>
@@ -27,6 +28,7 @@
 
       <td><?php echo $projet->getBudget() ? format_number($projet->getBudget()).' €' : '' ?></td>
       <td><?php echo format_date($projet->getDateDebut()) ?></td>
+      <td><?php echo $projet->getDelaiRealisation() ? $projet->getDelaiRealisation().' jours' : '' ?></td>
       <td><?php echo $projet->getDateCloture() ? format_date($projet->getDateCloture()) : 'non cloturé' ?></td>
     </tr>
   </tbody>

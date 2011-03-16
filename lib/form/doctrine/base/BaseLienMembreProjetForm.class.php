@@ -26,7 +26,7 @@ abstract class BaseLienMembreProjetForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'role'        => new sfValidatorChoice(array('choices' => array(0 => 'Chef de projet', 1 => 'Intervenant', 2 => 'Commercial', 3 => 'Contact', 4 => 'Redacteur'))),
-      'JEH'         => new sfValidatorInteger(array('required' => false)),
+      'JEH'         => new sfValidatorInteger(),
       'commentaire' => new sfValidatorString(array('max_length' => 100, 'required' => false)),
       'projet_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Projet'))),
       'membre_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Membre'))),

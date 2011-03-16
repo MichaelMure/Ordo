@@ -52,6 +52,7 @@ abstract class BaseLienMembreProjet extends sfDoctrineRecord
              ));
         $this->hasColumn('JEH', 'integer', null, array(
              'type' => 'integer',
+             'notnull' => true,
              ));
         $this->hasColumn('commentaire', 'string', 100, array(
              'type' => 'string',

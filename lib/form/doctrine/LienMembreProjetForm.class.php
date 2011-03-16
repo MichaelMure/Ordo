@@ -15,7 +15,7 @@ class LienMembreProjetForm extends BaseLienMembreProjetForm
     sfContext::getInstance()->getConfiguration()->loadHelpers('Url');
 
     $this->widgetSchema['projet_id'] = new sfWidgetFormInputHidden();
-    
+
     $this->widgetSchema['membre_id']->setOption('renderer_class', 'sfWidgetFormDoctrineJQueryAutocompleter');
     $this->widgetSchema['membre_id']->setOption('renderer_options', array(
       'model' => 'Membre',
@@ -24,6 +24,7 @@ class LienMembreProjetForm extends BaseLienMembreProjetForm
 
     $this->widgetSchema->moveField('role', sfWidgetFormSchema::AFTER, 'membre_id');
     $this->widgetSchema->moveField('JEH', sfWidgetFormSchema::AFTER, 'role');
+    $this->widgetSchema->moveField('commentaire', sfWidgetFormSchema::LAST);
   }
 
   public function getJavascripts()
@@ -31,7 +32,7 @@ class LienMembreProjetForm extends BaseLienMembreProjetForm
     return array('jquery-1.4.2.min.js',
                  '/sfFormExtraPlugin/js/jquery.autocompleter.js');
   }
-  
+
   public function getStylesheets()
   {
     return array('/sfFormExtraPlugin/css/jquery.autocompleter.css' => 'all');
