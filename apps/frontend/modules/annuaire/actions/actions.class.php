@@ -39,32 +39,23 @@ class annuaireActions extends sfActions
   {
     $this->getResponse()->setContentType('application/json');
     $request = Doctrine::getTable('Membre')->createQuery()
-                  ->where('nom LIKE ?','%'.$request->getParameter('q').'%')
+                  ->where('CONCAT(prenom, username) LIKE ?','%'.$request->getParameter('q').'%')
                   ->limit('10')
                   ->execute()
                   ->getData();
-  
+
     $membres = array();
     foreach ( $request as $membre )
       $membres[$membre->id] = (string) $membre;
-    
+
     return $this->renderText(json_encode($membres));
   }
-  
-  public function executeAutocomplete(sfWebRequest $request)
-  {
-    $this->getResponse()->setHttpHeader('Content-Type','application/json; charset=utf-8');
 
-    $tags = Membre::retrieveSuggestions($request->getParameter('q'), $request->getParameter('l'),$request->getParameter('c'));
-
-    return $this->renderText(json_encode($tags));
-  }
-  
   public function executeNew(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless(!$this->user->isAncien());
-    
+
     $this->form = new NewMembreForm();
   }
 
@@ -123,19 +114,19 @@ class annuaireActions extends sfActions
       ->orderBy('a.nom')
       ->execute();
   }
-  
+
   public function executeChangeMDP(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->form = new PasswordMembreForm($this->user);
   }
-  
+
   public function executeUpdateMDP(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
 
     $this->form = new PasswordMembreForm($this->user);
-    
+
     $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
 
     if ($this->form->isValid())
@@ -144,22 +135,22 @@ class annuaireActions extends sfActions
 
       $this->redirect('@annuaire?action=show&id='.$membre->getId());
     }
-    
+
     $this->setTemplate('changeMDP');
   }
-  
+
   public function executeStatus(sfWebRequest $request)
   {
     $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless($this->user->isAdmin());
     $this->forward404Unless($status = $request->getParameter('status'));
-    
+
     $membre->setStatus($status);
     $membre->save();
     $this->redirect('@annuaire?action=show&id='.$membre->getId());
   }
-  
+
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
