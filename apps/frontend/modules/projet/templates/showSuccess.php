@@ -50,6 +50,7 @@
       <th>Membre</th>
       <th>Rôle</th>
       <th>JEH</th>
+      <th>Commentaire</th>
     </tr>
   </thead>
   <tbody>
@@ -58,6 +59,7 @@
       <td><?php echo $participation->getMembre() ?></td>
       <td><?php echo link_to($participation->getRole(), '@projetparticipant?action=edit&id='.$participation->getId())  ?></td>
       <td><?php echo $participation->getJEH() ?></td>
+      <td><?php echo $participation->getCommentaire() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
