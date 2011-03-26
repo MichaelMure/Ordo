@@ -17,7 +17,8 @@ class annuaireActions extends sfActions
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
       ->select('a.id, a.nom, a.prenom, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
-      ->where('a.nom != ?', '')
+      /* Désactivation temporaire
+       * ->where('a.nom != ?', '') */
       ->orderBy('a.status, a.nom')
       ->execute();
   }
@@ -93,6 +94,13 @@ class annuaireActions extends sfActions
         $this->forward404();
       }
     }
+  }
+
+  public function executeLogout(sfWebRequest $request)
+  {
+    $this->getResponse()->setStatusCode(401);
+    return sfView::HEADER_ONLY;
+    //$this->redirect('@annuaire.index');
   }
 
   public function executeDocument(sfWebRequest $request)
