@@ -96,13 +96,6 @@ class annuaireActions extends sfActions
     }
   }
 
-  public function executeLogout(sfWebRequest $request)
-  {
-    $this->getResponse()->setStatusCode(401);
-    return sfView::HEADER_ONLY;
-    //$this->redirect('@annuaire.index');
-  }
-
   public function executeDocument(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
@@ -120,7 +113,8 @@ class annuaireActions extends sfActions
       ->createQuery('a')
       ->where('a.status != ?', 'Ancien')
       ->select('a.id, a.nom, a.prenom, a.tel_mobile, a.carte_ID, a.just_domicile, a.quittance, a.cotisation, a.reglement_interieur, a.convention_etudiant')
-      ->where('a.nom != ?', '')
+      /* Désactivation temporaire
+       * ->where('a.nom != ?', '') */
       ->orderBy('a.nom')
       ->execute();
   }
