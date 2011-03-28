@@ -1,0 +1,26 @@
+  TODO
+===========
+
+1) Développer le modèle des projets pour un accès facile aux différents documents
+
+2) Implémenter une classe de "test" pour valider les projets et leurs donner une note de qualité
+  - fonctionnement similaire à une suite de test
+  - chaque défaut affiche un détail du problème sur la page du projet
+  - suivant la gravité du problème, un facteur entre 0 et 1 est attribué, ces facteurs sont multiplié entre eux pour donner la note globale du projet (1 = parfait)
+  
+3) Implementer dans le modèle du projet un test qui donne l'état d'avancement du projet
+
+4) Implementer une gestion des cotisations et des quittances de manière annuelle
+
+5) Implementer des indicateurs pour les projets
+
+6) Implementer des indicateurs pour les membres
+
+7) Implementer une gestion des évenements, avec les membres présent, etc ... + indicateurs
+
+8) Ajouter des références pour les documents des projets ? (Il est possible de les calculer)
+
+9) Générer des documents ? Voir http://linuxfr.org/news/cr%C3%A9er-des-fichiers-opendocument-sous-php-avec-opentbs-150
+  - Le document le plus utile serai la convention étudiant
+
+10) Ajouter un moyen de chercher un prospect
