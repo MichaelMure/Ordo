@@ -14,9 +14,11 @@
     <tr>
       <td><?php echo $cotisation->getMembre() ?></td>
       <td>
-        <?php foreach($cotisation->getMembre()->getCotisations() as $cotisation): ?>
-          <?php echo $cotisation ?>, 
-        <?php endforeach ?>
+        <?php 
+          $cotisation_annee = array();
+          foreach($cotisation->getMembre()->getCotisations() as $cotisation)
+            $cotisation_annee[] = $cotisation->__toString();
+          echo implode(',', $cotisation_annee) ?>
       </td>
     </tr>
     <?php endforeach; ?>
