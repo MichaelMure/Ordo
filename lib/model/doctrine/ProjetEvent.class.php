@@ -14,7 +14,7 @@ class ProjetEvent extends BaseProjetEvent
 {
   public function save(Doctrine_Connection $conn = null)
   {
-    if($this->getTypeId() == 1) // est un commentaire
+    if($this->getProjetEventType()->getDescription() == 'Commentaire')
     {
       $this->setDate(NULL);
     }
