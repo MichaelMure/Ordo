@@ -32,6 +32,7 @@
               <?php endif ?>
               <?php if(isset($user) && !$user->isAncien()): ?>
               <li><?php echo link_to('Ajouter un membre', '@annuaire?action=new') ?></li>
+              <li><?php echo link_to('Indicateurs', '@annuaire?action=indicateurs') ?></li>
               <?php endif ?>
             </ul>
           </li>

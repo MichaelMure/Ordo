@@ -69,6 +69,15 @@ projetparticipant.index:
   url: /projetparticipant/
   param: { module: projetparticipant, action: index }
   
+## Cotisation
+cotisation:
+  url: /cotisation/:action/*
+  param: { module: cotisation }
+
+projetparticipant.index:
+  url: /cotisation/
+  param: { module: cotisation, action: index }
+
 # generic rules
 # please, remove them by adding more specific rules
 #default_index:

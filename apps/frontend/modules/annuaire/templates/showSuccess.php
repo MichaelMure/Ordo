@@ -86,6 +86,24 @@ function getClass($filiere)
         <th>Dernière mise à jour le</th>
         <td><?php echo format_date($membre->getUpdatedAt()) ?></td>
       </tr>
+      <tr>
+        <th>Cotisations</th>
+        <td>
+          <?php 
+          $cotisation_annee = array();
+          foreach($membre->getCotisations() as $cotisation)
+            $cotisation_annee[] = $cotisation->__toString();
+          echo implode(',', $cotisation_annee) ?>
+        </td>
+        <th>Quittances</th>
+        <td>
+          <?php 
+          $quittance_annee = array();
+          foreach($membre->getQuittances() as $quittance)
+            $quittance_annee[] = $quittance->__toString();
+          echo implode(',', $quittance_annee) ?>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

@@ -15,7 +15,11 @@ class AdminMembreForm extends MembreForm
     parent::configure();
 
     unset(
-      $this['passwd']
+      $this['passwd'],
+      $this['carte_ID'],
+      $this['just_domicile'],
+      $this['reglement_interieur'],
+      $this['convention_etudiant']
       );
 
   }

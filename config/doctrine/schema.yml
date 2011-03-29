@@ -38,18 +38,32 @@ Membre:
     # Statut Sec
     carte_ID:            { type: boolean, default: false, notnull: true }
     just_domicile:       { type: boolean, default: false, notnull: true }
-    quittance:           { type: boolean, default: false, notnull: true }
     reglement_interieur: { type: boolean, default: false, notnull: true }
     convention_etudiant: { type: boolean, default: false, notnull: true }
 
-    # Statut Treso
-    cotisation:          { type: boolean, default: false, notnull: true }
-
-    status:              { type: enum, values: [Administrateur, Membre, Ancien], notnull: true, default: Membre }
+    status:              { type: enum, notnull: true, default: Membre, values: [Administrateur, Membre, Ancien] }
 
   relations:
     Projets:             { class: Projet, refClass: LienMembreProjet, local: membre_id, foreign: projet_id }
-    LiensMembreProjet:    { class: LienMembreProjet, local: id, foreign: membre_id, type: many }
+    LiensMembreProjet:   { class: LienMembreProjet, local: id, foreign: membre_id, type: many }
+    Cotisations:         { class: Cotisation, local: id, foreign: membre_id, type: many }
+    Quittances:          { class: Quittance, local: id, foreign: membre_id, type: many }
+
+Cotisation:
+  actAs: { Timestampable: ~ }
+  columns:
+    membre_id:           { type: integer, notnull: true }
+    annee:               { type: integer, notnull: true }
+  relations:
+    Membre:              { local: membre_id, foreign: id, type: one }
+
+Quittance:
+  actAs: { Timestampable: ~ }
+  columns:
+    membre_id:           { type: integer, notnull: true }
+    annee:               { type: integer, notnull: true }
+  relations:
+    Membre:              { local: membre_id, foreign: id, type: one }
 
 ## Module Prospection ##
 Prospect:

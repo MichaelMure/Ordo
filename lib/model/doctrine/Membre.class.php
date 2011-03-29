@@ -69,5 +69,72 @@ class Membre extends BaseMembre
           ->where('m.username = ?', array($username))
           ->execute()->getFirst();
   }
+  
+  public function setCotisation($value)
+  {
+    $cotisations = $this->getCotisations();
 
+    if($value && $cotisations->count() == 0)
+    {
+      $cotisation = new Cotisation();
+      $cotisation->setMembreId($this->getId());
+      $cotisation->setAnnee(Tools::getAnneeCourante());
+      $cotisations->add($cotisation);
+    }
+
+    if(!$value && $cotisations->count() > 0)
+    {
+      $cotisations->delete();
+    }
+  }
+
+  public function getCotisation()
+  {
+    $cotisations = $this->getCotisations();
+    $annee = Tools::getAnneeCourante();
+
+    foreach($cotisations as $cotisation)
+    {
+      if($cotisation->getAnnee() == $annee)
+      {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  public function setQuittance($value)
+  {
+    $quittances = $this->getQuittances();
+
+    if($value && $quittances->count() == 0)
+    {
+      $quittance = new Quittance();
+      $quittance->setMembreId($this->getId());
+      $quittance->setAnnee(Tools::getAnneeCourante());
+      $quittances->add($quittance);
+    }
+
+    if(!$value && $quittances->count() > 0)
+    {
+      $quittances->delete();
+    }
+  }
+
+  public function getQuittance()
+  {
+    $quittances = $this->getQuittances();
+    $annee = Tools::getAnneeCourante();
+
+    foreach($quittances as $quittance)
+    {
+      if($quittance->getAnnee() == $annee)
+      {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }

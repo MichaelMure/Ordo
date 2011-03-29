@@ -7,8 +7,8 @@
       <th>Numero de téléphone</th>
       <th>Pièce d'identité</th>
       <th>Quittance</th>
-      <th>Justificatif de domicile</th>
       <th>Cotisation</th>
+      <th>Justificatif de domicile</th>
       <th>Règlement intérieur &amp; statuts</th>
       <th>Convention étudiant</th>
     </tr>
@@ -21,8 +21,8 @@
       <td><?php echo $membre->getTelMobile() ?></td>
       <td class='<?php echo $membre->getcarteId() ? 'vert' : 'rouge' ?>'><?php echo $membre->getcarteId() ? 'oui' : 'non' ?></td>
       <td class='<?php echo $membre->getQuittance() ? 'vert' : 'rouge' ?>'><?php echo $membre->getQuittance() ? 'oui' : 'non' ?></td>
-      <td class='<?php echo $membre->getJustDomicile() ? 'vert' : 'rouge' ?>'><?php echo $membre->getJustDomicile() ? 'oui' : 'non' ?></td>
       <td class='<?php echo $membre->getCotisation() ? 'vert' : 'rouge' ?>'><?php echo $membre->getCotisation() ? 'oui' : 'non' ?></td>
+      <td class='<?php echo $membre->getJustDomicile() ? 'vert' : 'rouge' ?>'><?php echo $membre->getJustDomicile() ? 'oui' : 'non' ?></td>
       <td class='<?php echo $membre->getReglementInterieur() ? 'vert' : 'rouge' ?>'><?php echo $membre->getReglementInterieur() ? 'oui' : 'non' ?></td>
       <td class='<?php echo $membre->getConventionEtudiant() ? 'vert' : 'rouge' ?>'><?php echo $membre->getConventionEtudiant() ? 'oui' : 'non' ?></td>
     </tr>

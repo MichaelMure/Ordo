@@ -29,13 +29,13 @@
  * @property string $email_externe
  * @property boolean $carte_ID
  * @property boolean $just_domicile
- * @property boolean $quittance
  * @property boolean $reglement_interieur
  * @property boolean $convention_etudiant
- * @property boolean $cotisation
  * @property enum $status
  * @property Doctrine_Collection $Projets
  * @property Doctrine_Collection $LiensMembreProjet
+ * @property Doctrine_Collection $Cotisations
+ * @property Doctrine_Collection $Quittances
  * @property Doctrine_Collection $Contact
  * @property Doctrine_Collection $ProjetEvent
  * 
@@ -63,13 +63,13 @@
  * @method string              getEmailExterne()        Returns the current record's "email_externe" value
  * @method boolean             getCarteID()             Returns the current record's "carte_ID" value
  * @method boolean             getJustDomicile()        Returns the current record's "just_domicile" value
- * @method boolean             getQuittance()           Returns the current record's "quittance" value
  * @method boolean             getReglementInterieur()  Returns the current record's "reglement_interieur" value
  * @method boolean             getConventionEtudiant()  Returns the current record's "convention_etudiant" value
- * @method boolean             getCotisation()          Returns the current record's "cotisation" value
  * @method enum                getStatus()              Returns the current record's "status" value
  * @method Doctrine_Collection getProjets()             Returns the current record's "Projets" collection
  * @method Doctrine_Collection getLiensMembreProjet()   Returns the current record's "LiensMembreProjet" collection
+ * @method Doctrine_Collection getCotisations()         Returns the current record's "Cotisations" collection
+ * @method Doctrine_Collection getQuittances()          Returns the current record's "Quittances" collection
  * @method Doctrine_Collection getContact()             Returns the current record's "Contact" collection
  * @method Doctrine_Collection getProjetEvent()         Returns the current record's "ProjetEvent" collection
  * @method Membre              setUsername()            Sets the current record's "username" value
@@ -96,13 +96,13 @@
  * @method Membre              setEmailExterne()        Sets the current record's "email_externe" value
  * @method Membre              setCarteID()             Sets the current record's "carte_ID" value
  * @method Membre              setJustDomicile()        Sets the current record's "just_domicile" value
- * @method Membre              setQuittance()           Sets the current record's "quittance" value
  * @method Membre              setReglementInterieur()  Sets the current record's "reglement_interieur" value
  * @method Membre              setConventionEtudiant()  Sets the current record's "convention_etudiant" value
- * @method Membre              setCotisation()          Sets the current record's "cotisation" value
  * @method Membre              setStatus()              Sets the current record's "status" value
  * @method Membre              setProjets()             Sets the current record's "Projets" collection
  * @method Membre              setLiensMembreProjet()   Sets the current record's "LiensMembreProjet" collection
+ * @method Membre              setCotisations()         Sets the current record's "Cotisations" collection
+ * @method Membre              setQuittances()          Sets the current record's "Quittances" collection
  * @method Membre              setContact()             Sets the current record's "Contact" collection
  * @method Membre              setProjetEvent()         Sets the current record's "ProjetEvent" collection
  * 
@@ -233,11 +233,6 @@ abstract class BaseMembre extends sfDoctrineRecord
              'default' => false,
              'notnull' => true,
              ));
-        $this->hasColumn('quittance', 'boolean', null, array(
-             'type' => 'boolean',
-             'default' => false,
-             'notnull' => true,
-             ));
         $this->hasColumn('reglement_interieur', 'boolean', null, array(
              'type' => 'boolean',
              'default' => false,
@@ -248,21 +243,16 @@ abstract class BaseMembre extends sfDoctrineRecord
              'default' => false,
              'notnull' => true,
              ));
-        $this->hasColumn('cotisation', 'boolean', null, array(
-             'type' => 'boolean',
-             'default' => false,
-             'notnull' => true,
-             ));
         $this->hasColumn('status', 'enum', null, array(
              'type' => 'enum',
+             'notnull' => true,
+             'default' => 'Membre',
              'values' => 
              array(
               0 => 'Administrateur',
               1 => 'Membre',
               2 => 'Ancien',
              ),
-             'notnull' => true,
-             'default' => 'Membre',
              ));
     }
 
@@ -275,6 +265,14 @@ abstract class BaseMembre extends sfDoctrineRecord
              'foreign' => 'projet_id'));
 
         $this->hasMany('LienMembreProjet as LiensMembreProjet', array(
+             'local' => 'id',
+             'foreign' => 'membre_id'));
+
+        $this->hasMany('Cotisation as Cotisations', array(
+             'local' => 'id',
+             'foreign' => 'membre_id'));
+
+        $this->hasMany('Quittance as Quittances', array(
              'local' => 'id',
              'foreign' => 'membre_id'));
 

@@ -19,8 +19,6 @@ class NewMembreForm extends MembreForm
       $this['numero_etudiant'],
       $this['carte_ID'],
       $this['just_domicile'],
-      $this['quittance'],
-      $this['cotisation'],
       $this['reglement_interieur'],
       $this['convention_etudiant'],
       $this['poste'],

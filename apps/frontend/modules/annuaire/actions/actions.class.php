@@ -30,10 +30,13 @@ class annuaireActions extends sfActions
     $this->forward404Unless($this->membre);
     $this->forward404Unless($this->user->isAdmin() || ($this->user == $this->membre));
 
-    if($request->getParameter('valider'))
-      $this->valider($request, $this->membre);
-    if($request->getParameter('devalider'))
-      $this->devalider($request, $this->membre);
+    if($this->user->isAdmin())
+    {
+      if($request->getParameter('valider'))
+        $this->valider($request, $this->membre);
+      if($request->getParameter('devalider'))
+        $this->devalider($request, $this->membre);
+    }
   }
 
   public function executeAjax(sfWebRequest $request)
@@ -101,18 +104,12 @@ class annuaireActions extends sfActions
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->forward404Unless(!$this->user->isAncien());
 
-    if($this->user->isAdmin())
-    {
-      if($request->getParameter('valider'))
-        $this->valider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
-      if($request->getParameter('devalider'))
-        $this->devalider($request, $this->forward404Unless($membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id'))));
-    }
-
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
+      ->select('a.id, a.nom, a.prenom, a.username, a.tel_mobile, a.carte_ID, a.just_domicile, a.reglement_interieur, a.convention_etudiant, a.status, c.annee, q.annee')
       ->where('a.status != ?', 'Ancien')
-      ->select('a.id, a.nom, a.prenom, a.tel_mobile, a.carte_ID, a.just_domicile, a.quittance, a.cotisation, a.reglement_interieur, a.convention_etudiant')
+      ->leftJoin('a.Cotisations c')
+      ->leftJoin('a.Quittances q')
       /* Désactivation temporaire
        * ->where('a.nom != ?', '') */
       ->orderBy('a.nom')
@@ -190,6 +187,22 @@ class annuaireActions extends sfActions
     $membre->delete();
 
     $this->redirect('@annuaire.index');
+  }
+  
+  public function executeIndicateurs(sfWebRequest $request)
+  {
+    $this->cotisations = Doctrine_Core::getTable('Cotisation')
+      ->createQuery('c')
+      ->groupBy('c.membre_id')
+      ->leftJoin('c.Membre m')
+      ->execute();
+
+    $this->annees = Doctrine_Core::getTable('Cotisation')
+      ->createQuery('c')
+      ->groupBy('c.annee')
+      ->select('*, COUNT(*) AS nombre_cotisations')
+      ->orderBy('c.annee')
+      ->execute();
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
