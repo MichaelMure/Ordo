@@ -24,3 +24,15 @@
   - Le document le plus utile serai la convention étudiant
 
 10) Ajouter un moyen de chercher un prospect
+
+11) Empecher la création d'un membre déjà connu (username unique)
+
+12) Permettre la recherche d'un membre dans l'annuaire
+
+13) Ajouter un pager sur la page d'index de l'annuaire
+
+14) Débugger le pager (affichage de ... quand c'est pas nécessaire)
+
+15) Ordonner l'affichage des membres sur l'annuaire (admin, puis membre, puis ancien)
+
+16) Réécrire la gestion des utilisateurs avec le plugin sfGuard
