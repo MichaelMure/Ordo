@@ -16,7 +16,7 @@ class annuaireActions extends sfActions
 
     $this->membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
-      ->select('a.id, a.nom, a.prenom, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
+      ->select('a.id, a.nom, a.prenom, a.username, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
       /* Désactivation temporaire
        * ->where('a.nom != ?', '') */
       ->orderBy('a.status, a.nom')
