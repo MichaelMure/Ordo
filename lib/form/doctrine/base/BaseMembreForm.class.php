@@ -86,6 +86,10 @@ abstract class BaseMembreForm extends BaseFormDoctrine
       'projets_list'        => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Projet', 'required' => false)),
     ));
 
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Membre', 'column' => array('username')))
+    );
+
     $this->widgetSchema->setNameFormat('membre[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

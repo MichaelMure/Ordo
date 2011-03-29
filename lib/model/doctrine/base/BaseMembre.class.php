@@ -118,6 +118,7 @@ abstract class BaseMembre extends sfDoctrineRecord
         $this->setTableName('membre');
         $this->hasColumn('username', 'string', 50, array(
              'type' => 'string',
+             'unique' => true,
              'length' => 50,
              ));
         $this->hasColumn('passwd', 'string', 50, array(

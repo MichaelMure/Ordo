@@ -4,7 +4,7 @@
 Membre:
   actAs: { Timestampable: ~ }
   columns:
-    username:            { type: string(50) }
+    username:            { type: string(50), unique: true }
     passwd:              { type: string(50), notnull:true }
 
     # info Sec
