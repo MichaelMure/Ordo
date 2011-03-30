@@ -17,7 +17,7 @@ class MembreForm extends BaseMembreForm
       $this['updated_at'],
       $this['projets_list']
     );
-  
+
     $this->setWidget('passwd', new sfWidgetFormInputPassword());
     $this->setValidator('email_externe', new sfValidatorEmail());
     $this->setValidator('nom', new sfValidatorRegex(array('pattern' => '/^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\s\-]*$/', 'max_length' => 255)));
@@ -29,7 +29,7 @@ class MembreForm extends BaseMembreForm
     $this->setValidator('tel_mobile', new sfValidatorRegex(array('pattern' => '/^[0-9\s]*$/', 'max_length' => 21)));
     $this->setValidator('tel_fixe', new sfValidatorRegex(array('pattern' => '/^[0-9\s]*$/', 'max_length' => 21, 'required' => false)));
     $this->setValidator('cp_mulhouse', new sfValidatorRegex(array('pattern' => '/^[0-9]{4,5}$/')));
-    $this->setValidator('cp_parents', new sfValidatorRegex(array('pattern' => '/^[0-9]{4-5}$/', 'required' => false)));
+    $this->setValidator('cp_parents', new sfValidatorRegex(array('pattern' => '/^[0-9]{4,5}$/', 'required' => false)));
 
 
     $years = range(1970, 2000);
@@ -61,12 +61,12 @@ class MembreForm extends BaseMembreForm
 
     $this->widgetSchema->moveField('prenom', sfWidgetFormSchema::AFTER, 'nom');
     $this->widgetSchema->moveField('passwd', sfWidgetFormSchema::LAST);
-    
+
     /*$this->validatorSchema->setPostValidator(
       new sfValidatorCallback(array('callback' => array($this, 'checkUnique')))
     );*/
   }
-  
+
   public function getJavascripts()
   {
     return array('jquery.ui.datepicker-fr.js',
@@ -75,12 +75,12 @@ class MembreForm extends BaseMembreForm
                  'jquery-1.4.2.min.js',
                  'jquery-ui-1.8.1.custom.min.js');
   }
-  
+
   public function getStylesheets()
   {
     return array('ui-lightness/jquery-ui-1.8.1.custom.css' => 'all');
   }
-  
+
   /* NE MARCHE PAS CORRECTEMENT
   public function checkUnique($validator, $values)
   {
@@ -90,7 +90,7 @@ class MembreForm extends BaseMembreForm
               ->select('')
               ->where('a.username = ?', $username)
               ->execute()->count();
-    
+
     if($count != 0)
     {
       throw new sfValidatorError($validator, 'Ce login existe déjà dans la base.');
