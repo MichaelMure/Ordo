@@ -14,7 +14,8 @@
           <?php if (!$form->getObject()->isNew()): ?>
             &nbsp;<?php echo link_to('Supprimer', '@prospect?action=delete&id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Êtes vous sûr ?')) ?>
           <?php endif; ?>
-          <input type="submit" value="Save" />
+          <input type="submit" value="Sauvegarder" />
+          <input type="submit" name="andAdd" value="Sauvegarder et ajouter un contact" />
         </td>
       </tr>
     </tfoot>

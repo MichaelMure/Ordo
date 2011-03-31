@@ -1,7 +1,9 @@
 <?php use_helper('Date') ?>
 
-<?php echo link_to('Ajouter un appel','@contact?action=new&type=appel&prospect_id='.$prospect->getId()) ?>
-<?php echo link_to('Ajouter un email','@contact?action=new&type=email&prospect_id='.$prospect->getId()) ?>
+<ul>
+  <li><?php echo link_to('Ajouter un appel','@contact?action=new&type=appel&prospect_id='.$prospect->getId()) ?></li>
+  <li><?php echo link_to('Ajouter un email','@contact?action=new&type=email&prospect_id='.$prospect->getId()) ?></li>
+</ul>
 
 <h1><?php echo $prospect->getNom() ?></h1>
 

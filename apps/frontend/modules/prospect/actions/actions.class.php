@@ -95,7 +95,8 @@ class prospectActions extends sfActions
 
     $this->form = new ProspectForm();
 
-    $this->processForm($request, $this->form);
+    $andAdd = $request->hasParameter('andAdd');
+    $this->processForm($request, $this->form, $andAdd);
 
     $this->setTemplate('new');
   }
@@ -115,7 +116,7 @@ class prospectActions extends sfActions
     $this->forward404Unless($prospect = Doctrine::getTable('Prospect')->find(array($request->getParameter('id'))), sprintf('Object prospect does not exist (%s).', $request->getParameter('id')));
     $this->form = new ProspectForm($prospect);
 
-    $this->processForm($request, $this->form);
+    $this->processForm($request, $this->form, false);
 
     $this->setTemplate('edit');
   }
@@ -133,14 +134,17 @@ class prospectActions extends sfActions
     $this->redirect('prospect/index');
   }
 
-  protected function processForm(sfWebRequest $request, sfForm $form)
+  protected function processForm(sfWebRequest $request, sfForm $form, boolean $andAdd)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
       $prospect = $form->save();
 
-      $this->redirect('@prospect?action=show&id='.$prospect->getId());
+      if($andAdd)
+        $this->redirect('@contact?action=new&prospect_id='.$prospect->getId());
+      else
+        $this->redirect('@prospect?action=show&id='.$prospect->getId());
     }
   }
 }
