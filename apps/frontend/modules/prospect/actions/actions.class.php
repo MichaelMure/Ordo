@@ -134,7 +134,7 @@ class prospectActions extends sfActions
     $this->redirect('prospect/index');
   }
 
-  protected function processForm(sfWebRequest $request, sfForm $form, boolean $andAdd)
+  protected function processForm(sfWebRequest $request, sfForm $form, $andAdd)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
