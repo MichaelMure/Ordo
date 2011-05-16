@@ -171,16 +171,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5598198"
-     inkscape:cx="354.29553"
-     inkscape:cy="557.06427"
+     inkscape:zoom="0.79170475"
+     inkscape:cx="731.04163"
+     inkscape:cy="331.79442"
      inkscape:document-units="px"
      inkscape:current-layer="g3137"
      showgrid="false"
-     inkscape:window-width="1600"
-     inkscape:window-height="852"
-     inkscape:window-x="-4"
-     inkscape:window-y="-3"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata3002">
@@ -211,674 +211,129 @@
          id="flowPara3940-4" /></flowRoot>    <g
        id="g3137">
       <g
-         id="g3681"
-         transform="translate(0,688.40879)">
+         id="g3158-3"
+         transform="matrix(0,1,-1,0,278.62488,-8.908982)"
+         inkscape:tile-cx="140.84646"
+         inkscape:tile-cy="191.33849"
+         inkscape:tile-w="180.47333"
+         inkscape:tile-h="286.53723"
+         inkscape:tile-x0="50.492131"
+         inkscape:tile-y0="48.069877">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.47065711"
+           id="rect3696-5-5"
+           width="286.53723"
+           height="180.23801"
+           x="56.978859"
+           y="47.659416" />
         <g
-           transform="matrix(0,1,-1,0,278.62488,-27.632676)"
-           id="g3158">
-          <rect
-             y="47.659416"
-             x="56.978859"
-             height="180.23801"
-             width="286.53723"
-             id="rect3696-5"
-             style="fill:none;stroke:#000000;stroke-width:0.47065711" />
-          <g
-             transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)"
-             id="g2894-1">
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-2-6"
-               d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
-               style="fill:#98aad5;fill-opacity:1;stroke:none" />
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-0"
-               d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
-               style="fill:#5e7bba;fill-opacity:1;stroke:none" />
-          </g>
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3765-2"
-             style="font-size:6.9000001px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(50.090248,50.447428)"><flowRegion
-               id="flowRegion3767-8"><rect
-                 id="rect3769-8"
-                 width="300"
-                 height="42.5"
-                 x="0"
-                 y="-0.11811859"
-                 style="font-size:6.9000001px;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1" /></flowRegion><flowPara
-               id="flowPara3771-49">Informatique Appliquée aux Réseaux et à l'Internet pour les Services et Système</flowPara></flowRoot>          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3773-83"
-             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(61.177341,40.24671)"><flowRegion
-               id="flowRegion3775-4"><rect
-                 id="rect3777-4"
-                 width="221.2626"
-                 height="30.083055"
-                 x="2.1709418"
-                 y="157.62788" /></flowRegion><flowPara
-               id="flowPara3779-9"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
-               id="flowPara3781-17"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>          <image
-             y="88.775818"
-             x="129.38133"
-             id="image3930-5"
-             height="48.54755"
-             width="141.73228"
-             xlink:href="<?php include_partial('image') ?>" />
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3942-2"
-             style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(49.957436,47.805413)"><flowRegion
-               id="flowRegion3944-5"><rect
-                 id="rect3946-5"
-                 width="299.27985"
-                 height="42.178299"
-                 x="0.31013456"
-                 y="96.879364"
-                 style="font-size:13px;fill:#5e7bba" /></flowRegion><flowPara
-               id="flowPara3948-0"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
-               id="flowPara3950-5"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"><?php echo $membre->getPoste() ?></flowPara></flowRoot>        </g>
-        <g
-           transform="matrix(0,1,-1,0,509.82565,-27.632676)"
-           id="g3158-0">
-          <rect
-             y="47.659416"
-             x="56.978859"
-             height="180.23801"
-             width="286.53723"
-             id="rect3696-5-3"
-             style="fill:none;stroke:#000000;stroke-width:0.47065711" />
-          <g
-             transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)"
-             id="g2894-1-5">
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-2-6-8"
-               d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
-               style="fill:#98aad5;fill-opacity:1;stroke:none" />
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-0-5"
-               d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
-               style="fill:#5e7bba;fill-opacity:1;stroke:none" />
-          </g>
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3765-2-0"
-             style="font-size:6.9000001px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(50.090248,50.447428)"><flowRegion
-               id="flowRegion3767-8-9"><rect
-                 id="rect3769-8-9"
-                 width="300"
-                 height="42.5"
-                 x="0"
-                 y="-0.11811859"
-                 style="font-size:6.9000001px;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1" /></flowRegion><flowPara
-               id="flowPara3771-49-8">Informatique Appliquée aux Réseaux et à l'Internet pour les Services et Système</flowPara></flowRoot>          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3773-83-0"
-             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(61.177341,40.24671)"><flowRegion
-               id="flowRegion3775-4-2"><rect
-                 id="rect3777-4-4"
-                 width="221.2626"
-                 height="30.083055"
-                 x="2.1709418"
-                 y="157.62788" /></flowRegion><flowPara
-               id="flowPara3779-9-9"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
-               id="flowPara3781-17-0"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>          <image
-             y="88.775818"
-             x="129.38133"
-             id="image3930-5-1"
-             height="48.54755"
-             width="141.73228"
-             xlink:href="<?php include_partial('image') ?>" />
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3942-2-2"
-             style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(49.957436,47.805413)"><flowRegion
-               id="flowRegion3944-5-0"><rect
-                 id="rect3946-5-0"
-                 width="299.27985"
-                 height="42.178299"
-                 x="0.31013456"
-                 y="96.879364"
-                 style="font-size:13px;fill:#5e7bba" /></flowRegion><flowPara
-               id="flowPara3948-0-6"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
-               id="flowPara3950-5-3"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"><?php echo $membre->getPoste() ?></flowPara></flowRoot>        </g>
-        <g
-           transform="matrix(0,1,-1,0,741.02645,-27.632676)"
-           id="g3158-08">
-          <rect
-             y="47.659416"
-             x="56.978859"
-             height="180.23801"
-             width="286.53723"
-             id="rect3696-5-38"
-             style="fill:none;stroke:#000000;stroke-width:0.47065711" />
-          <g
-             transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)"
-             id="g2894-1-7">
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-2-6-3"
-               d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
-               style="fill:#98aad5;fill-opacity:1;stroke:none" />
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-0-1"
-               d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
-               style="fill:#5e7bba;fill-opacity:1;stroke:none" />
-          </g>
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3765-2-00"
-             style="font-size:6.9000001px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(50.090248,50.447428)"><flowRegion
-               id="flowRegion3767-8-5"><rect
-                 id="rect3769-8-0"
-                 width="300"
-                 height="42.5"
-                 x="0"
-                 y="-0.11811859"
-                 style="font-size:6.9000001px;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1" /></flowRegion><flowPara
-               id="flowPara3771-49-3">Informatique Appliquée aux Réseaux et à l'Internet pour les Services et Système</flowPara></flowRoot>          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3773-83-1"
-             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(61.177341,40.24671)"><flowRegion
-               id="flowRegion3775-4-8"><rect
-                 id="rect3777-4-0"
-                 width="221.2626"
-                 height="30.083055"
-                 x="2.1709418"
-                 y="157.62788" /></flowRegion><flowPara
-               id="flowPara3779-9-1"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
-               id="flowPara3781-17-7"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>          <image
-             y="88.775818"
-             x="129.38133"
-             id="image3930-5-9"
-             height="48.54755"
-             width="141.73228"
-             xlink:href="<?php include_partial('image') ?>" />
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3942-2-1"
-             style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(49.957436,47.805413)"><flowRegion
-               id="flowRegion3944-5-03"><rect
-                 id="rect3946-5-5"
-                 width="299.27985"
-                 height="42.178299"
-                 x="0.31013456"
-                 y="96.879364"
-                 style="font-size:13px;fill:#5e7bba" /></flowRegion><flowPara
-               id="flowPara3948-0-9"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
-               id="flowPara3950-5-4"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"><?php echo $membre->getPoste() ?></flowPara></flowRoot>        </g>
-      </g>
-      <g
-         transform="translate(-1.9773045e-7,18.723694)"
-         id="g3681-8">
-        <g
-           transform="matrix(0,1,-1,0,278.62488,-27.632676)"
-           id="g3158-3">
-          <rect
-             y="47.659416"
-             x="56.978859"
-             height="180.23801"
-             width="286.53723"
-             id="rect3696-5-5"
-             style="fill:none;stroke:#000000;stroke-width:0.47065711" />
-          <g
-             transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)"
-             id="g2894-1-9">
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-2-6-6"
-               d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
-               style="fill:#98aad5;fill-opacity:1;stroke:none" />
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-0-56"
-               d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
-               style="fill:#5e7bba;fill-opacity:1;stroke:none" />
-          </g>
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3765-2-3"
-             style="font-size:6.9000001px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(50.090248,50.447428)"><flowRegion
-               id="flowRegion3767-8-0"><rect
-                 id="rect3769-8-2"
-                 width="300"
-                 height="42.5"
-                 x="0"
-                 y="-0.11811859"
-                 style="font-size:6.9000001px;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1" /></flowRegion><flowPara
-               id="flowPara3771-49-0">Informatique Appliquée aux Réseaux et à l'Internet pour les Services et Système</flowPara></flowRoot>          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3773-83-7"
-             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(61.177341,40.24671)"><flowRegion
-               id="flowRegion3775-4-4"><rect
-                 id="rect3777-4-7"
-                 width="221.2626"
-                 height="30.083055"
-                 x="2.1709418"
-                 y="157.62788" /></flowRegion><flowPara
-               id="flowPara3779-9-3"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
-               id="flowPara3781-17-01"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>          <image
-             y="88.775818"
-             x="129.38133"
-             id="image3930-5-6"
-             height="48.54755"
-             width="141.73228"
-             xlink:href="<?php include_partial('image') ?>" />
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3942-2-7"
-             style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(49.957436,47.805413)"><flowRegion
-               id="flowRegion3944-5-5"><rect
-                 id="rect3946-5-7"
-                 width="299.27985"
-                 height="42.178299"
-                 x="0.31013456"
-                 y="96.879364"
-                 style="font-size:13px;fill:#5e7bba" /></flowRegion><flowPara
-               id="flowPara3948-0-8"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
-               id="flowPara3950-5-8"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"><?php echo $membre->getPoste() ?></flowPara></flowRoot>        </g>
-        <g
-           transform="matrix(0,1,-1,0,509.82565,-27.632676)"
-           id="g3158-0-9">
-          <rect
-             y="47.659416"
-             x="56.978859"
-             height="180.23801"
-             width="286.53723"
-             id="rect3696-5-3-0"
-             style="fill:none;stroke:#000000;stroke-width:0.47065711" />
-          <g
-             transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)"
-             id="g2894-1-5-7">
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-2-6-8-8"
-               d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
-               style="fill:#98aad5;fill-opacity:1;stroke:none" />
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-0-5-0"
-               d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
-               style="fill:#5e7bba;fill-opacity:1;stroke:none" />
-          </g>
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3765-2-0-3"
-             style="font-size:6.9000001px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(50.090248,50.447428)"><flowRegion
-               id="flowRegion3767-8-9-1"><rect
-                 id="rect3769-8-9-0"
-                 width="300"
-                 height="42.5"
-                 x="0"
-                 y="-0.11811859"
-                 style="font-size:6.9000001px;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1" /></flowRegion><flowPara
-               id="flowPara3771-49-8-3">Informatique Appliquée aux Réseaux et à l'Internet pour les Services et Système</flowPara></flowRoot>          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3773-83-0-6"
-             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(61.177341,40.24671)"><flowRegion
-               id="flowRegion3775-4-2-7"><rect
-                 id="rect3777-4-4-3"
-                 width="221.2626"
-                 height="30.083055"
-                 x="2.1709418"
-                 y="157.62788" /></flowRegion><flowPara
-               id="flowPara3779-9-9-2"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
-               id="flowPara3781-17-0-2"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>          <image
-             y="88.775818"
-             x="129.38133"
-             id="image3930-5-1-1"
-             height="48.54755"
-             width="141.73228"
-             xlink:href="<?php include_partial('image') ?>" />
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3942-2-2-5"
-             style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(49.957436,47.805413)"><flowRegion
-               id="flowRegion3944-5-0-3"><rect
-                 id="rect3946-5-0-3"
-                 width="299.27985"
-                 height="42.178299"
-                 x="0.31013456"
-                 y="96.879364"
-                 style="font-size:13px;fill:#5e7bba" /></flowRegion><flowPara
-               id="flowPara3948-0-6-8"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
-               id="flowPara3950-5-3-2"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"><?php echo $membre->getPoste() ?></flowPara></flowRoot>        </g>
-        <g
-           transform="matrix(0,1,-1,0,741.02645,-27.632676)"
-           id="g3158-08-8">
-          <rect
-             y="47.659416"
-             x="56.978859"
-             height="180.23801"
-             width="286.53723"
-             id="rect3696-5-38-5"
-             style="fill:none;stroke:#000000;stroke-width:0.47065711" />
-          <g
-             transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)"
-             id="g2894-1-7-8">
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-2-6-3-0"
-               d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
-               style="fill:#98aad5;fill-opacity:1;stroke:none" />
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-0-1-8"
-               d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
-               style="fill:#5e7bba;fill-opacity:1;stroke:none" />
-          </g>
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3765-2-00-6"
-             style="font-size:6.9000001px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(50.090248,50.447428)"><flowRegion
-               id="flowRegion3767-8-5-9"><rect
-                 id="rect3769-8-0-3"
-                 width="300"
-                 height="42.5"
-                 x="0"
-                 y="-0.11811859"
-                 style="font-size:6.9000001px;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1" /></flowRegion><flowPara
-               id="flowPara3771-49-3-3">Informatique Appliquée aux Réseaux et à l'Internet pour les Services et Système</flowPara></flowRoot>          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3773-83-1-7"
-             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(61.177341,40.24671)"><flowRegion
-               id="flowRegion3775-4-8-4"><rect
-                 id="rect3777-4-0-3"
-                 width="221.2626"
-                 height="30.083055"
-                 x="2.1709418"
-                 y="157.62788" /></flowRegion><flowPara
-               id="flowPara3779-9-1-7"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
-               id="flowPara3781-17-7-1"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>          <image
-             y="88.775818"
-             x="129.38133"
-             id="image3930-5-9-3"
-             height="48.54755"
-             width="141.73228"
-             xlink:href="<?php include_partial('image') ?>" />
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3942-2-1-9"
-             style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(49.957436,47.805413)"><flowRegion
-               id="flowRegion3944-5-03-6"><rect
-                 id="rect3946-5-5-4"
-                 width="299.27985"
-                 height="42.178299"
-                 x="0.31013456"
-                 y="96.879364"
-                 style="font-size:13px;fill:#5e7bba" /></flowRegion><flowPara
-               id="flowPara3948-0-9-2"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
-               id="flowPara3950-5-4-0"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"><?php echo $membre->getPoste() ?></flowPara></flowRoot>        </g>
-      </g>
-      <g
-         id="g3681-1"
-         transform="translate(0,353.56623)">
-        <g
-           transform="matrix(0,1,-1,0,278.62488,-27.632676)"
-           id="g3158-30">
-          <rect
-             y="47.659416"
-             x="56.978859"
-             height="180.23801"
-             width="286.53723"
-             id="rect3696-5-0"
-             style="fill:none;stroke:#000000;stroke-width:0.47065711" />
-          <g
-             transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)"
-             id="g2894-1-4">
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-2-6-82"
-               d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
-               style="fill:#98aad5;fill-opacity:1;stroke:none" />
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-0-2"
-               d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
-               style="fill:#5e7bba;fill-opacity:1;stroke:none" />
-          </g>
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3765-2-02"
-             style="font-size:6.9000001px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(50.090248,50.447428)"><flowRegion
-               id="flowRegion3767-8-4"><rect
-                 id="rect3769-8-5"
-                 width="300"
-                 height="42.5"
-                 x="0"
-                 y="-0.11811859"
-                 style="font-size:6.9000001px;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1" /></flowRegion><flowPara
-               id="flowPara3771-49-84">Informatique Appliquée aux Réseaux et à l'Internet pour les Services et Système</flowPara></flowRoot>          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3773-83-08"
-             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(61.177341,40.24671)"><flowRegion
-               id="flowRegion3775-4-42"><rect
-                 id="rect3777-4-5"
-                 width="221.2626"
-                 height="30.083055"
-                 x="2.1709418"
-                 y="157.62788" /></flowRegion><flowPara
-               id="flowPara3779-9-4"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
-               id="flowPara3781-17-2"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>          <image
-             y="88.775818"
-             x="129.38133"
-             id="image3930-5-7"
-             height="48.54755"
-             width="141.73228"
-             xlink:href="<?php include_partial('image') ?>" />
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3942-2-5"
-             style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(49.957436,47.805413)"><flowRegion
-               id="flowRegion3944-5-7"><rect
-                 id="rect3946-5-52"
-                 width="299.27985"
-                 height="42.178299"
-                 x="0.31013456"
-                 y="96.879364"
-                 style="font-size:13px;fill:#5e7bba" /></flowRegion><flowPara
-               id="flowPara3948-0-2"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
-               id="flowPara3950-5-86"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"><?php echo $membre->getPoste() ?></flowPara></flowRoot>        </g>
-        <g
-           transform="matrix(0,1,-1,0,509.82565,-27.632676)"
-           id="g3158-0-6">
-          <rect
-             y="47.659416"
-             x="56.978859"
-             height="180.23801"
-             width="286.53723"
-             id="rect3696-5-3-00"
-             style="fill:none;stroke:#000000;stroke-width:0.47065711" />
-          <g
-             transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)"
-             id="g2894-1-5-9">
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-2-6-8-1"
-               d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
-               style="fill:#98aad5;fill-opacity:1;stroke:none" />
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-0-5-2"
-               d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
-               style="fill:#5e7bba;fill-opacity:1;stroke:none" />
-          </g>
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3765-2-0-6"
-             style="font-size:6.9000001px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(50.090248,50.447428)"><flowRegion
-               id="flowRegion3767-8-9-9"><rect
-                 id="rect3769-8-9-4"
-                 width="300"
-                 height="42.5"
-                 x="0"
-                 y="-0.11811859"
-                 style="font-size:6.9000001px;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1" /></flowRegion><flowPara
-               id="flowPara3771-49-8-8">Informatique Appliquée aux Réseaux et à l'Internet pour les Services et Système</flowPara></flowRoot>          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3773-83-0-2"
-             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(61.177341,40.24671)"><flowRegion
-               id="flowRegion3775-4-2-8"><rect
-                 id="rect3777-4-4-2"
-                 width="221.2626"
-                 height="30.083055"
-                 x="2.1709418"
-                 y="157.62788" /></flowRegion><flowPara
-               id="flowPara3779-9-9-7"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
-               id="flowPara3781-17-0-8"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>          <image
-             y="88.775818"
-             x="129.38133"
-             id="image3930-5-1-6"
-             height="48.54755"
-             width="141.73228"
-             xlink:href="<?php include_partial('image') ?>" />
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3942-2-2-7"
-             style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(49.957436,47.805413)"><flowRegion
-               id="flowRegion3944-5-0-7"><rect
-                 id="rect3946-5-0-0"
-                 width="299.27985"
-                 height="42.178299"
-                 x="0.31013456"
-                 y="96.879364"
-                 style="font-size:13px;fill:#5e7bba" /></flowRegion><flowPara
-               id="flowPara3948-0-6-9"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
-               id="flowPara3950-5-3-4"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"><?php echo $membre->getPoste() ?></flowPara></flowRoot>        </g>
-        <g
-           transform="matrix(0,1,-1,0,741.02645,-27.632676)"
-           id="g3158-08-5">
-          <rect
-             y="47.659416"
-             x="56.978859"
-             height="180.23801"
-             width="286.53723"
-             id="rect3696-5-38-4"
-             style="fill:none;stroke:#000000;stroke-width:0.47065711" />
-          <g
-             transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)"
-             id="g2894-1-7-2">
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-2-6-3-2"
-               d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
-               style="fill:#98aad5;fill-opacity:1;stroke:none" />
-            <path
-               sodipodi:nodetypes="cscccc"
-               id="path2943-0-1-3"
-               d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
-               style="fill:#5e7bba;fill-opacity:1;stroke:none" />
-          </g>
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3765-2-00-9"
-             style="font-size:6.9000001px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(50.090248,50.447428)"><flowRegion
-               id="flowRegion3767-8-5-6"><rect
-                 id="rect3769-8-0-5"
-                 width="300"
-                 height="42.5"
-                 x="0"
-                 y="-0.11811859"
-                 style="font-size:6.9000001px;text-align:center;text-anchor:middle;fill:#5e7bba;fill-opacity:1" /></flowRegion><flowPara
-               id="flowPara3771-49-3-7">Informatique Appliquée aux Réseaux et à l'Internet pour les Services et Système</flowPara></flowRoot>          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3773-83-1-4"
-             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(61.177341,40.24671)"><flowRegion
-               id="flowRegion3775-4-8-3"><rect
-                 id="rect3777-4-0-9"
-                 width="221.2626"
-                 height="30.083055"
-                 x="2.1709418"
-                 y="157.62788" /></flowRegion><flowPara
-               id="flowPara3779-9-1-4"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
-               id="flowPara3781-17-7-4"
-               style="font-size:11px;fill:#ffffff;fill-opacity:1"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>          <image
-             y="88.775818"
-             x="129.38133"
-             id="image3930-5-9-0"
-             height="48.54755"
-             width="141.73228"
-             xlink:href="<?php include_partial('image') ?>" />
-          <flowRoot
-             xml:space="preserve"
-             id="flowRoot3942-2-1-6"
-             style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-             transform="translate(49.957436,47.805413)"><flowRegion
-               id="flowRegion3944-5-03-0"><rect
-                 id="rect3946-5-5-2"
-                 width="299.27985"
-                 height="42.178299"
-                 x="0.31013456"
-                 y="96.879364"
-                 style="font-size:13px;fill:#5e7bba" /></flowRegion><flowPara
-               id="flowPara3948-0-9-28"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
-               id="flowPara3950-5-4-4"
-               style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"><?php echo $membre->getPoste() ?></flowPara></flowRoot>        </g>
-      </g>
+           id="g2894-1-9"
+           transform="matrix(0.94117648,0,0,0.94828003,58.515191,-769.80131)">
+          <path
+             style="fill:#98aad5;fill-opacity:1;stroke:none"
+             d="m 0,971.80015 c 0,0 65.37675,52.52245 201.41486,52.52245 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56205 z"
+             id="path2943-2-6-6"
+             sodipodi:nodetypes="cscccc" />
+          <path
+             style="fill:#5e7bba;fill-opacity:1;stroke:none"
+             d="m 0,973.80013 c 0,0 65.376756,52.52247 201.41486,52.52247 69.10791,0 99.76624,-11.9489 99.76624,-11.9489 l 0,37.9885 -301.1811,0 0,-78.56207 z"
+             id="path2943-0-56"
+             sodipodi:nodetypes="cscccc" />
+        </g>
+<flowRoot
+           transform="translate(61.177341,40.24671)"
+           style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+           id="flowRoot3773-83-7"
+           xml:space="preserve"><flowRegion
+             id="flowRegion3775-4-4"><rect
+               y="157.62788"
+               x="2.1709418"
+               height="30.083055"
+               width="221.2626"
+               id="rect3777-4-7" /></flowRegion><flowPara
+             style="font-size:11px;fill:#ffffff;fill-opacity:1"
+             id="flowPara3779-9-3"><?php echo $membre->getEmailInterne() ?></flowPara><flowPara
+             style="font-size:11px;fill:#ffffff;fill-opacity:1"
+             id="flowPara3781-17-01"><?php echo $membre->getTelMobile() ?></flowPara></flowRoot>        <image
+           sodipodi:absref="/home/michael/Bureau/%LOGO%"
+           xlink:href="<?php include_partial('image') ?>"
+           y="74.775818"
+           x="131.38133"
+           id="image3930-5-6"
+           height="58.521"
+           width="141.73228" />
+        <flowRoot
+           transform="translate(49.957436,47.805413)"
+           style="font-size:13px;font-style:normal;font-weight:normal;fill:#5e7bba;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+           id="flowRoot3942-2-7"
+           xml:space="preserve"><flowRegion
+             id="flowRegion3944-5-5"><rect
+               style="font-size:13px;fill:#5e7bba"
+               y="96.879364"
+               x="0.31013456"
+               height="42.178299"
+               width="299.27985"
+               id="rect3946-5-7" /></flowRegion><flowPara
+             style="font-size:13px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Nimbus Sans L;-inkscape-font-specification:Nimbus Sans L Bold"
+             id="flowPara3948-0-8"><?php echo $membre->getPrenom() ?> <?php echo $membre->getNom() ?></flowPara><flowPara
+             style="font-size:13px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#5e7bba;font-family:Sans;-inkscape-font-specification:Sans"
+             id="flowPara3950-5-8"><?php echo $membre->getPoste() ?></flowPara></flowRoot>      </g>
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#g3158-3"
+         xlink:href="#g3158-3"
+         transform="translate(0,335.24856)"
+         id="use3410" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#g3158-3"
+         xlink:href="#g3158-3"
+         transform="translate(0,670.49712)"
+         id="use3412" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#g3158-3"
+         xlink:href="#g3158-3"
+         transform="translate(231.00587,0)"
+         id="use3414" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#g3158-3"
+         xlink:href="#g3158-3"
+         transform="translate(231.00587,335.24856)"
+         id="use3416" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#g3158-3"
+         xlink:href="#g3158-3"
+         transform="translate(231.00587,670.49712)"
+         id="use3418" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#g3158-3"
+         xlink:href="#g3158-3"
+         transform="translate(462.01173,0)"
+         id="use3420" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#g3158-3"
+         xlink:href="#g3158-3"
+         transform="translate(462.01173,335.24856)"
+         id="use3422" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#g3158-3"
+         xlink:href="#g3158-3"
+         transform="translate(462.01173,670.49712)"
+         id="use3424" />
     </g>
     <flowRoot
        transform="translate(426.00675,33.94827)"
