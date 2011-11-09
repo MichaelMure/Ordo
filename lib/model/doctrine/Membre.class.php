@@ -69,72 +69,114 @@ class Membre extends BaseMembre
           ->where('m.username = ?', array($username))
           ->execute()->getFirst();
   }
-  
-  public function setCotisation($value)
+
+  public function setCurrentCotisation($value)
   {
-    $cotisations = $this->getCotisations();
-
-    if($value && $cotisations->count() == 0)
+    $this->setCotisation($value, Tools::getAnneeCourante());
+  }
+  
+  public function setCotisation($value, $year)
+  {
+    if($value)
     {
-      $cotisation = new Cotisation();
-      $cotisation->setMembreId($this->getId());
-      $cotisation->setAnnee(Tools::getAnneeCourante());
-      $cotisations->add($cotisation);
+      if($this->getCotisation($year) == null)
+      {
+        $cotisations = $this->getCotisations();
+
+        $cotisation = new Cotisation();
+        $cotisation->setMembreId($this->getId());
+        $cotisation->setAnnee($year);
+
+        $cotisations->add($cotisation);
+      }
     }
-
-    if(!$value && $cotisations->count() > 0)
+    else
     {
-      $cotisations->delete();
+      $cotisations = $this->getCotisations();
+
+      foreach($cotisations as $cotis_offset => $cotisation)
+      {
+        if($cotisation->getAnnee() == $year)
+        {
+          $cotisations->remove($cotis_offset);
+          return;
+        }
+      }
     }
   }
 
-  public function getCotisation()
+  public function getCurrentCotisation()
+  {
+    return $this->getCotisation(Tools::getAnneeCourante());
+  }
+
+  public function getCotisation($year)
   {
     $cotisations = $this->getCotisations();
-    $annee = Tools::getAnneeCourante();
 
     foreach($cotisations as $cotisation)
     {
-      if($cotisation->getAnnee() == $annee)
+      if($cotisation->getAnnee() == $year)
       {
-        return true;
+        return $cotisation;
       }
     }
 
-    return false;
+    return null;
   }
 
-  public function setQuittance($value)
+  public function setCurrentQuittance($value)
   {
-    $quittances = $this->getQuittances();
+    $this->setQuittance($value, Tools::getAnneeCourante());
+  }
 
-    if($value && $quittances->count() == 0)
+  public function setQuittance($value, $year)
+  {
+    if($value)
     {
-      $quittance = new Quittance();
-      $quittance->setMembreId($this->getId());
-      $quittance->setAnnee(Tools::getAnneeCourante());
-      $quittances->add($quittance);
+      if($this->getquittance($year) == null)
+      {
+        $quittances = $this->getQuittances();
+
+        $quittance = new quittance();
+        $quittance->setMembreId($this->getId());
+        $quittance->setAnnee($year);
+
+        $quittances->add($quittance);
+      }
     }
-
-    if(!$value && $quittances->count() > 0)
+    else
     {
-      $quittances->delete();
+      $quittances = $this->getQuittances();
+
+      foreach($quittances as $quitt_offset => $quittance)
+      {
+        if($quittance->getAnnee() == $year)
+        {
+          $quittances->remove($quitt_offset);
+          return;
+        }
+      }
     }
   }
 
-  public function getQuittance()
+  public function getCurrentQuittance()
+  {
+    return $this->getQuittance(Tools::getAnneeCourante());
+  }
+
+  public function getQuittance($year)
   {
     $quittances = $this->getQuittances();
-    $annee = Tools::getAnneeCourante();
 
     foreach($quittances as $quittance)
     {
-      if($quittance->getAnnee() == $annee)
+      if($quittance->getAnnee() == $year)
       {
-        return true;
+        return $quittance;
       }
     }
 
-    return false;
+    return null;
   }
 }

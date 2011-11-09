@@ -228,10 +228,10 @@ class annuaireActions extends sfActions
         $membre->setJustDomicile(true);
         break;
       case 'Quittance':
-        $membre->setQuittance(true);
+        $membre->setCurrentQuittance(true);
         break;
       case 'Cotisation':
-        $membre->setCotisation(true);
+        $membre->setCurrentCotisation(true);
         break;
       case 'RI':
         $membre->setReglementInterieur(true);
@@ -255,10 +255,10 @@ class annuaireActions extends sfActions
         $membre->setJustDomicile(false);
         break;
       case 'Quittance':
-        $membre->setQuittance(false);
+        $membre->setCurrentQuittance(false);
         break;
       case 'Cotisation':
-        $membre->setCotisation(false);
+        $membre->setCurrentCotisation(false);
         break;
       case 'RI':
         $membre->setReglementInterieur(false);

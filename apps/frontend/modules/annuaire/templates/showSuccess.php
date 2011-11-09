@@ -111,8 +111,8 @@ function getClass($filiere)
 <?php
 $carteID = $membre->getCarteID();
 $justif= $membre->getJustDomicile();
-$quittance = $membre->getQuittance();
-$cotis = $membre->getCotisation();
+$quittance = $membre->getCurrentQuittance();
+$cotis = $membre->getCurrentCotisation();
 $RI = $membre->getReglementInterieur();
 $CE = $membre->getConventionEtudiant();
 ?>
