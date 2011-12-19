@@ -104,7 +104,7 @@ function getClass($filiere)
         <dt></dt>
         <dd>
           <span class="datas"><?php echo $membre->getSexe(); ?></span>
-          - né le <span class="datas"><?php echo $membre->getDateNaissance(); ?></span>
+          - né le <span class="datas"><?php echo format_date($membre->getDateNaissance()); ?></span>
           - à <span class="datas"><?php echo $membre->getVilleNaissance(); ?></span>
         </dd>
         
@@ -117,6 +117,7 @@ function getClass($filiere)
             <?php endif; ?></span>
         </dd>
         
+        <?php if( $user->isAdmin() ): ?>
         <dt>Adresse (parents) :</dt>
         <dd>
           <span class="datas"><?php if( $membre->getAdresseParents() . $membre->getVilleParents() ): ?>
@@ -125,6 +126,7 @@ function getClass($filiere)
             <span class="datas"><?php echo $membre->getVilleParents(); ?></span>
             <?php endif; ?></span>
         </dd>
+        <?php endif; ?>
         
         <dt>Téléphone :</dt>
         <dd>
@@ -135,8 +137,10 @@ function getClass($filiere)
         
         <dt>Email :</dt>
         <dd>
-          <span class="list"><span class="datas"><?php echo $membre->getEmailExterne(); ?></span>
-          <span class="list"><span class="datas"><?php echo $membre->getEmailInterne(); ?></span>@iariss.fr
+          <?php if( $user->isAdmin() ): ?>
+          <span class="list isAdmin"><span class="datas"><?php echo $membre->getEmailExterne(); ?></span>
+          <?php endif; ?>
+          <span class="list"><span class="datas"><?php echo $membre->getEmailInterne(); ?></span>
         </dd>
         
         <dt>Promotion :</dt>
