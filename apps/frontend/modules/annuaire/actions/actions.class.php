@@ -31,7 +31,8 @@ class annuaireActions extends sfActions
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     $this->membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->membre);
-    $this->forward404Unless($this->user->isAdmin() || ($this->user == $this->membre));
+    // Fiche privée ou semi privée ?
+    //$this->forward404Unless($this->user->isAdmin() || ($this->user == $this->membre));
     $this->mesProjets = Doctrine_Core::getTable('Projet')
       ->createQuery('a')
       ->select('a.id, a.nom, a.numero, a.date_debut, a.date_cloture, l.id, m.id, l.jeh as jeh, l.role as role')
