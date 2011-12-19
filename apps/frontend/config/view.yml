@@ -12,9 +12,9 @@ default:
     language:     fr
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [main, tablesorter]
 
-  javascripts:    []
+  javascripts:    [jquery-1.7.min.js, jquery.tablesorter.min.js, scripts.js]
 
   has_layout:     true
   layout:         layout
