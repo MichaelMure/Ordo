@@ -24,6 +24,7 @@
           <li>Annuaire
             <ul>
               <li><?php echo link_to('Liste des membres', '@annuaire?action=index') ?></li>
+              <li><?php echo link_to('Trombinoscope', '@annuaire?action=trombi') ?></li>
               <?php if(isset($user) && !$user->isAncien()): ?>
               <li><?php echo link_to('Liste des documents', '@annuaire?action=document') ?></li>
               <?php endif ?>
