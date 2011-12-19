@@ -20,6 +20,7 @@ Membre:
     promo:               { type: integer, notnull: true }
     filiere:             { type: enum, values: [Informatique, Automatique, Mécanique, Textile, Système de prod], notnull: true }
     poste:               { type: string(50) }
+    photo:               { type: string(50) }
 
     # adresses
     adresse_mulhouse:    { type: string(4000), notnull: true }
@@ -111,11 +112,13 @@ Projet:
   columns:
     numero:             { type: integer, notnull: true}
     nom:                { type: string(50), notnull: true }
-    date_debut:         { type: date, notnull: true }
+    date_debut:         { type: date }
     date_cloture:       { type: date }
     commentaire:        { type: text }
     budget:             { type: real }
     delai_realisation:  { type: integer }
+    avancement:         { type: real }
+    qualite:            { type: real }
 
     prospect_id:        { type: integer, notnull: true }
 
@@ -143,14 +146,30 @@ ProjetEvent:
     url:                { type: string(255) }
     type_id:            { type: integer, notnull: true }
     membre_id:          { type: integer, notnull: true }
+    membreread_id:      { type: integer }
     projet_id:          { type: integer, notnull: true }
   relations:
     ProjetEventType:    { local: type_id, foreign: id, type: one }
+    ProjetEventCom:     { local: id, foreign: projet_event_id, type: many }
     Membre:             { local: membre_id, foreign: id, type: one }
+    Membreread:         { local: membreread_id, foreign: id, class: Membre, type: one }
     Projet:             { local: projet_id, foreign: id, type: one }
+
+ProjetEventCom:
+  actAs: { Timestampable: ~ }
+  columns:
+    date:               { type: date }
+    commentaire:        { type: string(4000) }
+    statut:             { type: enum, values: [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1] }
+    membre_id:          { type: integer, notnull: true }
+    projet_event_id:    { type: integer, notnull: true }
+  relations:
+    ProjetEvent:        { local: projet_event_id, foreign: id, type: one }
+    Membre:             { local: membre_id, foreign: id, type: one }
 
 ProjetEventType:
   columns:
     abreviation:        { type: string(10) }
     description:        { type: string(50) }
-
+    ordre:              { type: integer }
+    obligatoire:        { type: integer }
