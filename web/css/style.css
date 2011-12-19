@@ -1,0 +1,46 @@
+/*************************
+ *         RESET         *
+ *************************/
+body { font-size: Calibri, Verdana, Arial; font-size: 14px; }
+
+table, table tr, table td, table th { padding: 0; margin: 0; background: none; border-color: black; border: none; }
+
+
+/*************************
+ *      GENERAL CSS      *
+ *************************/
+span.datas:empty { background-color: rgba(150, 150, 150, .1); display: inline-block; margin: 1px 2px; width: 100px; height: 1em; padding: 0 2px; }
+
+.isAdmin, .isAdmin * { color: Orange; font-weight: bold; }
+.clear { clear: both; height: 0; }
+
+/* align-center  */  .a-c { text-align: center; }
+/* align-justify */  .a-j { text-align: justify; }
+
+a        { text-decoration: none; }
+a.filter { text-decoration: underline; }
+a.active { font-weight: bold; }
+
+
+/*************************
+ *          CSS          *
+ *************************/
+#contenu {}
+
+#contenu article > header { position: relative; }
+#contenu article > header h1 { border-bottom: 2px solid #0d0d0d; }
+#contenu article > header aside { position: absolute; top: 0; right: 0; bottom: 0; }
+#contenu article > header aside ul { margin: 0; padding: 0; }
+#contenu article > header aside li { margin: 0; padding: 0; list-style-type: none; display: inline-block; font-size: .6em; }
+#contenu article > header aside li a { margin: 3px; display: block; }
+
+
+table { width: 100%; }
+table thead { border-bottom: 2px solid Black; }
+table tbody td, table tbody th { padding: 5px 3px; }
+table tbody tr { border-bottom: 1px solid rgba(0, 0, 0, .1); }b
+table tbody tr:nth-child(even) { background-color: rgba(255, 255, 255, .1); }
+
+form table th { text-align: right; vertical-align: top; width: 40%; }
+form table label:after { content: " : "; }
+form table td { text-align: left; }
