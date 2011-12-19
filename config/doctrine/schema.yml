@@ -1,156 +1,834 @@
-# config/doctrine/schema.yml
-
-## Module Annuaire ##
-Membre:
-  actAs: { Timestampable: ~ }
-  columns:
-    username:            { type: string(50), unique: true }
-    passwd:              { type: string(50), notnull:true }
-
-    # info Sec
-    numero_etudiant:     { type: integer }
-    prenom:              { type: string(255), notnull: true }
-    nom:                 { type: string(255), notnull: true }
-    sexe:                { type: enum, values: [Homme, Femme], notnull: true }
-    date_naissance:      { type: date, notnull: true }
-    ville_naissance:     { type: string(255), notnull: true }
-    numero_secu:         { type: string(21) }
-
-    # Divers
-    promo:               { type: integer, notnull: true }
-    filiere:             { type: enum, values: [Informatique, Automatique, Mécanique, Textile, Système de prod], notnull: true }
-    poste:               { type: string(50) }
-
-    # adresses
-    adresse_mulhouse:    { type: string(4000), notnull: true }
-    cp_mulhouse:         { type: integer, notnull: true }
-    ville_mulhouse:      { type: string(255), notnull: true }
-    adresse_parents:     { type: string(4000) }
-    cp_parents:          { type: integer }
-    ville_parents:       { type: string(255) }
-
-    # communication
-    tel_mobile:          { type: string(255), notnull: true }
-    tel_fixe:            { type: string(255) }
-    email_interne:       { type: string(255) }
-    email_externe:       { type: string(255) }
-
-    # Statut Sec
-    carte_ID:            { type: boolean, default: false, notnull: true }
-    just_domicile:       { type: boolean, default: false, notnull: true }
-    reglement_interieur: { type: boolean, default: false, notnull: true }
-    convention_etudiant: { type: boolean, default: false, notnull: true }
-
-    status:              { type: enum, notnull: true, default: Membre, values: [Administrateur, Membre, Ancien] }
-
-  relations:
-    Projets:             { class: Projet, refClass: LienMembreProjet, local: membre_id, foreign: projet_id }
-    LiensMembreProjet:   { class: LienMembreProjet, local: id, foreign: membre_id, type: many }
-    Cotisations:         { class: Cotisation, local: id, foreign: membre_id, type: many }
-    Quittances:          { class: Quittance, local: id, foreign: membre_id, type: many }
-
-Cotisation:
-  actAs: { Timestampable: ~ }
-  columns:
-    membre_id:           { type: integer, notnull: true }
-    annee:               { type: integer, notnull: true }
-  relations:
-    Membre:              { local: membre_id, foreign: id, type: one }
-
-Quittance:
-  actAs: { Timestampable: ~ }
-  columns:
-    membre_id:           { type: integer, notnull: true }
-    annee:               { type: integer, notnull: true }
-  relations:
-    Membre:              { local: membre_id, foreign: id, type: one }
-
-## Module Prospection ##
-Prospect:
-  actAs: { Timestampable: ~ }
-  columns:
-    nom:                { type: string(255), notnull: true }
-    contact:            { type: string(255) }
-    fonction:           { type: string(255) }
-    adresse:            { type: string(255) }
-    ville:              { type: string(255) }  # Pour les stats
-    cp:                 { type: string(255) }  # Pour les stats
-    tel_fixe:           { type: string(255) }  # et si plusieurs ? Mobile/fixe au moins
-    tel_portable:       { type: string(255) }
-    email:              { type: string(255) }
-    site_web:           { type: string(255) }
-    origine:            { type: string(255) }
-    a_rappeler:         { type: boolean, default: true }
-    date_recontact:     { type: date }
-    commentaire:        { type: string(4000) } # "Il faut parler fort, il est sourd", etc.
-    activite:           { type: string(4000) }
-  relations:
-    Contacts:           { class: Contact, local: id, foreign: prospect_id, type: many }
-
 Contact:
-  actAs: { Timestampable: ~ }
+  connection: doctrine
+  tableName: contact
   columns:
-    date:               { type: date, notnull: true }
-    commentaire:        { type: string(4000) }
-    prospect_id:        { type: integer, notnull: true }
-    membre_id:          { type: integer, notnull: true }
-    type_contact_id:    { type: integer, notnull: true }
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    date:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    commentaire:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    prospect_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    membre_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    type_contact_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
   relations:
-    Prospect:           { local: prospect_id,   foreign: id, type: one }
-    Membre:             { local: membre_id,     foreign: id, type: one }
-    TypeContact:        { local: type_contact_id, foreign: id, type: one }
-
-TypeContact:
+    Membre:
+      local: membre_id
+      foreign: id
+      type: one
+    Prospect:
+      local: prospect_id
+      foreign: id
+      type: one
+    TypeContact:
+      local: type_contact_id
+      foreign: id
+      type: one
+Cotisation:
+  connection: doctrine
+  tableName: cotisation
   columns:
-    nom:   { type: string(255) }
-    logo:  { type: string(255) }
-
-## Module Projet ##
-Projet:
-  actAs: { Timestampable: ~ , SoftDelete: ~}
-  columns:
-    numero:             { type: integer, notnull: true}
-    nom:                { type: string(50), notnull: true }
-    date_debut:         { type: date, notnull: true }
-    date_cloture:       { type: date }
-    commentaire:        { type: text }
-    budget:             { type: real }
-    delai_realisation:  { type: integer }
-
-    prospect_id:        { type: integer, notnull: true }
-
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    membre_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    annee:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
   relations:
-    Prospect:           { local: prospect_id, foreign: id, type: one }
-    LienMembreProjets:  { local: id, foreign: projet_id, type: many }
-    Participants:       { class: Membre, refClass: LienMembreProjet, local: projet_id, foreign: membre_id }
-
+    Membre:
+      local: membre_id
+      foreign: id
+      type: one
 LienMembreProjet:
+  connection: doctrine
+  tableName: lien_membre_projet
   columns:
-    role:               { type: enum, values: [Chef de projet, Intervenant, Commercial, Contact, Redacteur], notnull: true }
-    JEH:                { type: integer, notnull: true }
-    commentaire:        { type: string(100) }
-    projet_id:          { type: integer, notnull: true }
-    membre_id:          { type: integer, notnull: true }
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    role:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    jeh:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    commentaire:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    projet_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    membre_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
   relations:
-    Membre:             { local: membre_id, foreign: id, type: one }
-    Projet:             { local: projet_id, foreign: id, type: one }
-
+    Membre:
+      local: membre_id
+      foreign: id
+      type: one
+    Projet:
+      local: projet_id
+      foreign: id
+      type: one
+Membre:
+  connection: doctrine
+  tableName: membre
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    username:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    passwd:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    numero_etudiant:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    prenom:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nom:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    sexe:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    photo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    date_naissance:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    ville_naissance:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    numero_secu:
+      type: string(21)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    promo:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    filiere:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    poste:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    adresse_mulhouse:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    cp_mulhouse:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    ville_mulhouse:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    adresse_parents:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    cp_parents:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    ville_parents:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    tel_mobile:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    tel_fixe:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    email_interne:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    email_externe:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    carte_id:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    just_domicile:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    reglement_interieur:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    convention_etudiant:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: true
+      autoincrement: false
+    status:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: Membre
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Contact:
+      local: id
+      foreign: membre_id
+      type: many
+    Cotisation:
+      local: id
+      foreign: membre_id
+      type: many
+    LienMembreProjet:
+      local: id
+      foreign: membre_id
+      type: many
+    ProjetEvent:
+      local: id
+      foreign: membre_id
+      type: many
+    Quittance:
+      local: id
+      foreign: membre_id
+      type: many
+Projet:
+  connection: doctrine
+  tableName: projet
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    numero:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nom:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    date_debut:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    date_cloture:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    commentaire:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    budget:
+      type: float()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    delai_realisation:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    prospect_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    deleted_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Prospect:
+      local: prospect_id
+      foreign: id
+      type: one
+    LienMembreProjet:
+      local: id
+      foreign: projet_id
+      type: many
+    ProjetEvent:
+      local: id
+      foreign: projet_id
+      type: many
 ProjetEvent:
-  actAs: { Timestampable: ~ }
+  connection: doctrine
+  tableName: projet_event
   columns:
-    date:               { type: date }
-    commentaire:        { type: string(4000) }
-    url:                { type: string(255) }
-    type_id:            { type: integer, notnull: true }
-    membre_id:          { type: integer, notnull: true }
-    projet_id:          { type: integer, notnull: true }
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    date:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    commentaire:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    url:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    type_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    membre_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    projet_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
   relations:
-    ProjetEventType:    { local: type_id, foreign: id, type: one }
-    Membre:             { local: membre_id, foreign: id, type: one }
-    Projet:             { local: projet_id, foreign: id, type: one }
-
+    Membre:
+      local: membre_id
+      foreign: id
+      type: one
+    Projet:
+      local: projet_id
+      foreign: id
+      type: one
+    ProjetEventType:
+      local: type_id
+      foreign: id
+      type: one
 ProjetEventType:
+  connection: doctrine
+  tableName: projet_event_type
   columns:
-    abreviation:        { type: string(10) }
-    description:        { type: string(50) }
-
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    abreviation:
+      type: string(10)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    description:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    ProjetEvent:
+      local: id
+      foreign: type_id
+      type: many
+Prospect:
+  connection: doctrine
+  tableName: prospect
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    nom:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    contact:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    fonction:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    adresse:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    ville:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    cp:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    tel_fixe:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    tel_portable:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    email:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    site_web:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    origine:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    a_rappeler:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '1'
+      notnull: false
+      autoincrement: false
+    date_recontact:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    commentaire:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    activite:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Contact:
+      local: id
+      foreign: prospect_id
+      type: many
+    Projet:
+      local: id
+      foreign: prospect_id
+      type: many
+Quittance:
+  connection: doctrine
+  tableName: quittance
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    membre_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    annee:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Membre:
+      local: membre_id
+      foreign: id
+      type: one
+TypeContact:
+  connection: doctrine
+  tableName: type_contact
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    nom:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    logo:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Contact:
+      local: id
+      foreign: type_contact_id
+      type: many
