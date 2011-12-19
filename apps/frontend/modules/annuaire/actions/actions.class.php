@@ -19,8 +19,9 @@ class annuaireActions extends sfActions
       ->select('a.id, a.nom, a.prenom, a.username, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status');
     
     $filter = new FilterHelper($request);
-    $filter->add('ancien', function() use($membres) {  $membres->andWhere('a.status = ?', 'Ancien');  });
-    $filter->add('membre', function() use($membres) {  $membres->andWhere('a.status = ? OR a.status = ?', array('Membre', 'Administrateur'));  });
+    $filter->add('ancien',  function() use($membres) {  $membres->orWhere('a.status = ?', 'Ancien');  });
+    $filter->add('membre',  function() use($membres) {  $membres->orWhere('a.status = ? OR a.status = ?', array('Membre', 'Administrateur'));  });
+    $filter->add('default', function() use($membres) {  $membres->andWhere('a.status = ? OR a.status = ?', array('Membre', 'Administrateur')); });
     $filter->execute();
     
     $this->membres = $membres->orderBy('a.status, a.nom')->execute();
