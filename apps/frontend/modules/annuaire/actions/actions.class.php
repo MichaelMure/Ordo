@@ -162,7 +162,7 @@ class annuaireActions extends sfActions
     $id = $this->user->getId();
   
   $this->forward404Unless($this->user = Doctrine_Core::getTable('Membre')->find(array($id)));
-    $this->form = new ImageMembreForm($this->user, null, false);
+    $this->form = new PhotoMembreForm($this->user, null, false);
     //$this->form->getCSRFToken();
     
   }
@@ -179,7 +179,7 @@ class annuaireActions extends sfActions
   $this->membre = Doctrine_Core::getTable('Membre')->find(array($id));
   $this->forward404Unless($this->membre, sprintf('Object membre does not exist (%s).', $id));
   
-  $this->form = new ImageMembreForm($this->membre, null, false);
+  $this->form = new PhotoMembreForm($this->membre, null, false);
     $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
 
     if ($this->form->isValid())
