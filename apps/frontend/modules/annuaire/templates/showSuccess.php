@@ -23,6 +23,7 @@ function getClass($filiere)
     </h1>
     <aside>
       <ul>
+        <?php if( $editable ): ?>
         <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId(), array('class' => 'actionedit')) ?></li>
         <li><?php echo link_to('Changer mon mot de passe', '@annuaire?action=changeMDP') ?></li>
         <li><?php echo link_to('Modifier la photo', '@annuaire?action=changePhoto&id=' . $membre->getId()) ?></li>
@@ -45,6 +46,7 @@ function getClass($filiere)
     }
   }
 ?>
+        <?php endif; ?>
         <li><?php echo link_to('Retour à la liste', '@annuaire', array('class' => 'actionlist')) ?></li>
       </ul>
     </aside>

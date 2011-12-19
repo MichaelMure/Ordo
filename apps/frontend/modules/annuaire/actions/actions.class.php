@@ -42,6 +42,8 @@ class annuaireActions extends sfActions
       ->orderBy('a.numero DESC')
       ->execute();
     
+    $this->editable = $this->user->isAdmin() || ($this->user == $this->membre); // L'utilisateur peut-il modifier la fiche ?
+    
     if($this->user->isAdmin())
     {
       if($request->getParameter('valider'))
