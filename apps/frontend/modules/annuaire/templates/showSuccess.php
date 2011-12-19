@@ -66,7 +66,7 @@ function getClass($filiere)
   
     <div class="other">
       <dl>
-        <?php if( $user->isAdmin() ): ?>
+        <?php if( $editable ): ?>
         <dt class="isAdmin">Numéro étudiant</dt>
         <dd class="isAdmin"><span class="datas"><?php echo $membre->getNumeroEtudiant(); ?></span></dd>
         
@@ -119,7 +119,7 @@ function getClass($filiere)
             <?php endif; ?></span>
         </dd>
         
-        <?php if( $user->isAdmin() ): ?>
+        <?php if( $editable ): ?>
         <dt>Adresse (parents) :</dt>
         <dd>
           <span class="datas"><?php if( $membre->getAdresseParents() . $membre->getVilleParents() ): ?>
@@ -139,7 +139,7 @@ function getClass($filiere)
         
         <dt>Email :</dt>
         <dd>
-          <?php if( $user->isAdmin() ): ?>
+          <?php if( $editable ): ?>
           <span class="list isAdmin"><span class="datas"><?php echo $membre->getEmailExterne(); ?></span>
           <?php endif; ?>
           <span class="list"><span class="datas"><?php echo $membre->getEmailInterne(); ?></span>
