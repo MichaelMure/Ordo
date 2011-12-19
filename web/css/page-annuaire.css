@@ -1,0 +1,26 @@
+.page-annuaire-show figure { float: left; margin: 0; width: 200px; text-align: center; }
+.page-annuaire-show figure img { max-width: 100px; max-height: 150px; margin: 10px; }
+.page-annuaire-show figure figcaption > * { background-color: #eaeaea; display: block; padding: 5px; margin: 10px; }
+
+.page-annuaire-show .vcard { margin: 0 250px; margin-left: 220px; background-color: #f5f5f5; box-shadow: 0 0 5px #eaeaea; padding: 2em; }
+.page-annuaire-show .vcard h2 { font-size: 1.5em; margin-bottom: 1em; }
+
+.page-annuaire-show .other { float: right; width: 220px; right: 10px; }
+.page-annuaire-show .other dt { margin-top: 10px; }
+.page-annuaire-show .other dd { text-align: right; }
+
+.page-annuaire-show .vcard dt { display: inline-block; margin: .5%; padding: .5%; width: 20%; vertical-align: top; text-align: right; }
+.page-annuaire-show .vcard dd { display: inline-block; margin: .5%; padding: .5%; padding-left: 1%; width: 70%; min-height: 1em; border-left: 4px solid White; }
+.page-annuaire-show .vcard dd:hover { background-color: White; border-color: #eaeaea; }
+.page-annuaire-show .list { display: block; }
+
+.page-annuaire-trombi aside { text-align: center; }
+.page-annuaire-trombi aside li { list-style-type: none; display: inline-block; }
+
+.page-annuaire-trombi .liste { margin: 0; padding: 0; text-align: center; }
+.page-annuaire-trombi .liste li { margin: 0; padding: 0; list-style-type: none; display: inline-block; }
+.page-annuaire-trombi .liste figure { position: relative; margin: 10px; padding: 10px; width: 140px; height: 140px; background-color: rgba(255, 255, 255, .2); text-align: center; box-shadow: 0 0 10px -3px White; -moz-border-radius: 10px; }
+.page-annuaire-trombi .liste figure img { display: block; margin: auto; max-height: 110px; max-width: 80px; background-color: rgba(0, 0, 0, .05); }
+.page-annuaire-trombi .liste figure img.empty { height: 100px; }
+.page-annuaire-trombi .liste figcaption { position: absolute; bottom: 2px; left: 0; right: 0; font-size: .75em; }
+.page-annuaire-trombi .liste .fonction { display: block; height: 1.5em; font-size: .75em; }
