@@ -17,6 +17,7 @@
  * @property integer $promo
  * @property enum $filiere
  * @property string $poste
+ * @property string $photo
  * @property string $adresse_mulhouse
  * @property integer $cp_mulhouse
  * @property string $ville_mulhouse
@@ -38,6 +39,7 @@
  * @property Doctrine_Collection $Quittances
  * @property Doctrine_Collection $Contact
  * @property Doctrine_Collection $ProjetEvent
+ * @property Doctrine_Collection $ProjetEventCom
  * 
  * @method string              getUsername()            Returns the current record's "username" value
  * @method string              getPasswd()              Returns the current record's "passwd" value
@@ -51,6 +53,7 @@
  * @method integer             getPromo()               Returns the current record's "promo" value
  * @method enum                getFiliere()             Returns the current record's "filiere" value
  * @method string              getPoste()               Returns the current record's "poste" value
+ * @method string              getPhoto()               Returns the current record's "photo" value
  * @method string              getAdresseMulhouse()     Returns the current record's "adresse_mulhouse" value
  * @method integer             getCpMulhouse()          Returns the current record's "cp_mulhouse" value
  * @method string              getVilleMulhouse()       Returns the current record's "ville_mulhouse" value
@@ -72,6 +75,7 @@
  * @method Doctrine_Collection getQuittances()          Returns the current record's "Quittances" collection
  * @method Doctrine_Collection getContact()             Returns the current record's "Contact" collection
  * @method Doctrine_Collection getProjetEvent()         Returns the current record's "ProjetEvent" collection
+ * @method Doctrine_Collection getProjetEventCom()      Returns the current record's "ProjetEventCom" collection
  * @method Membre              setUsername()            Sets the current record's "username" value
  * @method Membre              setPasswd()              Sets the current record's "passwd" value
  * @method Membre              setNumeroEtudiant()      Sets the current record's "numero_etudiant" value
@@ -84,6 +88,7 @@
  * @method Membre              setPromo()               Sets the current record's "promo" value
  * @method Membre              setFiliere()             Sets the current record's "filiere" value
  * @method Membre              setPoste()               Sets the current record's "poste" value
+ * @method Membre              setPhoto()               Sets the current record's "photo" value
  * @method Membre              setAdresseMulhouse()     Sets the current record's "adresse_mulhouse" value
  * @method Membre              setCpMulhouse()          Sets the current record's "cp_mulhouse" value
  * @method Membre              setVilleMulhouse()       Sets the current record's "ville_mulhouse" value
@@ -105,6 +110,7 @@
  * @method Membre              setQuittances()          Sets the current record's "Quittances" collection
  * @method Membre              setContact()             Sets the current record's "Contact" collection
  * @method Membre              setProjetEvent()         Sets the current record's "ProjetEvent" collection
+ * @method Membre              setProjetEventCom()      Sets the current record's "ProjetEventCom" collection
  * 
  * @package    Annuaire
  * @subpackage model
@@ -178,6 +184,10 @@ abstract class BaseMembre extends sfDoctrineRecord
              'notnull' => true,
              ));
         $this->hasColumn('poste', 'string', 50, array(
+             'type' => 'string',
+             'length' => 50,
+             ));
+        $this->hasColumn('photo', 'string', 50, array(
              'type' => 'string',
              'length' => 50,
              ));
@@ -281,6 +291,10 @@ abstract class BaseMembre extends sfDoctrineRecord
              'foreign' => 'membre_id'));
 
         $this->hasMany('ProjetEvent', array(
+             'local' => 'id',
+             'foreign' => 'membre_id'));
+
+        $this->hasMany('ProjetEventCom', array(
              'local' => 'id',
              'foreign' => 'membre_id'));
 

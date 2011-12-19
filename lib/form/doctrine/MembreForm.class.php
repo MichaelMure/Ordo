@@ -15,7 +15,8 @@ class MembreForm extends BaseMembreForm
     unset(
       $this['created_at'],
       $this['updated_at'],
-      $this['projets_list']
+      $this['projets_list'],
+      $this['photo']
     );
 
     $this->setWidget('passwd', new sfWidgetFormInputPassword());
