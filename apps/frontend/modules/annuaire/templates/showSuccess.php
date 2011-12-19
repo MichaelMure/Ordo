@@ -16,7 +16,7 @@ function getClass($filiere)
   }
 }
 ?>
-<article class="page-annuaire page-annuaire-index">
+<article class="page-annuaire page-annuaire-show">
   <header>
     <h1>
       <?php echo $membre; ?>
