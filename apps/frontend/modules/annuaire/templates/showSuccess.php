@@ -120,7 +120,7 @@ function getClass($filiere)
         </dd>
         
         <?php if( $editable ): ?>
-        <dt>Adresse (parents) :</dt>
+        <dt class="isAdmin">Adresse (parents) :</dt>
         <dd>
           <span class="datas"><?php if( $membre->getAdresseParents() . $membre->getVilleParents() ): ?>
             <span class="datas"><?php echo nl2br($membre->getAdresseParents()) ?></span><br/>
