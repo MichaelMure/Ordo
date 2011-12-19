@@ -14,13 +14,16 @@ class annuaireActions extends sfActions
   {
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
 
-    $this->membres = Doctrine_Core::getTable('Membre')
+    $membres = Doctrine_Core::getTable('Membre')
       ->createQuery('a')
-      ->select('a.id, a.nom, a.prenom, a.username, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
-      /* Désactivation temporaire
-       * ->where('a.nom != ?', '') */
-      ->orderBy('a.status, a.nom')
-      ->execute();
+      ->select('a.id, a.nom, a.prenom, a.username, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status');
+    
+    $filter = new FilterHelper($request);
+    $filter->add('ancien', function() use($membres) {  $membres->orWhere('a.status = ?', 'Ancien');  });
+    $filter->add('membre', function() use($membres) {  $membres->orWhere('a.status = ? OR a.status = ?', array('Membre', 'Administrateur'));  });
+  $filter->execute();
+    
+    $this->membres = $membres->orderBy('a.status, a.nom')->execute();
   }
 
   public function executeShow(sfWebRequest $request)
@@ -29,7 +32,15 @@ class annuaireActions extends sfActions
     $this->membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->membre);
     $this->forward404Unless($this->user->isAdmin() || ($this->user == $this->membre));
-
+    $this->mesProjets = Doctrine_Core::getTable('Projet')
+      ->createQuery('a')
+      ->select('a.id, a.nom, a.numero, a.date_debut, a.date_cloture, l.id, m.id, l.jeh as jeh, l.role as role')
+      ->leftJoin('a.LienMembreProjet as l')
+      ->leftJoin('l.Membre as m')
+      ->where('l.membre_id = ?', $request->getParameter('id'))
+      ->orderBy('a.numero DESC')
+      ->execute();
+    
     if($this->user->isAdmin())
     {
       if($request->getParameter('valider'))
@@ -139,6 +150,46 @@ class annuaireActions extends sfActions
 
     $this->setTemplate('changeMDP');
   }
+  
+  
+  public function executeChangePhoto(sfWebRequest $request)
+  {
+  $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    
+    if( $this->user->isAdmin() )
+    $id = $request->getParameter('id');
+  else
+    $id = $this->user->getId();
+  
+  $this->forward404Unless($this->user = Doctrine_Core::getTable('Membre')->find(array($id)));
+    $this->form = new ImageMembreForm($this->user, null, false);
+    //$this->form->getCSRFToken();
+    
+  }
+  
+  public function executeUpdatePhoto(sfWebRequest $request)
+  {  
+  $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    
+  if( $this->user->isAdmin() )
+    $id = $request->getParameter('id');
+  else
+    $id = $this->user->getId();
+  
+  $this->membre = Doctrine_Core::getTable('Membre')->find(array($id));
+  $this->forward404Unless($this->membre, sprintf('Object membre does not exist (%s).', $id));
+  
+  $this->form = new ImageMembreForm($this->membre, null, false);
+    $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+
+    if ($this->form->isValid())
+    {
+      $membre = $this->form->save();
+      $this->redirect('@annuaire?action=show&id='.$membre->getId());
+    }
+        
+    $this->setTemplate('changePhoto');
+  }
 
   public function executeStatus(sfWebRequest $request)
   {
@@ -154,8 +205,10 @@ class annuaireActions extends sfActions
 
   public function executeUpdate(sfWebRequest $request)
   {
+  $this->id = $request->getParameter('id');
+    
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($this->membre = Doctrine_Core::getTable('Membre')->find(array($request->getParameter('id'))), sprintf('Object membre does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($this->membre = Doctrine_Core::getTable('Membre')->find(array($this->id)), sprintf('Object membre does not exist (%s).', $this->id));
     $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
 
     if($this->user->isAdmin())
@@ -203,6 +256,44 @@ class annuaireActions extends sfActions
       ->select('*, COUNT(*) AS nombre_cotisations')
       ->orderBy('c.annee')
       ->execute();
+  }
+
+  public function executeTrombi(sfWebRequest $request)
+  {
+    $membres = Doctrine_Core::getTable('Membre')
+      ->createQuery('a')
+      ->select('a.id, a.nom, a.prenom, a.username, a.poste, a.tel_mobile, a.email_interne, a.promo, a.filiere, a.status')
+      ->Where('a.status = ? OR a.status = ?', array('Membre', 'Administrateur'));
+    
+    if( $request->getParameter('pole') )
+    $membres->andWhere('a.poste LIKE ?', array('%' . $request->getParameter('pole') . '%'));
+    
+    if( $request->getParameter('promo') )
+    $membres->andWhere('a.promo = ?', $request->getParameter('promo'));
+    
+    $this->membres = $membres->orderBy('SUBSTRING(a.email_interne, 2), a.nom')->execute();
+  
+    $oPoles = Doctrine_Core::getTable('Membre')
+    ->createQuery('a')
+    ->select('DISTINCT a.poste, a.promo')
+    ->execute();
+  
+    // Gestion des "groupes"
+    $aReturnPromos = array();
+    $aReturnPoles  = array();
+    foreach( $oPoles as $aPole )
+    {
+    if( !empty($aPole->poste) )
+    {
+      $sPole = ucfirst(str_replace('*', '', strpos($aPole->poste, ' ') !== False ? substr(strrchr($aPole->poste, ' '), 1) : $aPole->poste));
+      $aReturnPoles[$sPole] = strtolower($sPole);
+    }
+    
+    if( !empty($aPole->promo) )
+      $aReturnPromos[$aPole->promo] = $aPole->promo;
+    }
+    $this->poles  = $aReturnPoles;
+    $this->promos = $aReturnPromos;
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
