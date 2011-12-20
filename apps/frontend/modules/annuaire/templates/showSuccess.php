@@ -140,9 +140,9 @@ function getClass($filiere)
         <dt>Email :</dt>
         <dd>
           <?php if( $editable ): ?>
-          <span class="list isAdmin"><span class="datas"><?php echo $membre->getEmailExterne(); ?></span>
+          <span class="list isAdmin"><span class="datas"><?php echo $membre->getEmailExterne(); ?></span></span>
           <?php endif; ?>
-          <span class="list"><span class="datas"><?php echo $membre->getEmailInterne(); ?></span>
+          <span class="list"><span class="datas"><?php echo $membre->getEmailInterne(); ?></span></span>
         </dd>
         
         <dt>Promotion :</dt>
