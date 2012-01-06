@@ -27,10 +27,10 @@ function getClass($filiere)
         <li><?php echo link_to('Editer la fiche', '@annuaire?action=edit&id='.$membre->getId(), array('class' => 'actionedit')) ?></li>
         <li><?php echo link_to('Changer mon mot de passe', '@annuaire?action=changeMDP') ?></li>
         <li><?php echo link_to('Modifier la photo', '@annuaire?action=changePhoto&id=' . $membre->getId()) ?></li>
-<?php 
+<?php
   if($user->isAdmin())
   {
-    switch($membre->getStatus()) 
+    switch($membre->getStatus())
     {
       case 'Administrateur':
         echo '<li>'.link_to('Désactiver les droits admin', '@annuaire?action=status&id='.$membre->getId().'&status=Membre').'</li>';
@@ -53,7 +53,7 @@ function getClass($filiere)
   </header>
 
   <div id='annuaire.show.tableauID'>
-    
+
     <figure>
       <?php echo $membre->getPhoto() ? image_tag('/uploads/annuaire/' . $membre->getPhoto()) : image_tag('avatar-empty'); ?>
       <figcaption>
@@ -62,24 +62,24 @@ function getClass($filiere)
         <span class="poste"><span class="datas"><?php echo $membre->getPoste(); ?></span></span>
       </figcaption>
     </figure>
-    
-  
+
+
     <div class="other">
       <dl>
         <?php if( $editable ): ?>
         <dt class="isAdmin">Numéro étudiant</dt>
         <dd class="isAdmin"><span class="datas"><?php echo $membre->getNumeroEtudiant(); ?></span></dd>
-        
+
         <dt class="isAdmin">Numéro de sécu</dt>
         <dd class="isAdmin"><span class="datas"><?php echo $membre->getNumeroSecu(); ?></span></dd>
         <?php endif; ?>
-        
+
         <dt>Fiche crée le</dt>
         <dd><span class="datas"><?php echo format_date($membre->getCreatedAt()) ?></span></dd>
-        
+
         <dt>Dernière mise à jour</dt>
         <dd><span class="datas"><?php echo format_date($membre->getUpdatedAt()) ?></span></dd>
-        
+
         <dt>Cotisations</dt>
         <dd>
         <span class="datas"><?php
@@ -88,7 +88,7 @@ function getClass($filiere)
         $cotisation_annee[] = $cotisation->__toString();
         echo implode('</span>, <span class="datas">', $cotisation_annee) ?></span>
         </dd>
-        
+
         <dt>Quittances</dt>
         <dd>
         <span class="datas"><?php
@@ -99,7 +99,7 @@ function getClass($filiere)
         </dd>
       </dl>
     </div>
-    
+
     <div class="vcard">
       <h2><span class="datas"><?php echo $membre->getNom(); ?></span> <span class="datas"><?php echo $membre->getPrenom(); ?></span> (<span class="datas"><?php echo $membre->getUsername(); ?></span>)</h2>
       <dl>
@@ -109,7 +109,7 @@ function getClass($filiere)
           - né le <span class="datas"><?php echo format_date($membre->getDateNaissance()); ?></span>
           - à <span class="datas"><?php echo $membre->getVilleNaissance(); ?></span>
         </dd>
-        
+
         <dt>Adresse :</dt>
         <dd>
           <span class="datas"><?php if( $membre->getAdresseMulhouse() ): ?>
@@ -118,7 +118,7 @@ function getClass($filiere)
             <span class="datas"><?php echo $membre->getVilleMulhouse(); ?></span>
             <?php endif; ?></span>
         </dd>
-        
+
         <?php if( $editable ): ?>
         <dt class="isAdmin">Adresse (parents) :</dt>
         <dd>
@@ -129,14 +129,14 @@ function getClass($filiere)
             <?php endif; ?></span>
         </dd>
         <?php endif; ?>
-        
+
         <dt>Téléphone :</dt>
         <dd>
           <span class="list"><span class="datas"><?php echo $membre->getTelMobile(); ?></span>
           <span class="list"><span class="datas"><?php echo $membre->getTelFixe(); ?></span>
         </dd>
         </dd>
-        
+
         <dt>Email :</dt>
         <dd>
           <?php if( $editable ): ?>
@@ -144,16 +144,16 @@ function getClass($filiere)
           <?php endif; ?>
           <span class="list"><span class="datas"><?php echo $membre->getEmailInterne(); ?></span></span>
         </dd>
-        
+
         <dt>Promotion :</dt>
         <dd><span class="datas"><?php echo $membre->getPromo(); ?></span></dd>
       </dl>
       <br class="clear" />
     </div>
-    
+
     <br class="clear" />
     <hr />
-    
+
   <?php
   $carteID = $membre->getCarteID();
   $justif= $membre->getJustDomicile();

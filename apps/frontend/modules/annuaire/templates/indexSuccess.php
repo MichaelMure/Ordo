@@ -1,4 +1,4 @@
-<?php 
+<?php
 use_helper('Filter', 'Url');
 
 function getClass($filiere)
