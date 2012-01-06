@@ -10,29 +10,38 @@
  * @property string $url
  * @property integer $type_id
  * @property integer $membre_id
+ * @property integer $membreread_id
  * @property integer $projet_id
  * @property ProjetEventType $ProjetEventType
+ * @property Doctrine_Collection $ProjetEventCom
  * @property Membre $Membre
+ * @property Membre $Membreread
  * @property Projet $Projet
  * 
- * @method date            getDate()            Returns the current record's "date" value
- * @method string          getCommentaire()     Returns the current record's "commentaire" value
- * @method string          getUrl()             Returns the current record's "url" value
- * @method integer         getTypeId()          Returns the current record's "type_id" value
- * @method integer         getMembreId()        Returns the current record's "membre_id" value
- * @method integer         getProjetId()        Returns the current record's "projet_id" value
- * @method ProjetEventType getProjetEventType() Returns the current record's "ProjetEventType" value
- * @method Membre          getMembre()          Returns the current record's "Membre" value
- * @method Projet          getProjet()          Returns the current record's "Projet" value
- * @method ProjetEvent     setDate()            Sets the current record's "date" value
- * @method ProjetEvent     setCommentaire()     Sets the current record's "commentaire" value
- * @method ProjetEvent     setUrl()             Sets the current record's "url" value
- * @method ProjetEvent     setTypeId()          Sets the current record's "type_id" value
- * @method ProjetEvent     setMembreId()        Sets the current record's "membre_id" value
- * @method ProjetEvent     setProjetId()        Sets the current record's "projet_id" value
- * @method ProjetEvent     setProjetEventType() Sets the current record's "ProjetEventType" value
- * @method ProjetEvent     setMembre()          Sets the current record's "Membre" value
- * @method ProjetEvent     setProjet()          Sets the current record's "Projet" value
+ * @method date                getDate()            Returns the current record's "date" value
+ * @method string              getCommentaire()     Returns the current record's "commentaire" value
+ * @method string              getUrl()             Returns the current record's "url" value
+ * @method integer             getTypeId()          Returns the current record's "type_id" value
+ * @method integer             getMembreId()        Returns the current record's "membre_id" value
+ * @method integer             getMembrereadId()    Returns the current record's "membreread_id" value
+ * @method integer             getProjetId()        Returns the current record's "projet_id" value
+ * @method ProjetEventType     getProjetEventType() Returns the current record's "ProjetEventType" value
+ * @method Doctrine_Collection getProjetEventCom()  Returns the current record's "ProjetEventCom" collection
+ * @method Membre              getMembre()          Returns the current record's "Membre" value
+ * @method Membre              getMembreread()      Returns the current record's "Membreread" value
+ * @method Projet              getProjet()          Returns the current record's "Projet" value
+ * @method ProjetEvent         setDate()            Sets the current record's "date" value
+ * @method ProjetEvent         setCommentaire()     Sets the current record's "commentaire" value
+ * @method ProjetEvent         setUrl()             Sets the current record's "url" value
+ * @method ProjetEvent         setTypeId()          Sets the current record's "type_id" value
+ * @method ProjetEvent         setMembreId()        Sets the current record's "membre_id" value
+ * @method ProjetEvent         setMembrereadId()    Sets the current record's "membreread_id" value
+ * @method ProjetEvent         setProjetId()        Sets the current record's "projet_id" value
+ * @method ProjetEvent         setProjetEventType() Sets the current record's "ProjetEventType" value
+ * @method ProjetEvent         setProjetEventCom()  Sets the current record's "ProjetEventCom" collection
+ * @method ProjetEvent         setMembre()          Sets the current record's "Membre" value
+ * @method ProjetEvent         setMembreread()      Sets the current record's "Membreread" value
+ * @method ProjetEvent         setProjet()          Sets the current record's "Projet" value
  * 
  * @package    Annuaire
  * @subpackage model
@@ -63,6 +72,9 @@ abstract class BaseProjetEvent extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
+        $this->hasColumn('membreread_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
         $this->hasColumn('projet_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
@@ -76,8 +88,16 @@ abstract class BaseProjetEvent extends sfDoctrineRecord
              'local' => 'type_id',
              'foreign' => 'id'));
 
+        $this->hasMany('ProjetEventCom', array(
+             'local' => 'id',
+             'foreign' => 'projet_event_id'));
+
         $this->hasOne('Membre', array(
              'local' => 'membre_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('Membre as Membreread', array(
+             'local' => 'membreread_id',
              'foreign' => 'id'));
 
         $this->hasOne('Projet', array(

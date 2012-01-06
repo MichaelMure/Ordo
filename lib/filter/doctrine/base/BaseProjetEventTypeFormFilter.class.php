@@ -15,11 +15,15 @@ abstract class BaseProjetEventTypeFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'abreviation' => new sfWidgetFormFilterInput(),
       'description' => new sfWidgetFormFilterInput(),
+      'ordre'       => new sfWidgetFormFilterInput(),
+      'obligatoire' => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
       'abreviation' => new sfValidatorPass(array('required' => false)),
       'description' => new sfValidatorPass(array('required' => false)),
+      'ordre'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'obligatoire' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('projet_event_type_filters[%s]');
@@ -42,6 +46,8 @@ abstract class BaseProjetEventTypeFormFilter extends BaseFormFilterDoctrine
       'id'          => 'Number',
       'abreviation' => 'Text',
       'description' => 'Text',
+      'ordre'       => 'Number',
+      'obligatoire' => 'Number',
     );
   }
 }

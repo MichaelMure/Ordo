@@ -7,14 +7,17 @@
  * 
  * @property string $abreviation
  * @property string $description
- * @property Doctrine_Collection $ProjetEvent
+ * @property integer $ordre
+ * @property integer $obligatoire
  * 
- * @method string              getAbreviation() Returns the current record's "abreviation" value
- * @method string              getDescription() Returns the current record's "description" value
- * @method Doctrine_Collection getProjetEvent() Returns the current record's "ProjetEvent" collection
- * @method ProjetEventType     setAbreviation() Sets the current record's "abreviation" value
- * @method ProjetEventType     setDescription() Sets the current record's "description" value
- * @method ProjetEventType     setProjetEvent() Sets the current record's "ProjetEvent" collection
+ * @method string          getAbreviation() Returns the current record's "abreviation" value
+ * @method string          getDescription() Returns the current record's "description" value
+ * @method integer         getOrdre()       Returns the current record's "ordre" value
+ * @method integer         getObligatoire() Returns the current record's "obligatoire" value
+ * @method ProjetEventType setAbreviation() Sets the current record's "abreviation" value
+ * @method ProjetEventType setDescription() Sets the current record's "description" value
+ * @method ProjetEventType setOrdre()       Sets the current record's "ordre" value
+ * @method ProjetEventType setObligatoire() Sets the current record's "obligatoire" value
  * 
  * @package    Annuaire
  * @subpackage model
@@ -34,13 +37,17 @@ abstract class BaseProjetEventType extends sfDoctrineRecord
              'type' => 'string',
              'length' => 50,
              ));
+        $this->hasColumn('ordre', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('obligatoire', 'integer', null, array(
+             'type' => 'integer',
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('ProjetEvent', array(
-             'local' => 'id',
-             'foreign' => 'type_id'));
+        
     }
 }
