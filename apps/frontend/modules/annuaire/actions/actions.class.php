@@ -158,14 +158,14 @@ class annuaireActions extends sfActions
   
   public function executeChangePhoto(sfWebRequest $request)
   {
-  $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
     
     if( $this->user->isAdmin() )
-    $id = $request->getParameter('id');
-  else
-    $id = $this->user->getId();
+      $id = $request->getParameter('id');
+    else
+      $id = $this->user->getId();
   
-  $this->forward404Unless($this->user = Doctrine_Core::getTable('Membre')->find(array($id)));
+    $this->forward404Unless($this->user = Doctrine_Core::getTable('Membre')->find(array($id)));
     $this->form = new PhotoMembreForm($this->user, null, false);
     //$this->form->getCSRFToken();
     
@@ -173,22 +173,32 @@ class annuaireActions extends sfActions
   
   public function executeUpdatePhoto(sfWebRequest $request)
   {  
-  $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+    $this->forward404Unless($this->user = Membre::getProfile($_SERVER['PHP_AUTH_USER']));
+      
+    if( $this->user->isAdmin() )
+      $id = $request->getParameter('id');
+    else
+      $id = $this->user->getId();
     
-  if( $this->user->isAdmin() )
-    $id = $request->getParameter('id');
-  else
-    $id = $this->user->getId();
-  
-  $this->membre = Doctrine_Core::getTable('Membre')->find(array($id));
-  $this->forward404Unless($this->membre, sprintf('Object membre does not exist (%s).', $id));
-  
-  $this->form = new PhotoMembreForm($this->membre, null, false);
+    $this->membre = Doctrine_Core::getTable('Membre')->find(array($id));
+    $this->forward404Unless($this->membre, sprintf('Object membre does not exist (%s).', $id));
+    
+    $this->form = new PhotoMembreForm($this->membre, null, false);
     $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
 
     if ($this->form->isValid())
     {
       $membre = $this->form->save();
+      
+      // On récupère l'image sauvegardée
+      $src = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'annuaire' . DIRECTORY_SEPARATOR . $membre->getPhoto();
+      $ext = mime_content_type($src);
+      
+      // Et on la modifie
+      $img = new sfImage($src, $ext);
+      $img->resize(200, 200);
+      $img->save();
+      
       $this->redirect('@annuaire?action=show&id='.$membre->getId());
     }
         
