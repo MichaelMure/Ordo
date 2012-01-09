@@ -7,7 +7,8 @@
       <?php echo $form ?>
       <tr>
     <th>Aperçu :</th>
-    <td><?php echo image_tag('/uploads/annuaire/' . $form->getObject()->getPhoto(), array('style' => 'border: 2px solid black;')); ?></td>
+    <td>
+     <?php echo $form->getObject()->getPhoto() ? image_tag('/uploads/annuaire/' . $form->getObject()->getPhoto(), array('style' => 'border: 2px solid black;')) : image_tag('avatar-empty', array('class' => 'empty')); ?></td>
       </tr>
     </tbody>
     <tfoot>

@@ -194,9 +194,26 @@ class annuaireActions extends sfActions
       $src = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'annuaire' . DIRECTORY_SEPARATOR . $membre->getPhoto();
       $ext = mime_content_type($src);
       
+      list($width, $height) = getimagesize($src);
+      
+      if( $width == $height )
+        $width = $height = 200;
+      else if( $width > $height && $width >= 200 )
+      {
+        $r = $height/$width;
+        $width  = 200;
+        $height = $r*200;
+      } 
+      else if( $width < $height && $height >= 200 )
+      {
+        $r = $width/$height;
+        $height  = 200;
+        $width   = $r*200;
+      }
+      
       // Et on la modifie
       $img = new sfImage($src, $ext);
-      $img->resize(200, 200);
+      $img->resize($width, $height);
       $img->save();
       
       $this->redirect('@annuaire?action=show&id='.$membre->getId());
