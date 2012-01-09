@@ -38,6 +38,7 @@
  * @property Doctrine_Collection $Cotisations
  * @property Doctrine_Collection $Quittances
  * @property Doctrine_Collection $Contact
+ * @property Doctrine_Collection $ProjetEvent
  * 
  * @method string              getUsername()            Returns the current record's "username" value
  * @method string              getPasswd()              Returns the current record's "passwd" value
@@ -72,6 +73,7 @@
  * @method Doctrine_Collection getCotisations()         Returns the current record's "Cotisations" collection
  * @method Doctrine_Collection getQuittances()          Returns the current record's "Quittances" collection
  * @method Doctrine_Collection getContact()             Returns the current record's "Contact" collection
+ * @method Doctrine_Collection getProjetEvent()         Returns the current record's "ProjetEvent" collection
  * @method Membre              setUsername()            Sets the current record's "username" value
  * @method Membre              setPasswd()              Sets the current record's "passwd" value
  * @method Membre              setNumeroEtudiant()      Sets the current record's "numero_etudiant" value
@@ -105,6 +107,7 @@
  * @method Membre              setCotisations()         Sets the current record's "Cotisations" collection
  * @method Membre              setQuittances()          Sets the current record's "Quittances" collection
  * @method Membre              setContact()             Sets the current record's "Contact" collection
+ * @method Membre              setProjetEvent()         Sets the current record's "ProjetEvent" collection
  * 
  * @package    Annuaire
  * @subpackage model
@@ -281,6 +284,10 @@ abstract class BaseMembre extends sfDoctrineRecord
              'foreign' => 'membre_id'));
 
         $this->hasMany('Contact', array(
+             'local' => 'id',
+             'foreign' => 'membre_id'));
+
+        $this->hasMany('ProjetEvent', array(
              'local' => 'id',
              'foreign' => 'membre_id'));
 

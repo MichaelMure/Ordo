@@ -138,6 +138,23 @@ LienMembreProjet:
     Membre:             { local: membre_id, foreign: id, type: one }
     Projet:             { local: projet_id, foreign: id, type: one }
 
+ProjetEvent:
+  actAs: { Timestampable: ~ }
+  columns:
+    date:               { type: date }
+    commentaire:        { type: string(4000) }
+    url:                { type: string(255) }
+    type_id:            { type: integer, notnull: true }
+    membre_id:          { type: integer, notnull: true }
+    membreread_id:      { type: integer }
+    projet_id:          { type: integer, notnull: true }
+  relations:
+    ProjetEventType:    { local: type_id, foreign: id, type: one }
+    ProjetEventCom:     { local: id, foreign: projet_event_id, type: many }
+    Membre:             { local: membre_id, foreign: id, type: one }
+    Membreread:         { local: membreread_id, foreign: id, class: Membre, type: one }
+    Projet:             { local: projet_id, foreign: id, type: one }
+
 ProjetEventType:
   columns:
     abreviation:        { type: string(10) }
