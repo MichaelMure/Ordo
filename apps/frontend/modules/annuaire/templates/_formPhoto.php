@@ -6,7 +6,7 @@
     <tbody>
       <?php echo $form ?>
       <tr>
-    <th>Aperçu :</th>
+    <th>Photo actuelle :</th>
     <td>
      <?php echo $form->getObject()->getPhoto() ? image_tag('/uploads/annuaire/' . $form->getObject()->getPhoto(), array('style' => 'border: 2px solid black;')) : image_tag('avatar-empty', array('class' => 'empty')); ?></td>
       </tr>
